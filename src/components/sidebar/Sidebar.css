@@ -61,21 +61,6 @@
   justify-content: center;
 }
 
-.mobile-top-sidebar {
-  position: fixed;
-  inline-size: 100%;
-  inset-block-start: 0;
-  inset-inline-start: 0;
-  block-size: 100vh;
-  display: grid;
-  grid-template-columns: 70% 1fr;
-  display: none;
-}
-
-.mt-sidebar__shown {
-  background-color: var(--surface3);
-}
-
 .s-top__items--logo {
   display: block;
   color: var(--brand);
@@ -110,10 +95,6 @@
 }
 
 @media (min-width: 1400px) {
-  .mobile-top-sidebar {
-    display: none;
-  }
-
   .sidebar {
     inline-size: 280px;
   }

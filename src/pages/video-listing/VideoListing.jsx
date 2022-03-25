@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar } from "../../components";
+import { Chips } from "../../components";
 
 const VideoListing = () => {
   return (

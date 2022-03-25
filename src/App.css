@@ -6,7 +6,6 @@
 
 .video-listing {
   grid-column: 1;
-  margin-inline-end: 1rem;
 }
 
 @media (min-width: 800px) {
@@ -26,5 +25,6 @@
 
   .video-listing {
     grid-column: 2;
+    margin-inline-end: 1rem;
   }
 }
