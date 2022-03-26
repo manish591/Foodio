@@ -5,6 +5,11 @@ const Chips = () => {
   return (
     <div className="chips-container chips">
       <ul className="chips__list flex">
+        <li className="chips__item chips__item--all">
+          <div className="chips__category">
+            <p>All</p>
+          </div>
+        </li>
         <li className="chips__item">
           <div className="chips__category">
             <p>Web Development</p>

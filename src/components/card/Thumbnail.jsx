@@ -1,5 +1,6 @@
 import React from "react";
 import "./Thumbnail.css";
+import { VideoActions } from "../video-action/VideoActions";
 
 const Thumbnail = () => {
   return (
@@ -20,7 +21,7 @@ const Thumbnail = () => {
         <div className="th-content__description">
           <h3 className="thumbnail__title">My Thumbnail Title</h3>
           <p className="thumbnail__author">Manish Devrani</p>
-          <span className="thumbnail__counts">12M views . 2 days ago</span>
+          <span className="thumbnail__counts">12M views - 2 days ago</span>
         </div>
         <div className="th-content__actions">
           <span class="material-icons-outlined">more_vert</span>

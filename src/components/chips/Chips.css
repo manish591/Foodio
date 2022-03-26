@@ -19,10 +19,15 @@
   border: 1px solid var(--surface3);
   border-radius: 20px;
   inline-size: max-content;
-  padding-inline: 0.5rem;
-  padding-block: 0.6rem;
+  padding-inline: 0.8rem;
+  padding-block: 0.4rem;
   display: inline-block;
   white-space: nowrap;
+}
+
+.chips__item--all {
+  background-color: var(--text2);
+  color: var(--light-clr);
 }
 
 .chip-right,
