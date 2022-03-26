@@ -1,0 +1,39 @@
+.thumbnail {
+  aspect-ratio: 16 / 9;
+}
+
+.thumbnail__image-container {
+  border-radius: 35px;
+}
+
+.thumbnail__img {
+  border-radius: 35px;
+}
+
+.thumbnail__content {
+  padding-inline: 0.3rem;
+  margin-block-start: 1rem;
+  align-items: center;
+}
+
+.th-content__profile {
+  align-self: flex-start;
+}
+
+.th-content__actions {
+  margin-inline-start: auto;
+}
+
+.th-content__description {
+  align-self: flex-start;
+}
+
+.thumbnail__title {
+  font-size: 1rem;
+}
+
+.thumbnail__author,
+.thumbnail__counts {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}

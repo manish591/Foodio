@@ -6,6 +6,7 @@
   block-size: 100vh;
   display: grid;
   grid-template-columns: 70% 1fr;
+  display: none;
 }
 
 .mt-sidebar__shown {

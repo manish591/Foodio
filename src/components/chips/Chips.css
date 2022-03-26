@@ -1,0 +1,41 @@
+.chips-container {
+  background-color: var(--surface2);
+  padding-block: 1rem;
+  border-block-end: 1px solid var(--surface3);
+  padding-inline: 2rem;
+  position: relative;
+}
+
+.chips__list {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.chips__list::-webkit-scrollbar {
+  display: none;
+}
+
+.chips__item {
+  border: 1px solid var(--surface3);
+  border-radius: 20px;
+  inline-size: max-content;
+  padding-inline: 0.5rem;
+  padding-block: 0.6rem;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.chip-right,
+.chip-left {
+  position: absolute;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+}
+
+.chip-right {
+  inset-inline-end: 0;
+}
+
+.chip-left {
+  inset-inline-start: 0;
+}

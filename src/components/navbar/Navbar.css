@@ -5,6 +5,8 @@
   position: sticky;
   inset-block-start: 0;
   border-block-end: 1px solid var(--surface3);
+  background-color: white;
+  z-index: 12;
 }
 
 .navbar__wrapper {
