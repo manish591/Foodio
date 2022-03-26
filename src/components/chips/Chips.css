@@ -33,9 +33,9 @@
 }
 
 .chip-right {
-  inset-inline-end: 0;
+  inset-inline-end: 5px;
 }
 
 .chip-left {
-  inset-inline-start: 0;
+  inset-inline-start: 5px;
 }

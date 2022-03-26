@@ -10,7 +10,7 @@
 
 @media (min-width: 800px) {
   .App {
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 100px minmax(0, 1fr);
   }
 
   .video-listing {
@@ -20,7 +20,7 @@
 
 @media (min-width: 1400px) {
   .App {
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 280px minmax(0, 1fr);
   }
 
   .video-listing {
