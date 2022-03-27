@@ -5,13 +5,15 @@ import { Thumbnail } from "../../components";
 import { Login } from "../login/Login";
 import { Signup } from "../signup/Signup";
 import { LikedVideos } from "../liked/Liked";
+import { History } from "../history/History";
 import "./VideoListing.css";
 
 const VideoListing = () => {
   return (
     <div className="video-listing">
       <Navbar />
-      <LikedVideos />
+      <History />
+      {/* <LikedVideos /> */}
       {/* <Login /> */}
       {/* <Signup /> */}
       {/* <Chips />
