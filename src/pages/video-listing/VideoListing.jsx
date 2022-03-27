@@ -14,17 +14,12 @@ const VideoListing = () => {
   return (
     <div className="video-listing">
       <Navbar />
-      <Playlist />
-      {/* <History /> */}
-      {/* <LikedVideos /> */}
-      {/* <Login /> */}
-      {/* <Signup /> */}
-      {/* <Chips />
+      <Chips />
       <div className="video-listing__container grid">
         {[...Array(10)].map((item) => {
           return <Thumbnail />;
         })}
-      </div> */}
+      </div>
     </div>
   );
 };
