@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./History.css";
+import "./History.css";
 import { Thumbnail } from "../../components";
 
 const History = () => {
