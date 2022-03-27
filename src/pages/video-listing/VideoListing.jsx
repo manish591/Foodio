@@ -4,14 +4,16 @@ import { Chips } from "../../components";
 import { Thumbnail } from "../../components";
 import { Login } from "../login/Login";
 import { Signup } from "../signup/Signup";
+import { LikedVideos } from "../liked/Liked";
 import "./VideoListing.css";
 
 const VideoListing = () => {
   return (
     <div className="video-listing">
       <Navbar />
+      <LikedVideos />
       {/* <Login /> */}
-      <Signup />
+      {/* <Signup /> */}
       {/* <Chips />
       <div className="video-listing__container grid">
         {[...Array(10)].map((item) => {
