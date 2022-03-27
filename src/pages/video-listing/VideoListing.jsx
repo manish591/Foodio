@@ -7,13 +7,14 @@ import { Signup } from "../signup/Signup";
 import { LikedVideos } from "../liked/Liked";
 import { History } from "../history/History";
 import { WatchLater } from "../watch-later/WatchLater";
+import { Playlist } from "../playlist/Playlist";
 import "./VideoListing.css";
 
 const VideoListing = () => {
   return (
     <div className="video-listing">
       <Navbar />
-      <WatchLater />
+      <Playlist />
       {/* <History /> */}
       {/* <LikedVideos /> */}
       {/* <Login /> */}
