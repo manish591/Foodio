@@ -1,0 +1,18 @@
+.watch-later {
+  margin-block-start: 1rem;
+  margin-inline: auto;
+}
+
+.watch-later__top {
+  inline-size: 95%;
+  margin-inline: auto;
+  gap: 0.5rem;
+}
+
+.watch-later__container {
+  margin-block-start: 1.5rem;
+  inline-size: 95%;
+  margin-inline: auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}

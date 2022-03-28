@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.navbar {
+  padding-block: 1rem;
+  position: sticky;
+  inset-block-start: 0;
+  border-block-end: 1px solid var(--surface3);
+  background-color: white;
+  z-index: 12;
+}
+
+.navbar__wrapper {
+  inline-size: 95%;
+  margin-inline: auto;
+}
+
+.navbar__search-group {
+  align-items: center;
+  padding-block: 0.8rem;
+  padding-inline: 0.4rem;
+  border: 1px solid black;
+  inline-size: 5rem;
+  border-radius: 10px;
+  display: none;
+}
+
+.navbar__input-field {
+  flex: 1;
+}
+
+.navbar__input {
+  background: none;
+  border: none;
+  outline: none;
+  inline-size: 100%;
+}
+
+.navbar__list--right {
+  margin-inline-start: auto;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navbar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__start-stream {
+  border: 1px solid black;
+  padding-block: 0.8rem;
+  padding-inline: 0.4rem;
+  border-radius: 10px;
+}
+
+.navbar__item--display {
+  display: none;
+}
+
+.navbar__list--logos {
+  align-items: center;
+}
+
+.navbar--hide {
+  display: block;
+}
+
+.navbar__menu--hide {
+  display: block;
+}
+
+.navbar__icon {
+  background: var(--surface3);
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.navbar-icon--search {
+  background: none;
+}
+
+.navbar__logo {
+  font-family: "Pacifico", cursive;
+  font-size: 1.8rem;
+  color: var(--brand);
+}
+
+.navbar__item--profile {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .navbar__item--profile {
+    display: block;
+  }
+}
+
+@media (min-width: 800px) {
+  .navbar__search-group {
+    display: flex;
+  }
+
+  .navbar__item--display {
+    display: block;
+  }
+
+  .navbar--hide {
+    display: none;
+  }
+
+  .navbar__menu--hide {
+    display: none;
+  }
+}
+
+@media (min-width: 1400px) {
+  .navbar__item--display {
+    display: block;
+  }
+
+  .navbar--hide {
+    display: block;
+  }
+
+  .navbar__menu--hide {
+    display: none;
+  }
+
+  .navbar__item--logo {
+    display: none;
+  }
+
+  .navbar__search-group {
+    padding-block: 0.5rem;
+    border: 1px solid var(--surface3);
+    inline-size: 30rem;
+  }
+}

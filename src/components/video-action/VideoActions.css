@@ -1,0 +1,31 @@
+.video-action {
+  padding-block: 1rem;
+  max-inline-size: 250px;
+  background-color: white;
+  z-index: 15;
+  position: absolute;
+  inset-block-end: 20%;
+  inset-inline-end: 40px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 20%);
+}
+
+.video-action__list + .video-action__list {
+  border-block-start: 1px solid var(--surface3);
+  margin-block-start: 0.5rem;
+}
+
+.video-action__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-action__item {
+  padding-block: 0.4rem;
+  padding-inline: 0.5rem;
+  cursor: pointer;
+}
+
+.video-action__item:hover {
+  background-color: var(--surface3);
+}
