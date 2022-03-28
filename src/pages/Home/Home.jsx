@@ -42,7 +42,10 @@ const Home = () => {
                   Join the exiciting and growing community.
                 </p>
                 <div className="home-hero__actions flex">
-                  <button className="btn btn--contained-primary">
+                  <button
+                    className="btn btn--contained-primary"
+                    style={{ backgroundColor: "var(--brand)" }}
+                  >
                     <Link to="/login">Get Started</Link>
                   </button>
                   <button className="btn btn--text home-hero__explore">

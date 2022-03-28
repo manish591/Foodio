@@ -16,12 +16,17 @@
 
 .navbar__search-group {
   align-items: center;
-  padding-block: 0.8rem;
+  padding-block: 1rem;
   padding-inline: 0.4rem;
   border: 1px solid black;
   inline-size: 5rem;
-  border-radius: 10px;
+  border-radius: 5px;
   display: none;
+  background-color: var(--surface3);
+}
+
+.navbar__search-group:focus-within {
+  outline: 1px solid var(--text2);
 }
 
 .navbar__input-field {
@@ -38,7 +43,7 @@
 .navbar__list--right {
   margin-inline-start: auto;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
 .navbar__icon {
@@ -72,8 +77,8 @@
 
 .navbar__icon {
   background: var(--surface3);
-  border-radius: 50%;
-  padding: 5px;
+  border-radius: 5px;
+  padding: 8px;
 }
 
 .navbar-icon--search {
@@ -88,6 +93,11 @@
 
 .navbar__item--profile {
   display: none;
+}
+
+.navbar__upload {
+  margin-inline-end: 1.5rem;
+  background-color: var(--brand);
 }
 
 @media (min-width: 600px) {
@@ -132,7 +142,7 @@
   }
 
   .navbar__search-group {
-    padding-block: 0.5rem;
+    padding-block: 0.6rem;
     border: 1px solid var(--surface3);
     inline-size: 30rem;
   }

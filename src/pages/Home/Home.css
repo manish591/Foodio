@@ -28,6 +28,7 @@
 .home-nav__get-started {
   margin-inline-start: 2rem;
   border-radius: 10px;
+  background-color: var(--brand);
 }
 
 .home-hero {

@@ -45,6 +45,23 @@
 
 .s-bottom__items {
   padding-block: 0.8rem;
+  transition: background-color 250ms ease-in-out;
+  position: relative;
+}
+
+.s-bottom__items:hover::before {
+  content: "";
+  position: absolute;
+  block-size: 40%;
+  inline-size: 4px;
+  background-color: var(--brand);
+  inset-inline-start: 0;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+}
+
+.s-bottom__items:hover {
+  background-color: var(--surface3);
 }
 
 .s-bottom__list--logout {

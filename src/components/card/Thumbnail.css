@@ -4,16 +4,16 @@
 }
 
 .thumbnail__image-container {
-  border-radius: 35px;
+  border-radius: 30px;
 }
 
 .thumbnail__img {
-  border-radius: 35px;
+  border-radius: 30px;
 }
 
 .thumbnail__content {
-  padding-inline: 0.3rem;
-  margin-block-start: 1rem;
+  padding-inline: 0.5rem;
+  padding-block: 0.8rem;
   align-items: center;
 }
 
@@ -23,6 +23,11 @@
 
 .th-content__actions {
   margin-inline-start: auto;
+  display: none;
+}
+
+.thumbnail:hover .th-content__actions {
+  display: block;
 }
 
 .th-content__description {
