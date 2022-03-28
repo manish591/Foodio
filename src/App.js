@@ -1,14 +1,34 @@
 import "./App.css";
 import { Main } from "./pages";
-import { Sidebar, MobileBottomSidebar, MobileTopSidebar } from "./components";
+import {
+  VideoListing,
+  Login,
+  Signup,
+  LikedVideos,
+  History,
+  WatchLater,
+  Playlist,
+  Home,
+} from "./pages";
+
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <div className="App">
-      <Sidebar />
-      <MobileBottomSidebar />
-      <MobileTopSidebar />
-      <Main />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/explore" element={<Main />}>
+          <Route index element={<VideoListing />} />
+          <Route path="liked" element={<LikedVideos />} />
+          <Route path="history" element={<History />} />
+          <Route path="playlist" element={<Playlist />} />
+          <Route path="watchlater" element={<WatchLater />} />
+          <Route path="playlist" element={<Playlist />} />
+        </Route>
+      </Routes>
     </div>
   );
 };

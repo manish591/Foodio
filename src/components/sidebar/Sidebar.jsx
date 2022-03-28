@@ -14,7 +14,7 @@ const Sidebar = () => {
             </li>
             <li className="s-top__items s-top__items--logo">
               <h2 className="s-top__logo">
-                <Link to="/">foodio</Link>
+                <Link to="/explore">foodio</Link>
               </h2>
             </li>
           </ul>
@@ -28,7 +28,7 @@ const Sidebar = () => {
                 <span className="material-icons-outlined size-30">home</span>
               </div>
               <div className="s-bottom-item-name">
-                <Link to="/">Home</Link>
+                <Link to="/explore">Home</Link>
               </div>
             </section>
           </li>
@@ -50,7 +50,7 @@ const Sidebar = () => {
                 <span className="material-icons-round size-30">live_tv</span>
               </div>
               <div className="s-bottom-item-name">
-                <Link to="/liked">Liked</Link>
+                <Link to="/explore/liked">Liked</Link>
               </div>
             </section>
           </li>
@@ -62,7 +62,7 @@ const Sidebar = () => {
                 </span>
               </div>
               <div className="s-bottom-item-name">
-                <Link to="/watchlater">Watch Later</Link>
+                <Link to="/explore/watchlater">Watch Later</Link>
               </div>
             </section>
           </li>
@@ -72,7 +72,7 @@ const Sidebar = () => {
                 <span className="material-icons-outlined size-30">explore</span>
               </div>
               <div className="s-bottom-item-name">
-                <Link to="/playlist">Playlist</Link>
+                <Link to="/explore/playlist">Playlist</Link>
               </div>
             </section>
           </li>
@@ -82,7 +82,7 @@ const Sidebar = () => {
                 <span className="material-icons-outlined size-30">today</span>
               </div>
               <div className="s-bottom-item-name">
-                <Link to="/history">History</Link>
+                <Link to="/explore/history">History</Link>
               </div>
             </section>
           </li>
