@@ -1,16 +1,14 @@
 import "./App.css";
-import { VideoListing } from "./pages";
-import { Sidebar } from "./components";
-import { MobileBottomSidebar } from "./components";
-import { MobileTopSidebar } from "./components";
+import { Main } from "./pages";
+import { Sidebar, MobileBottomSidebar, MobileTopSidebar } from "./components";
 
 const App = () => {
   return (
     <div className="App">
       <Sidebar />
-      <VideoListing />
       <MobileBottomSidebar />
       <MobileTopSidebar />
+      <Main />
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import React from "react";
 import "./Sidebar.css";
 
+import { Link } from "react-router-dom";
+
 const Sidebar = () => {
   return (
     <div className="sidebar">
@@ -11,7 +13,9 @@ const Sidebar = () => {
               <span className="material-icons-round size-30">notes</span>
             </li>
             <li className="s-top__items s-top__items--logo">
-              <h2 className="s-top__logo">foodio</h2>
+              <h2 className="s-top__logo">
+                <Link to="/">foodio</Link>
+              </h2>
             </li>
           </ul>
         </div>
@@ -24,7 +28,7 @@ const Sidebar = () => {
                 <span className="material-icons-outlined size-30">home</span>
               </div>
               <div className="s-bottom-item-name">
-                <p>Home</p>
+                <Link to="/">Home</Link>
               </div>
             </section>
           </li>
@@ -46,7 +50,7 @@ const Sidebar = () => {
                 <span className="material-icons-round size-30">live_tv</span>
               </div>
               <div className="s-bottom-item-name">
-                <p>Suggestions</p>
+                <Link to="/liked">Liked</Link>
               </div>
             </section>
           </li>
@@ -58,7 +62,7 @@ const Sidebar = () => {
                 </span>
               </div>
               <div className="s-bottom-item-name">
-                <p>Categories</p>
+                <Link to="/watchlater">Watch Later</Link>
               </div>
             </section>
           </li>
@@ -68,7 +72,7 @@ const Sidebar = () => {
                 <span className="material-icons-outlined size-30">explore</span>
               </div>
               <div className="s-bottom-item-name">
-                <p>Discover</p>
+                <Link to="/playlist">Playlist</Link>
               </div>
             </section>
           </li>
@@ -78,7 +82,7 @@ const Sidebar = () => {
                 <span className="material-icons-outlined size-30">today</span>
               </div>
               <div className="s-bottom-item-name">
-                <p>Schedule</p>
+                <Link to="/history">History</Link>
               </div>
             </section>
           </li>
