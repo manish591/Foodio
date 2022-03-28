@@ -1,0 +1,151 @@
+.hm-pg__header-wrapper,
+.home-main-pg__wrapper,
+.home__footer-wrapper {
+  inline-size: min(90%, 1400px);
+  margin-inline: auto;
+}
+
+.home-nav {
+  padding-block: 2rem;
+  align-items: center;
+}
+
+.home-nav__list:first-of-type {
+  margin-inline-end: auto;
+}
+
+.home-nav__title {
+  font-family: "Pacifico", cursive;
+  font-size: 2rem;
+}
+
+.home-nav__list--links {
+  gap: 2rem;
+  font-size: 1.15rem;
+  align-items: center;
+}
+
+.home-nav__get-started {
+  margin-inline-start: 2rem;
+  border-radius: 10px;
+}
+
+.home-hero {
+  margin-block-start: 3rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.home-hero__img-container > img {
+  object-fit: cover;
+}
+
+.home-hero__title {
+  font-size: calc(var(--fs-900-small) + 0.3rem);
+  line-height: 1.3;
+  margin-block: 1rem;
+}
+
+.home-hero__actions {
+  margin-block-start: 2rem;
+  gap: 2rem;
+}
+
+.home-hero__explore {
+  border: 1px solid var(--surface3);
+}
+
+.hm-pg__main {
+  margin-block-start: 8rem;
+  padding-block: 7rem;
+  background-color: var(--surface3);
+}
+
+.home-main-pg {
+  text-align: center;
+}
+
+.home-main-pg__title {
+  font-size: calc(var(--fs-900-small) + 0.3rem);
+  line-height: 1.3;
+  max-inline-size: 30ch;
+  margin-inline: auto;
+}
+
+.home-main-pg__description {
+  font-size: 1.2rem;
+  max-inline-size: 60ch;
+  margin-inline: auto;
+  margin-block-start: 1rem;
+}
+
+.home__footer {
+  margin-block-start: 5rem;
+}
+
+/* --------- */
+/* Footer */
+/* --------- */
+
+.footer__wrapper {
+  inline-size: min(90%, 1400px);
+  margin-inline: auto;
+  margin-top: auto;
+}
+
+.footer {
+  margin-block-start: 9rem;
+  background-color: var(--clr-secondary);
+  color: var(--light-clr);
+  padding-inline: 0;
+  padding-block: 1.5rem;
+  text-align: center;
+}
+
+.footer__brand {
+  font-family: "Pacifico", cursive;
+  font-size: var(--fs-700);
+  font-weight: bold;
+}
+
+.footer__list {
+  flex-direction: column;
+}
+
+.footer__list > .footer__items {
+  font-size: var(--fs-500);
+}
+
+.footer__items {
+  font-weight: lighter;
+}
+
+.footer__description {
+  max-inline-size: 35ch;
+  margin-inline: auto;
+}
+
+.footer__socials {
+  justify-content: center;
+}
+
+/* ----------- */
+/* Media Query */
+/* ----------- */
+
+@media (min-width: 500px) {
+  .footer {
+    text-align: left;
+  }
+
+  .footer__list {
+    flex-direction: row;
+  }
+
+  .footer__description {
+    margin-inline: unset;
+  }
+
+  .footer__socials {
+    justify-content: end;
+  }
+}
