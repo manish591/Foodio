@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Signup.css";
 
 import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks";
 
 const Signup = () => {
+  const [userSignupData, setUserSignupData] = useState({
+    firstname: "",
+    lastname: "dev",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const { signupUser } = useAuth();
+
+  const handleUserSignup = (e) => {
+    e.preventDefault();
+    if (userSignupData.password !== userSignupData.confirmPassword) return;
+    signupUser(userSignupData);
+  };
+
   return (
     <main className="signup">
       <div className="wrapper">
@@ -11,7 +28,7 @@ const Signup = () => {
           <h1 className="signup__title">Sign Up</h1>
           <p className="signup__greeting">To Continue, Sign Up</p>
         </div>
-        <form className="signup__form">
+        <form className="signup__form" onSubmit={handleUserSignup}>
           <section className="name-container">
             <label htmlFor="name">Name</label>
             <input
@@ -20,6 +37,13 @@ const Signup = () => {
               name="name"
               className="signup__name"
               autoComplete="name"
+              value={userSignupData.firstname}
+              onChange={(e) =>
+                setUserSignupData({
+                  ...userSignupData,
+                  firstname: e.target.value,
+                })
+              }
               required
             />
           </section>
@@ -31,6 +55,13 @@ const Signup = () => {
               name="email"
               className="signup__email"
               autoComplete="email"
+              value={userSignupData.email}
+              onChange={(e) =>
+                setUserSignupData({
+                  ...userSignupData,
+                  email: e.target.value,
+                })
+              }
               required
             />
           </section>
@@ -41,6 +72,13 @@ const Signup = () => {
               id="password"
               name="new-password"
               className="signup__password"
+              value={userSignupData.password}
+              onChange={(e) =>
+                setUserSignupData({
+                  ...userSignupData,
+                  password: e.target.value,
+                })
+              }
               required
             />
           </section>
@@ -51,6 +89,13 @@ const Signup = () => {
               id="confirm-password"
               name="new-password"
               className="signup__password"
+              value={userSignupData.confirmPassword}
+              onChange={(e) =>
+                setUserSignupData({
+                  ...userSignupData,
+                  confirmPassword: e.target.value,
+                })
+              }
               required
             />
           </section>
