@@ -9,6 +9,7 @@ import {
   WatchLater,
   Playlist,
   Home,
+  VideoPage,
 } from "./pages";
 
 import { ProtectedRoute } from "./components";
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/explore" element={<Main />}>
           <Route index element={<VideoListing />} />
+          <Route path="watch/:videoId" element={<VideoPage />} />
           <Route
             path="liked"
             element={

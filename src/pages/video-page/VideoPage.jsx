@@ -1,0 +1,108 @@
+import React from "react";
+import "./VideoPage.css";
+
+const VideoPage = () => {
+  return (
+    <div className="video-page">
+      <div className="video-page__main grid">
+        <div className="video-page__show-vodeo">
+          <img
+            src="https://i.ytimg.com/vi/inVClSNYBQ4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD1dg5JXDycuG06NEn9A-0Pnd40zQ"
+            alt=""
+          />
+        </div>
+        <div className="video-page__notes"></div>
+      </div>
+      <div className="video-page__additionals grid">
+        <section className="video-page__description vd-desc">
+          <div className="vd-desc__left grid">
+            <section className="vd-desc__profile flex">
+              <div className="avatar avatar--large avatar--initial">
+                <p>SK</p>
+              </div>
+              <div>
+                <h3>Manish Devrani</h3>
+                <p>255k Subscriber</p>
+              </div>
+            </section>
+            <section>
+              <h1 className="video-page__title">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto,
+                veritatis?
+              </h1>
+            </section>
+            <section>
+              <p className="video-page__content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                ipsa quidem atque quas laborum, optio qui soluta illum
+                reiciendis nostrum.
+              </p>
+            </section>
+          </div>
+          <div
+            className="vd-desc__right vp-actions"
+            style={{ marginInlineStart: "auto" }}
+          >
+            <section className="vp-actions__top flex">
+              <button className="vp-actions__icon" title="Liked">
+                <span className="material-icons-outlined">favorite_border</span>
+              </button>
+              <button className="vp-actions__icon" title="Share">
+                <span className="material-icons-outlined">share</span>
+              </button>
+              <button className="vp-actions__icon" title="Watch Later">
+                <span className="material-icons-outlined">watch_later</span>
+              </button>
+              <button className="vp-actions__icon" title="Add To Playlist">
+                <span className="material-icons-outlined">playlist_add</span>
+              </button>
+            </section>
+            <section className="vp-actions__bottom grid">
+              <div
+                className="flex"
+                style={{ alignItems: "center", opacity: "0.6" }}
+              >
+                <span class="material-icons-outlined">visibility</span>
+                <p>6856 Views</p>
+              </div>
+              <div
+                className="flex"
+                style={{ alignItems: "center", opacity: "0.6", opacity: "0.6" }}
+              >
+                <span class="material-icons-outlined">thumb_up</span>
+                <p>1016 Likes</p>
+              </div>
+              <div
+                className="flex"
+                style={{ alignItems: "center", opacity: "0.6" }}
+              >
+                <span class="material-icons-outlined">chat_bubble_outline</span>
+                <p>75 Comments</p>
+              </div>
+              <div
+                className="flex"
+                style={{ alignItems: "center", opacity: "0.6" }}
+              >
+                <span class="material-icons-outlined">event</span>
+                <p>Dec 20, 2022</p>
+              </div>
+            </section>
+          </div>
+        </section>
+        <section className="video-page__related-video related-vd">
+          <h3 className="related-vd__title">Related Videos</h3>
+          <div className="related-vd__container grid">
+            <section
+              style={{ blockSize: "150px", border: "1px solid red" }}
+            ></section>
+            <section
+              style={{ blockSize: "150px", border: "1px solid red" }}
+            ></section>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export { VideoPage };
