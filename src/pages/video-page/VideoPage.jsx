@@ -1,14 +1,19 @@
 import React from "react";
 import "./VideoPage.css";
+import ReactPlayer from "react-player";
+import { useParams } from "react-router-dom";
 
 const VideoPage = () => {
+  const { videoId } = useParams();
   return (
     <div className="video-page">
       <div className="video-page__main grid">
         <div className="video-page__show-vodeo">
-          <img
-            src="https://i.ytimg.com/vi/inVClSNYBQ4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD1dg5JXDycuG06NEn9A-0Pnd40zQ"
-            alt=""
+          <ReactPlayer
+            url={`https://www.youtube.com/watch?v=${videoId}`}
+            controls
+            width="100%"
+            height="480px"
           />
         </div>
         <div className="video-page__notes"></div>

@@ -1,6 +1,7 @@
 .thumbnail {
   aspect-ratio: 16 / 9;
   position: relative;
+  cursor: pointer;
 }
 
 .thumbnail__image-container {

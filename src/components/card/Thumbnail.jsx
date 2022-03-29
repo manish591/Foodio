@@ -1,6 +1,7 @@
 import React from "react";
 import "./Thumbnail.css";
 import { VideoActions } from "../video-action/VideoActions";
+import { useNavigate } from "react-router-dom";
 
 const Thumbnail = ({
   _id,
@@ -9,8 +10,13 @@ const Thumbnail = ({
   category,
   author = "Manish Devrani",
 }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="thumbnail">
+    <div
+      className="thumbnail"
+      onClick={() => navigate(`/explore/watch/${_id}`)}
+    >
       <section className="thumbnail__image-container">
         <img
           src={`https://i.ytimg.com/vi/${_id}/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD1dg5JXDycuG06NEn9A-0Pnd40zQ`}
