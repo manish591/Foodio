@@ -12,8 +12,11 @@ import {
 } from "./pages";
 
 import { Routes, Route } from "react-router-dom";
+import { useKeepAuth } from "./hooks";
 
 const App = () => {
+  useKeepAuth();
+
   return (
     <div className="App">
       <Routes>

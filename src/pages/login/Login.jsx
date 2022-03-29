@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 
 import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks";
 
 const Login = () => {
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { loginUser } = useAuth();
+
+  const handleUserLogin = (e) => {
+    e.preventDefault();
+    loginUser(loginData);
+  };
+
   return (
     <main className="login">
       <div className="wrapper">
@@ -11,7 +24,7 @@ const Login = () => {
           <h1 className="login__title">Log In</h1>
           <p className="login__greeting">Welcome! Back</p>
         </div>
-        <form className="login__form">
+        <form className="login__form" onSubmit={handleUserLogin}>
           <section className="email-container">
             <label htmlFor="email">Email</label>
             <input
@@ -20,6 +33,10 @@ const Login = () => {
               name="email"
               className="login__email"
               autoComplete="email"
+              value={loginData.email}
+              onChange={(e) =>
+                setLoginData({ ...loginData, email: e.target.value })
+              }
               required
             />
           </section>
@@ -30,6 +47,10 @@ const Login = () => {
               id="password"
               name="current-password"
               className="login__password"
+              value={loginData.password}
+              onChange={(e) =>
+                setLoginData({ ...loginData, password: e.target.value })
+              }
               required
             />
           </section>
