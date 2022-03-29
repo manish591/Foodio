@@ -52,8 +52,10 @@ const Chips = () => {
         </li>
       </ul>
       <ul className="chips__list chips__list--navigation">
-        <span class="material-icons-outlined chip-right">chevron_right</span>
-        <span class="material-icons-outlined chip-left">chevron_left</span>
+        <span className="material-icons-outlined chip-right">
+          chevron_right
+        </span>
+        <span className="material-icons-outlined chip-left">chevron_left</span>
       </ul>
     </div>
   );

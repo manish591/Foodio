@@ -55,7 +55,7 @@ const Navbar = () => {
           </li>
           <li className="navbar__item navbar__item--profile">
             <div className="navbar__icon">
-              <span class="material-icons-outlined">person</span>
+              <span className="material-icons-outlined">person</span>
             </div>
           </li>
         </ul>
