@@ -2,7 +2,13 @@ import React from "react";
 import "./Thumbnail.css";
 import { VideoActions } from "../video-action/VideoActions";
 
-const Thumbnail = ({ _id, title, videoUrl, category, author }) => {
+const Thumbnail = ({
+  _id,
+  title,
+  videoUrl,
+  category,
+  author = "Manish Devrani",
+}) => {
   return (
     <div className="thumbnail">
       <section className="thumbnail__image-container">
@@ -20,7 +26,7 @@ const Thumbnail = ({ _id, title, videoUrl, category, author }) => {
         </div>
         <div className="th-content__description">
           <h3 className="thumbnail__title">{title}</h3>
-          <p className="thumbnail__author">Manish Devrani</p>
+          <p className="thumbnail__author">{author}</p>
           <span className="thumbnail__counts">12M views - 2 days ago</span>
         </div>
         <div className="th-content__actions">
