@@ -1,7 +1,7 @@
 import React from "react";
 import "./Sidebar.css";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -14,7 +14,7 @@ const Sidebar = () => {
             </li>
             <li className="s-top__items s-top__items--logo">
               <h2 className="s-top__logo">
-                <Link to="/">foodio</Link>
+                <Link to="/explore">foodio</Link>
               </h2>
             </li>
           </ul>
@@ -28,7 +28,7 @@ const Sidebar = () => {
                 <span className="material-icons-outlined size-30">home</span>
               </div>
               <div className="s-bottom-item-name">
-                <Link to="/">Home</Link>
+                <NavLink to="/explore">Home</NavLink>
               </div>
             </section>
           </li>
@@ -50,7 +50,7 @@ const Sidebar = () => {
                 <span className="material-icons-round size-30">live_tv</span>
               </div>
               <div className="s-bottom-item-name">
-                <Link to="/liked">Liked</Link>
+                <NavLink to="/explore/liked">Liked</NavLink>
               </div>
             </section>
           </li>
@@ -62,7 +62,7 @@ const Sidebar = () => {
                 </span>
               </div>
               <div className="s-bottom-item-name">
-                <Link to="/watchlater">Watch Later</Link>
+                <NavLink to="/explore/watchlater">Watch Later</NavLink>
               </div>
             </section>
           </li>
@@ -72,7 +72,7 @@ const Sidebar = () => {
                 <span className="material-icons-outlined size-30">explore</span>
               </div>
               <div className="s-bottom-item-name">
-                <Link to="/playlist">Playlist</Link>
+                <NavLink to="/explore/playlist">Playlist</NavLink>
               </div>
             </section>
           </li>
@@ -82,7 +82,7 @@ const Sidebar = () => {
                 <span className="material-icons-outlined size-30">today</span>
               </div>
               <div className="s-bottom-item-name">
-                <Link to="/history">History</Link>
+                <NavLink to="/explore/history">History</NavLink>
               </div>
             </section>
           </li>

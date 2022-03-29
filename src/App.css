@@ -1,29 +1,29 @@
-.App {
+.main-ar {
   display: grid;
   grid-template-columns: 100%;
   gap: 1rem;
 }
 
-.main-ar {
+.main-ar__feed {
   grid-column: 1;
 }
 
 @media (min-width: 800px) {
-  .App {
+  .main-ar {
     grid-template-columns: 100px minmax(0, 1fr);
   }
 
-  .main-ar {
+  .main-ar__feed {
     grid-column: 2;
   }
 }
 
 @media (min-width: 1400px) {
-  .App {
+  .main-ar {
     grid-template-columns: 280px minmax(0, 1fr);
   }
 
-  .main-ar {
+  .main-ar__feed {
     grid-column: 2;
     margin-inline-end: 1rem;
   }

@@ -23,29 +23,39 @@ const Navbar = () => {
                 <input
                   type="text"
                   className="navbar__input"
-                  placeholder="Search"
+                  placeholder="Search food here..."
                 />
               </div>
               <div className="navbar__icon navbar-icon--search">
-                <span className="material-icons-outlined">keyboard_voice</span>
+                <span
+                  className="material-icons-outlined"
+                  style={{ opacity: "0.5" }}
+                >
+                  keyboard_voice
+                </span>
               </div>
             </section>
           </li>
         </ul>
         <ul className="navbar__list navbar__list--right flex">
           <li className="navbar__item navbar__item--display">
+            <button className="btn btn--contained-primary navbar__upload">
+              Upload Video
+            </button>
+          </li>
+          <li className="navbar__item navbar__item--display">
             <div className="navbar__icon">
               <span className="material-icons-outlined">notifications</span>
             </div>
           </li>
-          <li className="navbar__item">
+          <li className="navbar__item navbar__menu--hide">
             <div className="navbar__icon">
               <span className="material-icons-outlined">search</span>
             </div>
           </li>
           <li className="navbar__item navbar__item--profile">
-            <div className="avatar avatar--large avatar--initial">
-              <p>SK</p>
+            <div className="navbar__icon">
+              <span class="material-icons-outlined">person</span>
             </div>
           </li>
         </ul>
