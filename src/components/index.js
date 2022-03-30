@@ -8,3 +8,4 @@ export { VideoActions } from "./video-action/VideoActions";
 export { PlaylistCard } from "./card/PlaylistCard";
 export { ProtectedRoute } from "./ProtectedRoute";
 export { HorizontalCard } from "./card/HorizontalCard";
+export { NotesCard } from "./notes/NotesCard";

@@ -1,0 +1,81 @@
+.notes-card {
+  background-color: rgba(139, 139, 139, 0.062);
+  block-size: 480px;
+  border-radius: 10px;
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.notes-card__title {
+  font-size: var(--fs-700);
+}
+
+.note-form__group > input,
+.note-form__group > textarea {
+  inline-size: 100%;
+  background: none;
+  outline: none;
+  border: none;
+  padding-block: 0.3rem;
+  padding-inline: 0.5rem;
+}
+
+.note-form__group > textarea {
+  resize: vertical;
+}
+
+.notes-card__note-form {
+  margin-block-start: 1rem;
+  border: 1px solid var(--surface4);
+  padding-block: 0.2rem;
+  padding-inline: 0.5rem;
+}
+
+.notes-form__actions > button {
+  block-size: 40px;
+}
+
+.notes-card__your-cards {
+  margin-block-start: 1rem;
+}
+
+.your-notes__card {
+  background-color: var(--surface3);
+  margin-block-start: 0.5rem;
+  padding-block: 0.5rem;
+  padding-inline: 0.3rem;
+  border-radius: 10px;
+}
+
+.single-note__desc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.single-note__actions {
+  margin-block-start: 1rem;
+}
+
+.single-note__edit,
+.single-note__delete {
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid var(--surface4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 250ms ease-in-out;
+}
+
+.single-note__edit:hover,
+.single-note__delete:hover {
+  background-color: var(--surface4);
+}
+
+.single-note + .single-note {
+  margin-block-start: 1rem;
+}

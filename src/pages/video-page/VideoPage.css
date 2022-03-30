@@ -5,13 +5,8 @@
 }
 
 .video-page__main {
-  grid-template-columns: 70% 1fr;
+  grid-template-columns: 70% minmax(0, 1fr);
   gap: 2rem;
-}
-
-.video-page__notes {
-  border: 1px solid red;
-  block-size: 200px;
 }
 
 .video-page__additionals {

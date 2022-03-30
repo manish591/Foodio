@@ -2,7 +2,7 @@ import React from "react";
 import "./VideoPage.css";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
-import { HorizontalCard } from "../../components";
+import { HorizontalCard, NotesCard } from "../../components";
 
 const VideoPage = () => {
   const { videoId } = useParams();
@@ -17,7 +17,9 @@ const VideoPage = () => {
             height="480px"
           />
         </div>
-        <div className="video-page__notes"></div>
+        <div className="video-page__notes">
+          <NotesCard />
+        </div>
       </div>
       <div className="video-page__additionals grid">
         <section className="video-page__description vd-desc">
