@@ -4,11 +4,11 @@
 }
 
 .thumbnail__image-container {
-  border-radius: 30px;
+  border-radius: 5px;
 }
 
 .thumbnail__img {
-  border-radius: 30px;
+  border-radius: 5px;
 }
 
 .thumbnail__content {
@@ -23,11 +23,13 @@
 
 .th-content__actions {
   margin-inline-start: auto;
-  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .thumbnail:hover .th-content__actions {
-  display: block;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .th-content__description {

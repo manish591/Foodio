@@ -2,13 +2,19 @@ import React from "react";
 import "./Thumbnail.css";
 import { VideoActions } from "../video-action/VideoActions";
 
-const Thumbnail = () => {
+const Thumbnail = ({
+  _id,
+  title,
+  videoUrl,
+  category,
+  author = "Manish Devrani",
+}) => {
   return (
     <div className="thumbnail">
       <section className="thumbnail__image-container">
         <img
-          src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzN8fGZvb2R8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-          alt=""
+          src={`https://i.ytimg.com/vi/${_id}/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD1dg5JXDycuG06NEn9A-0Pnd40zQ`}
+          alt="thumbnail"
           className="thumbnail__img"
         />
       </section>
@@ -19,8 +25,8 @@ const Thumbnail = () => {
           </div>
         </div>
         <div className="th-content__description">
-          <h3 className="thumbnail__title">My Thumbnail Title</h3>
-          <p className="thumbnail__author">Manish Devrani</p>
+          <h3 className="thumbnail__title">{title}</h3>
+          <p className="thumbnail__author">{author}</p>
           <span className="thumbnail__counts">12M views - 2 days ago</span>
         </div>
         <div className="th-content__actions">
