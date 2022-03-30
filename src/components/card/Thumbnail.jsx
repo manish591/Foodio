@@ -9,6 +9,8 @@ const Thumbnail = ({
   videoUrl,
   category,
   author = "Manish Devrani",
+  selectedId,
+  setSelectedId,
 }) => {
   const navigate = useNavigate();
 
@@ -44,9 +46,18 @@ const Thumbnail = ({
           <p className="thumbnail__author">{author}</p>
           <span className="thumbnail__counts">12M views - 2 days ago</span>
         </div>
-        <div className="th-content__actions">
+        <div
+          className="th-content__actions"
+          onClick={() =>
+            setSelectedId((id) => {
+              if (id !== _id) return _id;
+              return id === "" ? _id : "";
+            })
+          }
+        >
           <span className="material-icons-outlined">more_vert</span>
         </div>
+        {selectedId === _id ? <VideoActions /> : null}
       </section>
     </div>
   );

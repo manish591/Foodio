@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./VideoListing.css";
 import { Chips, Thumbnail } from "../../components";
 import { useStateContext } from "../../hooks";
@@ -8,6 +8,7 @@ import axios from "axios";
 
 const VideoListing = () => {
   const { state, stateDispatch } = useStateContext();
+  const [selectedId, setSelectedId] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -32,7 +33,14 @@ const VideoListing = () => {
       <div className="video-listing__container grid">
         {getFilterByCategoryItem(state.videos, state.filter.category).map(
           (videoItem) => {
-            return <Thumbnail key={videoItem.id} {...videoItem} />;
+            return (
+              <Thumbnail
+                key={videoItem.id}
+                {...videoItem}
+                selectedId={selectedId}
+                setSelectedId={setSelectedId}
+              />
+            );
           }
         )}
       </div>
