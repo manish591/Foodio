@@ -33,6 +33,12 @@ const Chips = () => {
           className={`chips__item ${
             state.filter.category === "All" ? "chips__item--selected" : ""
           }`}
+          onClick={() => {
+            stateDispatch({
+              type: ACTION_TYPES.FILTER_BY_CATEGORY,
+              payload: "All",
+            });
+          }}
         >
           <div className="chips__category">
             <p>All</p>
@@ -48,6 +54,12 @@ const Chips = () => {
                       ? "chips__item--selected"
                       : ""
                   }`}
+                  onClick={() => {
+                    stateDispatch({
+                      type: ACTION_TYPES.FILTER_BY_CATEGORY,
+                      payload: item.categoryName,
+                    });
+                  }}
                 >
                   <div className="chips__category">
                     <p>{item.categoryName}</p>

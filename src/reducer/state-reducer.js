@@ -4,8 +4,16 @@ const stateReducer = (state, action) => {
   switch (action.type) {
     case ACTION_TYPES.GET_VIDEOS:
       return { ...state, videos: action.payload.videos };
+
     case ACTION_TYPES.GET_CATEGORIES:
       return { ...state, categoryData: action.payload.categories };
+
+    case ACTION_TYPES.FILTER_BY_CATEGORY:
+      return {
+        ...state,
+        filter: { ...state.filter, category: action.payload },
+      };
+
     default:
       return { ...state };
   }
