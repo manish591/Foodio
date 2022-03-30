@@ -7,13 +7,9 @@ const LikedVideos = () => {
     <div className={styles.liked}>
       <section className={`flex ${styles.liked__top}`}>
         <span class="material-icons">thumb_up_off_alt</span>
-        <p className="hero">Liked (2 Videos)</p>
+        <p className="hero">Liked (0 Videos)</p>
       </section>
-      <section className={`${styles.liked__container} grid`}>
-        <Thumbnail />
-        <Thumbnail />
-        <Thumbnail />
-      </section>
+      <section className={`${styles.liked__container} grid`}></section>
     </div>
   );
 };
