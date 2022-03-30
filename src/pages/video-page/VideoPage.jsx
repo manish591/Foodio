@@ -2,6 +2,7 @@ import React from "react";
 import "./VideoPage.css";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
+import { HorizontalCard } from "../../components";
 
 const VideoPage = () => {
   const { videoId } = useParams();
@@ -97,12 +98,8 @@ const VideoPage = () => {
         <section className="video-page__related-video related-vd">
           <h3 className="related-vd__title">Related Videos</h3>
           <div className="related-vd__container grid">
-            <section
-              style={{ blockSize: "150px", border: "1px solid red" }}
-            ></section>
-            <section
-              style={{ blockSize: "150px", border: "1px solid red" }}
-            ></section>
+            <HorizontalCard />
+            <HorizontalCard />
           </div>
         </section>
       </div>
