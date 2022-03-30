@@ -25,11 +25,6 @@
   white-space: nowrap;
 }
 
-.chips__item--all {
-  background-color: var(--text2);
-  color: var(--light-clr);
-}
-
 .chip-right,
 .chip-left {
   position: absolute;
@@ -43,4 +38,13 @@
 
 .chip-left {
   inset-inline-start: 5px;
+}
+
+.chips__category > label {
+  font-size: 1rem;
+}
+
+.chips__item--selected {
+  background-color: var(--text2);
+  color: var(--light-clr);
 }

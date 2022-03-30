@@ -1,55 +1,62 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { ACTION_TYPES } from "../../reducer/state-constant";
+import { useStateContext } from "../../hooks";
 import "./Chips.css";
 
 const Chips = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const { state, stateDispatch } = useStateContext();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await axios.get("/api/categories");
+        if (res.status === 200) {
+          stateDispatch({
+            type: ACTION_TYPES.GET_CATEGORIES,
+            payload: { categories: res.data.categories },
+          });
+          setIsLoading(false);
+        }
+      } catch (err) {
+        console.error(err);
+        setIsLoading(false);
+      }
+    })();
+  }, []);
+
   return (
     <div className="chips-container chips">
       <ul className="chips__list flex">
-        <li className="chips__item chips__item--all">
+        <li
+          className={`chips__item ${
+            state.filter.category === "All" ? "chips__item--selected" : ""
+          }`}
+        >
           <div className="chips__category">
             <p>All</p>
           </div>
         </li>
-        <li className="chips__item">
-          <div className="chips__category">
-            <p>Web Development</p>
-          </div>
-        </li>
-        <li className="chips__item">
-          <div className="chips__category">
-            <p>Coding</p>
-          </div>
-        </li>
-        <li className="chips__item">
-          <div className="chips__category">
-            <p>Javascript</p>
-          </div>
-        </li>
-        <li className="chips__item">
-          <div className="chips__category">
-            <p>VsCode</p>
-          </div>
-        </li>
-        <li className="chips__item">
-          <div className="chips__category">
-            <p>Python</p>
-          </div>
-        </li>
-        <li className="chips__item">
-          <div className="chips__category">
-            <p>Python</p>
-          </div>
-        </li>
-        <li className="chips__item">
-          <div className="chips__category">
-            <p>Python</p>
-          </div>
-        </li>
-        <li className="chips__item">
-          <div className="chips__category">
-            <p>Python</p>
-          </div>
-        </li>
+        {isLoading ? null : (
+          <>
+            {state.categoryData.map((item) => {
+              return (
+                <li
+                  className={`chips__item ${
+                    state.filter.category === item.categoryName
+                      ? "chips__item--selected"
+                      : ""
+                  }`}
+                >
+                  <div className="chips__category">
+                    <p>{item.categoryName}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </>
+        )}
       </ul>
       <ul className="chips__list chips__list--navigation">
         <span className="material-icons-outlined chip-right">
