@@ -11,6 +11,9 @@ const LikedVideos = () => {
   const { myToken } = useAuthContext();
   const { state, stateDispatch } = useStateContext();
   const [likedVideoData, setLikedVideoData] = useState([]);
+  const [selectedId, setSelectedId] = useState("");
+  const { library } = state;
+  const { likedVideos } = library;
 
   useEffect(() => {
     (async () => {
@@ -33,7 +36,7 @@ const LikedVideos = () => {
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, [likedVideos]);
 
   return (
     <div className={styles.liked}>
@@ -46,7 +49,14 @@ const LikedVideos = () => {
       {isLoading ? null : (
         <section className={`${styles.liked__container} grid`}>
           {likedVideoData.map((item) => {
-            return <Thumbnail key={item._id} {...item} />;
+            return (
+              <Thumbnail
+                key={item._id}
+                {...item}
+                selectedId={selectedId}
+                setSelectedId={setSelectedId}
+              />
+            );
           })}
         </section>
       )}
