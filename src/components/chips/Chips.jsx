@@ -49,6 +49,7 @@ const Chips = () => {
             {state.categoryData.map((item) => {
               return (
                 <li
+                  key={item._id}
                   className={`chips__item ${
                     state.filter.category === item.categoryName
                       ? "chips__item--selected"
