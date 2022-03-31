@@ -7,8 +7,13 @@ import { useStateContext, useAppServices, useAuthContext } from "../../hooks";
 
 const VideoPage = () => {
   const { state, stateDispatch } = useStateContext();
-  const { addToLikeVideos, removeFromLikedVideos, isAlreadyInDatabaseVideo } =
-    useAppServices();
+  const {
+    addToLikeVideos,
+    removeFromLikedVideos,
+    isAlreadyInDatabaseVideo,
+    addToWatchLater,
+    removeFromWatchLater,
+  } = useAppServices();
   const { videoId } = useParams();
   const video = state.videos.find((item) => item._id === videoId);
 
@@ -85,11 +90,23 @@ const VideoPage = () => {
                 <span className="material-icons-outlined">share</span>
               </button>
               {isAlreadyInDatabaseVideo(state.library.watchLater, videoId) ? (
-                <button className="vp-actions__icon" title="Watch Later">
+                <button
+                  className="vp-actions__icon"
+                  title="Watch Later"
+                  onClick={() => {
+                    removeFromWatchLater({ videoId });
+                  }}
+                >
                   <span className="material-icons">watch_later</span>
                 </button>
               ) : (
-                <button className="vp-actions__icon" title="Watch Later">
+                <button
+                  className="vp-actions__icon"
+                  title="Watch Later"
+                  onClick={() => {
+                    addToWatchLater({ video });
+                  }}
+                >
                   <span className="material-icons-outlined">watch_later</span>
                 </button>
               )}

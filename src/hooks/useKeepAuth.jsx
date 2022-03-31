@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { ACTION_TYPES } from "../reducer";
 import { useAuthContext } from "./useAuthContext";
 import { useStateContext } from "./useStateContext";
+import axios from "axios";
 
 const useKeepAuth = () => {
   const {
@@ -38,13 +39,20 @@ const useKeepAuth = () => {
   }, [myToken, isUserLogedIn, currentUser]);
 
   useEffect(() => {
-    if (myToken) {
-      stateDispatch({
-        type: ACTION_TYPES.GET_WATCH_LATER_VIDEOS,
-        payload: { watched: currentUser.watchlater },
-      });
-    }
-  }, [myToken]);
+    (async () => {
+      try {
+        const res = await axios.get("/api/videos");
+        if (res.status === 200) {
+          stateDispatch({
+            type: ACTION_TYPES.GET_VIDEOS,
+            payload: { videos: res.data.videos },
+          });
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    })();
+  }, []);
 };
 
 export { useKeepAuth };

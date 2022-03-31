@@ -77,11 +77,30 @@ const useAppServices = () => {
     }
   };
 
+  const removeFromWatchLater = async ({ videoId }) => {
+    try {
+      const res = await axios.delete(`/api/user/watchlater/${videoId}`, {
+        headers: {
+          authorization: myToken,
+        },
+      });
+      if (res.status === 200) {
+        stateDispatch({
+          type: ACTION_TYPES.GET_WATCH_LATER_VIDEOS,
+          payload: { watched: res.data.watchlater },
+        });
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return {
     addToLikeVideos,
     removeFromLikedVideos,
     isAlreadyInDatabaseVideo,
     addToWatchLater,
+    removeFromWatchLater,
   };
 };
 

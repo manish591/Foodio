@@ -4,7 +4,7 @@ import { useAppServices } from "../../hooks";
 
 const VideoActions = ({ video, setSelectedId }) => {
   const { addToWatchLater } = useAppServices();
-  console.log(setSelectedId);
+
   return (
     <div className="video-action">
       <ul className="video-action__list">
