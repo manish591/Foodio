@@ -16,3 +16,23 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
 }
+
+.dialog__action-btn {
+  border: 1px solid var(--surface3);
+  inline-size: 100%;
+  align-items: center;
+  transition: background-color 250ms ease-in-out;
+}
+
+.dialog__header {
+  padding-block: .2rem;
+  font-size: 1rem;
+}
+
+.dialog__action-btn:hover {
+  background-color: var(--surface3);
+}
+
+.dialog__form {
+  block-size: min-content;
+}

@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./VideoActions.css";
 import { useAppServices } from "../../hooks";
+import { PlaylistModal } from "../../pages";
 
-const VideoActions = ({ video, setSelectedId, page }) => {
+const VideoActions = ({
+  video,
+  setSelectedId,
+  page,
+  isModalOpen,
+  setIsModalOpen,
+}) => {
   const { addToWatchLater, removeFromWatchLater, removeFromHistory } =
     useAppServices();
   const { _id } = video;
@@ -43,7 +50,13 @@ const VideoActions = ({ video, setSelectedId, page }) => {
             <p className="video-action__item-name">Save To Watch Later</p>
           </li>
         )}
-        <li className="video-action__item flex">
+        <li
+          className="video-action__item flex"
+          onClick={() => {
+            setSelectedId("");
+            setIsModalOpen(true);
+          }}
+        >
           <div className="video-action__icon">
             <span className="material-icons-outlined">playlist_add</span>
           </div>
