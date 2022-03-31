@@ -9,6 +9,7 @@ import { ACTION_TYPES } from "../../reducer";
 const WatchLater = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [watchLaterData, setWatchLaterData] = useState([]);
+  const [selectedId, setSelectedId] = useState("");
   const { state, stateDispatch } = useStateContext();
   const { myToken } = useAuthContext();
   const { library } = state;
@@ -42,7 +43,15 @@ const WatchLater = () => {
       {isLoading ? null : (
         <section className="watch-later__container grid">
           {watchLaterData.map((item) => {
-            return <Thumbnail key={item._id} video={item} />;
+            return (
+              <Thumbnail
+                key={item._id}
+                video={item}
+                page={"WatchLater"}
+                setSelectedId={setSelectedId}
+                selectedId={selectedId}
+              />
+            );
           })}
         </section>
       )}

@@ -2,8 +2,9 @@ import React from "react";
 import "./VideoActions.css";
 import { useAppServices } from "../../hooks";
 
-const VideoActions = ({ video, setSelectedId }) => {
-  const { addToWatchLater } = useAppServices();
+const VideoActions = ({ video, setSelectedId, page }) => {
+  const { addToWatchLater, removeFromWatchLater } = useAppServices();
+  const { _id } = video;
 
   return (
     <div className="video-action">
@@ -14,18 +15,33 @@ const VideoActions = ({ video, setSelectedId }) => {
           </div>
           <p className="video-action__item-name">Add To Queue</p>
         </li>
-        <li
-          className="video-action__item flex"
-          onClick={() => {
-            setSelectedId("");
-            addToWatchLater({ video });
-          }}
-        >
-          <div className="video-action__icon">
-            <span className="material-icons-outlined">watch_later</span>
-          </div>
-          <p className="video-action__item-name">Save To Watch Later</p>
-        </li>
+        {page === "WatchLater" ? (
+          <li
+            className="video-action__item flex"
+            onClick={() => {
+              setSelectedId("");
+              removeFromWatchLater({ videoId: _id });
+            }}
+          >
+            <div className="video-action__icon">
+              <span className="material-icons-outlined">delete</span>
+            </div>
+            <p className="video-action__item-name">Remove from Watch Later</p>
+          </li>
+        ) : (
+          <li
+            className="video-action__item flex"
+            onClick={() => {
+              setSelectedId("");
+              addToWatchLater({ video });
+            }}
+          >
+            <div className="video-action__icon">
+              <span className="material-icons-outlined">watch_later</span>
+            </div>
+            <p className="video-action__item-name">Save To Watch Later</p>
+          </li>
+        )}
         <li className="video-action__item flex">
           <div className="video-action__icon">
             <span className="material-icons-outlined">playlist_add</span>

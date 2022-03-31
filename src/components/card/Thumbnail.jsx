@@ -3,7 +3,7 @@ import "./Thumbnail.css";
 import { VideoActions } from "../video-action/VideoActions";
 import { useNavigate } from "react-router-dom";
 
-const Thumbnail = ({ video, selectedId, setSelectedId }) => {
+const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
   const navigate = useNavigate();
   const { _id, title, videoUrl, category, author = "Manish Devrani" } = video;
 
@@ -51,7 +51,11 @@ const Thumbnail = ({ video, selectedId, setSelectedId }) => {
           <span className="material-icons-outlined">more_vert</span>
         </div>
         {selectedId === _id ? (
-          <VideoActions video={video} setSelectedId={setSelectedId} />
+          <VideoActions
+            video={video}
+            setSelectedId={setSelectedId}
+            page={page}
+          />
         ) : null}
       </section>
     </div>
