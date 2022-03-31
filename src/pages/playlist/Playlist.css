@@ -36,3 +36,36 @@
 .dialog__form {
   block-size: min-content;
 }
+
+.dialog__create-playlist {
+  padding-block-start: 1rem;
+}
+
+.dialog__create-playlist label {
+  font-size: 1rem;
+}
+
+.dialog__create-playlist input {
+  inline-size: 100%;
+  padding-block: .3rem;
+  padding-inline: .3rem;
+  font-size: .8rem;
+  border: none;
+  background: none;
+  border-bottom: 1px solid var(--surface4);
+  outline: none;
+}
+
+.dialog__create-playlist input:focus {
+  border-color: var(--text2)
+}
+
+.playlist-create-enter {
+  margin-block-start: 1rem;
+  margin-block-end: 0;
+  margin-inline-start: 60%;
+  block-size: 40px;
+  padding-inline: 20px;
+  border: 1px solid var(--brand);
+
+}

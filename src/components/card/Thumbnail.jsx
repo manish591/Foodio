@@ -63,10 +63,12 @@ const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
           />
         ) : null}
       </section>
-      <PlaylistModal
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-      />
+      {isModalOpen && (
+        <PlaylistModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
+      )}
     </div>
   );
 };
