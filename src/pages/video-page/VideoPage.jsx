@@ -13,6 +13,7 @@ const VideoPage = () => {
     isAlreadyInDatabaseVideo,
     addToWatchLater,
     removeFromWatchLater,
+    addToHistory,
   } = useAppServices();
   const { videoId } = useParams();
   const video = state.videos.find((item) => item._id === videoId);
@@ -26,6 +27,9 @@ const VideoPage = () => {
             controls
             width="100%"
             height="480px"
+            onStart={() => {
+              addToHistory({ video });
+            }}
           />
         </div>
         <div className="video-page__notes">
