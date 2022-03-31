@@ -7,7 +7,7 @@ const useAppServices = () => {
   const { myToken } = useAuthContext();
   const { state, stateDispatch } = useStateContext();
 
-  const isAlreadyInLikedVideo = (arr, _id) => {
+  const isAlreadyInDatabaseVideo = (arr, _id) => {
     return arr?.some((item) => item._id === _id);
   };
 
@@ -55,6 +55,23 @@ const useAppServices = () => {
 
   const addToWatchLater = async ({ video }) => {
     try {
+      const res = await axios.post(
+        "/api/user/watchlater",
+        {
+          video,
+        },
+        {
+          headers: {
+            authorization: myToken,
+          },
+        }
+      );
+      if (res.status === 201) {
+        stateDispatch({
+          type: ACTION_TYPES.GET_WATCH_LATER_VIDEOS,
+          payload: { watched: res.data.watchlater },
+        });
+      }
     } catch (err) {
       console.error(err);
     }
@@ -63,7 +80,8 @@ const useAppServices = () => {
   return {
     addToLikeVideos,
     removeFromLikedVideos,
-    isAlreadyInLikedVideo,
+    isAlreadyInDatabaseVideo,
+    addToWatchLater,
   };
 };
 

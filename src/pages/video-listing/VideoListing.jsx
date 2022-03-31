@@ -36,7 +36,7 @@ const VideoListing = () => {
             return (
               <Thumbnail
                 key={videoItem.id}
-                {...videoItem}
+                video={videoItem}
                 selectedId={selectedId}
                 setSelectedId={setSelectedId}
               />

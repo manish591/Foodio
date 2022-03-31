@@ -7,7 +7,7 @@ import { useStateContext, useAppServices, useAuthContext } from "../../hooks";
 
 const VideoPage = () => {
   const { state, stateDispatch } = useStateContext();
-  const { addToLikeVideos, removeFromLikedVideos, isAlreadyInLikedVideo } =
+  const { addToLikeVideos, removeFromLikedVideos, isAlreadyInDatabaseVideo } =
     useAppServices();
   const { videoId } = useParams();
   const video = state.videos.find((item) => item._id === videoId);
@@ -58,7 +58,7 @@ const VideoPage = () => {
             style={{ marginInlineStart: "auto" }}
           >
             <section className="vp-actions__top flex">
-              {isAlreadyInLikedVideo(state.library.likedVideos, videoId) ? (
+              {isAlreadyInDatabaseVideo(state.library.likedVideos, videoId) ? (
                 <button
                   className="vp-actions__icon"
                   title="Liked"
@@ -84,9 +84,15 @@ const VideoPage = () => {
               <button className="vp-actions__icon" title="Share">
                 <span className="material-icons-outlined">share</span>
               </button>
-              <button className="vp-actions__icon" title="Watch Later">
-                <span className="material-icons-outlined">watch_later</span>
-              </button>
+              {isAlreadyInDatabaseVideo(state.library.watchLater, videoId) ? (
+                <button className="vp-actions__icon" title="Watch Later">
+                  <span className="material-icons">watch_later</span>
+                </button>
+              ) : (
+                <button className="vp-actions__icon" title="Watch Later">
+                  <span className="material-icons-outlined">watch_later</span>
+                </button>
+              )}
               <button className="vp-actions__icon" title="Add To Playlist">
                 <span className="material-icons-outlined">playlist_add</span>
               </button>

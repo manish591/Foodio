@@ -42,7 +42,7 @@ const WatchLater = () => {
       {isLoading ? null : (
         <section className="watch-later__container grid">
           {watchLaterData.map((item) => {
-            return <Thumbnail key={item._id} {...item} />;
+            return <Thumbnail key={item._id} video={item} />;
           })}
         </section>
       )}
