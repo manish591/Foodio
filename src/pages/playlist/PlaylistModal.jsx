@@ -1,11 +1,19 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../../hooks";
+import { useAppServices } from "../../hooks";
+import { useStateContext } from "../../hooks";
 
 const PlaylistModal = ({ isModalOpen, setIsModalOpen }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isCreatePlaylistMode, setIsCreatePlaylistMode] = useState(false);
+  const [createPlaylistInput, setCreatePlaylistInput] = useState("");
   const { myToken } = useAuthContext();
+  const { createPlaylists } = useAppServices();
+  const [myPlaylistData, setMyPlaylistData] = useState([]);
+  const { state, stateDispatch } = useStateContext();
+  const { library } = state;
+  const { playlist } = library;
 
   useEffect(() => {
     (async () => {
@@ -15,13 +23,15 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen }) => {
             authorization: myToken,
           },
         });
-        console.log(res);
+        if (res.status === 200) {
+          setMyPlaylistData(res.data.playlists);
+        }
       } catch (err) {
         console.error(err);
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, [playlist]);
 
   return (
     <section
@@ -49,6 +59,22 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen }) => {
             />
             <label htmlFor="item1">Watch Later</label>
           </div>
+          {myPlaylistData.map((item) => {
+            return (
+              <div
+                className="dialog__input-area dialog__input-area--flex"
+                key={item._id}
+              >
+                <input
+                  type="checkbox"
+                  name="item"
+                  id={`item${item._id}`}
+                  className="dialog__input"
+                />
+                <label htmlFor={`item${item._id}`}>{item.title}</label>
+              </div>
+            );
+          })}
         </form>
         <div
           className="dialog__cta dialog__cta--confirm"
@@ -58,9 +84,25 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen }) => {
             <div className="dialog__create-playlist">
               <section>
                 <label htmlFor="playlist-title">Playlist Title</label>
-                <input type="text" id="playlist-title" />
+                <input
+                  type="text"
+                  id="playlist-title"
+                  value={createPlaylistInput}
+                  onChange={(e) => setCreatePlaylistInput(e.target.value)}
+                />
               </section>
-              <button className="playlist-create-enter btn btn--text">
+              <button
+                className="playlist-create-enter btn btn--text"
+                onClick={() => {
+                  if (setCreatePlaylistInput !== "") {
+                    createPlaylists({
+                      title: createPlaylistInput,
+                      description: "random",
+                    });
+                    setIsCreatePlaylistMode(false);
+                  }
+                }}
+              >
                 Create
               </button>
             </div>

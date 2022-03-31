@@ -155,6 +155,30 @@ const useAppServices = () => {
     }
   };
 
+  const createPlaylists = async ({ title, description = "random" }) => {
+    try {
+      const res = await axios.post(
+        "/api/user/playlists",
+        {
+          playlist: { title, description },
+        },
+        {
+          headers: {
+            authorization: myToken,
+          },
+        }
+      );
+      if (res.status === 201) {
+        stateDispatch({
+          type: ACTION_TYPES.GET_PLAYLIST_DATA,
+          payload: { myPlaylist: res.data.playlists },
+        });
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return {
     addToLikeVideos,
     removeFromLikedVideos,
@@ -164,6 +188,7 @@ const useAppServices = () => {
     addToHistory,
     removeFromHistory,
     removeAllVideosFromHistory,
+    createPlaylists,
   };
 };
 
