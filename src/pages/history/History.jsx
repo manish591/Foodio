@@ -8,6 +8,7 @@ import axios from "axios";
 const History = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [historyData, setHistoryData] = useState([]);
+  const [selectedId, setSelectedId] = useState("");
   const { state } = useStateContext();
   const { myToken } = useAuthContext();
   const { library } = state;
@@ -41,7 +42,15 @@ const History = () => {
       {isLoading ? null : (
         <section className="history__container grid">
           {historyData.map((item) => {
-            return <Thumbnail key={item._id} video={item} />;
+            return (
+              <Thumbnail
+                key={item._id}
+                video={item}
+                page={"History"}
+                setSelectedId={setSelectedId}
+                selectedId={selectedId}
+              />
+            );
           })}
         </section>
       )}
