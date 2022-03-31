@@ -20,6 +20,12 @@ const stateReducer = (state, action) => {
         library: { ...state.library, likedVideos: action.payload.likes },
       };
 
+    case ACTION_TYPES.GET_WATCH_LATER_VIDEOS:
+      return {
+        ...state,
+        library: { ...state.library, watchLater: action.payload.watched },
+      };
+
     default:
       return { ...state };
   }

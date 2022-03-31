@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+import { ACTION_TYPES } from "../reducer";
 import { useAuthContext } from "./useAuthContext";
+import { useStateContext } from "./useStateContext";
 
 const useKeepAuth = () => {
   const {
@@ -10,6 +12,8 @@ const useKeepAuth = () => {
     myToken,
     currentUser,
   } = useAuthContext();
+
+  const { stateDispatch } = useStateContext();
 
   useEffect(() => {
     const currentUserValue = JSON.parse(localStorage.getItem("user"));
@@ -32,6 +36,15 @@ const useKeepAuth = () => {
     localStorage.setItem("token", JSON.stringify(myToken));
     localStorage.setItem("isLogIn", JSON.stringify(isUserLogedIn));
   }, [myToken, isUserLogedIn, currentUser]);
+
+  useEffect(() => {
+    if (myToken) {
+      stateDispatch({
+        type: ACTION_TYPES.GET_WATCH_LATER_VIDEOS,
+        payload: { watched: currentUser.watchlater },
+      });
+    }
+  }, [myToken]);
 };
 
 export { useKeepAuth };

@@ -53,6 +53,13 @@ const useAppServices = () => {
     }
   };
 
+  const addToWatchLater = async ({ video }) => {
+    try {
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return {
     addToLikeVideos,
     removeFromLikedVideos,
