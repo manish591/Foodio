@@ -3,6 +3,7 @@ import "./History.css";
 import { Thumbnail } from "../../components";
 import { useStateContext } from "../../hooks";
 import { useAuthContext } from "../../hooks";
+import { useAppServices } from "../../hooks";
 import axios from "axios";
 
 const History = () => {
@@ -11,6 +12,7 @@ const History = () => {
   const [selectedId, setSelectedId] = useState("");
   const { state } = useStateContext();
   const { myToken } = useAuthContext();
+  const { removeAllVideosFromHistory } = useAppServices();
   const { library } = state;
   const { history } = library;
 
@@ -38,6 +40,15 @@ const History = () => {
       <section className="flex history__top">
         <span className="material-icons-outlined">history</span>
         <p className="hero">History ({history?.length} Videos)</p>
+        <button
+          className="flex history__clear"
+          onClick={() => {
+            removeAllVideosFromHistory();
+          }}
+        >
+          <span className="material-icons">clear</span>
+          <p>Clear History</p>
+        </button>
       </section>
       {isLoading ? null : (
         <section className="history__container grid">

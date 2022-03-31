@@ -23,7 +23,7 @@ const VideoPage = () => {
       <div className="video-page__main grid">
         <div className="video-page__show-vodeo">
           <ReactPlayer
-            url={`https://www.youtube.com/watch?v=${videoId}`}
+            url={`https://www.youtube.com/embed/${videoId}`}
             controls
             width="100%"
             height="480px"

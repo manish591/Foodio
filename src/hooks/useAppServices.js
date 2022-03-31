@@ -137,6 +137,24 @@ const useAppServices = () => {
     }
   };
 
+  const removeAllVideosFromHistory = async () => {
+    try {
+      const res = await axios.delete("/api/user/history/all", {
+        headers: {
+          authorization: myToken,
+        },
+      });
+      if (res.status === 200) {
+        stateDispatch({
+          type: ACTION_TYPES.GET_HISTORY_VIDEOS,
+          payload: { history: res.data.history },
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return {
     addToLikeVideos,
     removeFromLikedVideos,
@@ -145,6 +163,7 @@ const useAppServices = () => {
     removeFromWatchLater,
     addToHistory,
     removeFromHistory,
+    removeAllVideosFromHistory,
   };
 };
 
