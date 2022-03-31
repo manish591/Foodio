@@ -36,7 +36,7 @@ const Thumbnail = ({
           <span className="thumbnail__counts">12M views - 2 days ago</span>
         </div>
         <div className="th-content__actions">
-          <span class="material-icons-outlined">more_vert</span>
+          <span className="material-icons-outlined">more_vert</span>
         </div>
       </section>
     </div>

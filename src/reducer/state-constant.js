@@ -1,5 +1,6 @@
 const initialState = {
   videos: [],
+  categoryData: [],
   library: {
     playlist: [],
     watchLater: [],
@@ -7,12 +8,14 @@ const initialState = {
     likedVideos: [],
   },
   filter: {
-    category: "",
+    category: "All",
   },
 };
 
 const ACTION_TYPES = {
   GET_VIDEOS: "GET_VIDEOS",
+  GET_CATEGORIES: "GET_CATEGORIES",
+  FILTER_BY_CATEGORY: "FILTER_BY_CATEGORY",
 };
 
 export { ACTION_TYPES, initialState };

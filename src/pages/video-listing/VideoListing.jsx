@@ -3,6 +3,7 @@ import "./VideoListing.css";
 import { Chips, Thumbnail } from "../../components";
 import { useStateContext } from "../../hooks";
 import { ACTION_TYPES } from "../../reducer";
+import { getFilterByCategoryItem } from "../../utilis";
 import axios from "axios";
 
 const VideoListing = () => {
@@ -29,9 +30,11 @@ const VideoListing = () => {
     <div className="video-listing">
       <Chips />
       <div className="video-listing__container grid">
-        {state.videos.map((videoItem) => {
-          return <Thumbnail key={videoItem.id} {...videoItem} />;
-        })}
+        {getFilterByCategoryItem(state.videos, state.filter.category).map(
+          (videoItem) => {
+            return <Thumbnail key={videoItem.id} {...videoItem} />;
+          }
+        )}
       </div>
     </div>
   );
