@@ -1,19 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./History.css";
 import { Thumbnail } from "../../components";
+import { useStateContext } from "../../hooks";
+import { useAuthContext } from "../../hooks";
+import axios from "axios";
 
 const History = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [historyData, setHistoryData] = useState([]);
+  const { state } = useStateContext();
+  const { myToken } = useAuthContext();
+  const { library } = state;
+  const { history } = library;
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await axios.get("/api/user/history", {
+          headers: {
+            authorization: myToken,
+          },
+        });
+        if (res.status === 200) {
+          setHistoryData(res.data.history);
+          setIsLoading(false);
+        }
+      } catch (err) {
+        console.error(err);
+        setIsLoading(false);
+      }
+    })();
+  }, [history]);
+
   return (
     <div className="history">
       <section className="flex history__top">
-        <span class="material-icons-outlined">history</span>
-        <p className="hero">History (2 Videos)</p>
+        <span className="material-icons-outlined">history</span>
+        <p className="hero">History ({history?.length} Videos)</p>
       </section>
-      <section className="history__container grid">
-        <Thumbnail />
-        <Thumbnail />
-        <Thumbnail />
-      </section>
+      {isLoading ? null : (
+        <section className="history__container grid">
+          {historyData.map((item) => {
+            return <Thumbnail key={item._id} video={item} />;
+          })}
+        </section>
+      )}
     </div>
   );
 };

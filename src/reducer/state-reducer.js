@@ -26,6 +26,12 @@ const stateReducer = (state, action) => {
         library: { ...state.library, watchLater: action.payload.watched },
       };
 
+    case ACTION_TYPES.GET_HISTORY_VIDEOS:
+      return {
+        ...state,
+        library: { ...state.library, history: action.payload.history },
+      };
+
     default:
       return { ...state };
   }
