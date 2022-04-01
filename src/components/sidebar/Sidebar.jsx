@@ -51,7 +51,7 @@ const Sidebar = () => {
           <li className="s-bottom__items">
             <section className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
-                <span className="material-icons-round size-30">live_tv</span>
+                <span class="material-icons-outlined">favorite_border</span>
               </div>
               <div className="s-bottom-item-name">
                 <NavLink to="/explore/liked">Liked</NavLink>
@@ -61,9 +61,7 @@ const Sidebar = () => {
           <li className="s-bottom__items">
             <section className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
-                <span className="material-icons-outlined size-30">
-                  grid_view
-                </span>
+                <span class="material-icons-outlined">watch_later</span>
               </div>
               <div className="s-bottom-item-name">
                 <NavLink to="/explore/watchlater">Watch Later</NavLink>
@@ -73,7 +71,7 @@ const Sidebar = () => {
           <li className="s-bottom__items">
             <section className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
-                <span className="material-icons-outlined size-30">explore</span>
+                <span class="material-icons-outlined">playlist_play</span>
               </div>
               <div className="s-bottom-item-name">
                 <NavLink to="/explore/playlist">Playlist</NavLink>
@@ -83,7 +81,7 @@ const Sidebar = () => {
           <li className="s-bottom__items">
             <section className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
-                <span className="material-icons-outlined size-30">today</span>
+                <span class="material-icons-outlined">history</span>
               </div>
               <div className="s-bottom-item-name">
                 <NavLink to="/explore/history">History</NavLink>
