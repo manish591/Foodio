@@ -9,3 +9,4 @@ export { PlaylistCard } from "./card/PlaylistCard";
 export { ProtectedRoute } from "./ProtectedRoute";
 export { HorizontalCard } from "./card/HorizontalCard";
 export { NotesCard } from "./notes/NotesCard";
+export { CategoryCard } from "./card/CategoryCard";

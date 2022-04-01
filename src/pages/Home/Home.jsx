@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Home.css";
 
 import food from "../../assets/photo-1475090169767-40ed8d18f67d-removebg-preview.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useStateContext } from "../../hooks";
+import { ACTION_TYPES } from "../../reducer";
+import { CategoryCard } from "../../components";
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const { state, stateDispatch } = useStateContext();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await axios.get("/api/categories");
+        if (res.status === 200) {
+          stateDispatch({
+            type: ACTION_TYPES.GET_CATEGORIES,
+            payload: { categories: res.data.categories },
+          });
+          setIsLoading(false);
+        }
+      } catch (err) {
+        console.error(err);
+        setIsLoading(false);
+      }
+    })();
+  }, []);
+
   return (
     <div className="home-page hm-pg">
       <div className="hm-pg__wrapper">
@@ -17,11 +42,6 @@ const Home = () => {
                 </li>
               </ul>
               <ul className="home-nav__list home-nav__list--links flex">
-                <li className="home-nav__items">Home</li>
-                <li className="home-nav__items">Delivery</li>
-                <li className="home-nav__items">Pricing</li>
-                <li className="home-nav__items">Faq</li>
-                <li className="home-nav__items">Contact</li>
                 <li className="home-nav__items">
                   <button className="btn btn--contained-primary home-nav__get-started">
                     <Link to="/login">Get Started</Link>
@@ -72,6 +92,24 @@ const Home = () => {
             </p>
           </div>
         </main>
+        <section className="home-page__categories hm-categories">
+          <div className="home-page__categories__wrapper">
+            <h1>Featured Categories</h1>
+            <section className="hm-categories__container flex">
+              {isLoading ? null : (
+                <>
+                  {state.categoryData.map((item) => {
+                    return (
+                      <div className="hm-categories__item" key={item._id}>
+                        <CategoryCard {...item} />
+                      </div>
+                    );
+                  })}
+                </>
+              )}
+            </section>
+          </div>
+        </section>
         <footer className="footer">
           <div className="footer__wrapper flow-space-2">
             <p className="footer__brand">foodio</p>
