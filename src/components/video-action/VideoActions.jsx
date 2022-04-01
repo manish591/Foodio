@@ -30,26 +30,6 @@ const VideoActions = () => {
           <p className="video-action__item-name">Share</p>
         </li>
       </ul>
-      <ul className="video-action__list">
-        <li className="video-action__item flex">
-          <div className="video-action__icon">
-            <span class="material-icons-outlined">not_interested</span>
-          </div>
-          <p className="video-action__item-name">Not Interested</p>
-        </li>
-        <li className="video-action__item flex">
-          <div className="video-action__icon">
-            <span class="material-icons-outlined">do_not_disturb_on</span>
-          </div>
-          <p className="video-action__item-name">Don't Recommend Chennel</p>
-        </li>
-        <li className="video-action__item flex">
-          <div className="video-action__icon">
-            <span class="material-icons-outlined">flag</span>
-          </div>
-          <p className="video-action__item-name">Report</p>
-        </li>
-      </ul>
     </div>
   );
 };

@@ -3,9 +3,15 @@ import "./VideoPage.css";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { HorizontalCard, NotesCard } from "../../components";
+import { useStateContext, useAppServices, useAuthContext } from "../../hooks";
 
 const VideoPage = () => {
+  const { state, stateDispatch } = useStateContext();
+  const { addToLikeVideos, removeFromLikedVideos, isAlreadyInLikedVideo } =
+    useAppServices();
   const { videoId } = useParams();
+  const video = state.videos.find((item) => item._id === videoId);
+
   return (
     <div className="video-page">
       <div className="video-page__main grid">
@@ -52,9 +58,29 @@ const VideoPage = () => {
             style={{ marginInlineStart: "auto" }}
           >
             <section className="vp-actions__top flex">
-              <button className="vp-actions__icon" title="Liked">
-                <span className="material-icons-outlined">favorite_border</span>
-              </button>
+              {isAlreadyInLikedVideo(state.library.likedVideos, videoId) ? (
+                <button
+                  className="vp-actions__icon"
+                  title="Liked"
+                  onClick={() => {
+                    removeFromLikedVideos({ videoId });
+                  }}
+                >
+                  <span className="material-icons-outlined">favorite</span>
+                </button>
+              ) : (
+                <button
+                  className="vp-actions__icon"
+                  title="Liked"
+                  onClick={() => {
+                    addToLikeVideos({ video });
+                  }}
+                >
+                  <span className="material-icons-outlined">
+                    favorite_border
+                  </span>
+                </button>
+              )}
               <button className="vp-actions__icon" title="Share">
                 <span className="material-icons-outlined">share</span>
               </button>
@@ -70,28 +96,30 @@ const VideoPage = () => {
                 className="flex"
                 style={{ alignItems: "center", opacity: "0.6" }}
               >
-                <span class="material-icons-outlined">visibility</span>
+                <span className="material-icons-outlined">visibility</span>
                 <p>6856 Views</p>
               </div>
               <div
                 className="flex"
                 style={{ alignItems: "center", opacity: "0.6", opacity: "0.6" }}
               >
-                <span class="material-icons-outlined">thumb_up</span>
+                <span className="material-icons-outlined">thumb_up</span>
                 <p>1016 Likes</p>
               </div>
               <div
                 className="flex"
                 style={{ alignItems: "center", opacity: "0.6" }}
               >
-                <span class="material-icons-outlined">chat_bubble_outline</span>
+                <span className="material-icons-outlined">
+                  chat_bubble_outline
+                </span>
                 <p>75 Comments</p>
               </div>
               <div
                 className="flex"
                 style={{ alignItems: "center", opacity: "0.6" }}
               >
-                <span class="material-icons-outlined">event</span>
+                <span className="material-icons-outlined">event</span>
                 <p>Dec 20, 2022</p>
               </div>
             </section>
