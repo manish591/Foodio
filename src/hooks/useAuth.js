@@ -55,7 +55,15 @@ const useAuth = () => {
     }
   };
 
-  return { loginUser, signupUser };
+  const logoutUser = () => {
+    setIsUserLogedIn(false);
+    setCurrentUser({});
+    setMyToken("");
+    stateDispatch({ type: "CLEAR_USER_DATA" });
+    navigate("/");
+  };
+
+  return { loginUser, signupUser, logoutUser };
 };
 
 export { useAuth };

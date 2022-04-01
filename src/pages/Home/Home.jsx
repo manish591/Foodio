@@ -7,12 +7,13 @@ import axios from "axios";
 import { useStateContext } from "../../hooks";
 import { ACTION_TYPES } from "../../reducer";
 import { CategoryCard } from "../../components";
-import { useAuthContext } from "../../hooks";
+import { useAuthContext, useAuth } from "../../hooks";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { state, stateDispatch } = useStateContext();
   const { myToken } = useAuthContext();
+  const { logoutUser } = useAuth();
 
   useEffect(() => {
     (async () => {
@@ -46,7 +47,12 @@ const Home = () => {
               <ul className="home-nav__list home-nav__list--links flex">
                 <li className="home-nav__items">
                   {myToken ? (
-                    <button className="btn btn--contained-primary home-nav__get-started">
+                    <button
+                      className="btn btn--contained-primary home-nav__get-started"
+                      onClick={() => {
+                        logoutUser();
+                      }}
+                    >
                       Logout
                     </button>
                   ) : (
