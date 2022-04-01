@@ -4,12 +4,13 @@ import { useAuthContext } from "../../hooks";
 import { useAppServices } from "../../hooks";
 import { useStateContext } from "../../hooks";
 
-const PlaylistModal = ({ isModalOpen, setIsModalOpen }) => {
+const PlaylistModal = ({ isModalOpen, setIsModalOpen, video }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isCreatePlaylistMode, setIsCreatePlaylistMode] = useState(false);
   const [createPlaylistInput, setCreatePlaylistInput] = useState("");
   const { myToken } = useAuthContext();
-  const { createPlaylists } = useAppServices();
+  const { createPlaylists, addVideoToPlaylist, isVideoInPlaylist } =
+    useAppServices();
   const [myPlaylistData, setMyPlaylistData] = useState([]);
   const { state, stateDispatch } = useStateContext();
   const { library } = state;
@@ -60,6 +61,7 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen }) => {
             <label htmlFor="item1">Watch Later</label>
           </div>
           {myPlaylistData.map((item) => {
+            console.log(isVideoInPlaylist(video._id, item._id));
             return (
               <div
                 className="dialog__input-area dialog__input-area--flex"
@@ -69,6 +71,16 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen }) => {
                   type="checkbox"
                   name="item"
                   id={`item${item._id}`}
+                  checked={
+                    isVideoInPlaylist(video._id, item._id) ? true : false
+                  }
+                  onChange={() => {
+                    if (isVideoInPlaylist(video._id, item._id)) {
+                      console.log("dd");
+                    } else {
+                      addVideoToPlaylist({ playlistId: item._id, video });
+                    }
+                  }}
                   className="dialog__input"
                 />
                 <label htmlFor={`item${item._id}`}>{item.title}</label>

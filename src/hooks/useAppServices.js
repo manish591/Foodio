@@ -168,6 +168,7 @@ const useAppServices = () => {
           },
         }
       );
+      console.log(res.data);
       if (res.status === 201) {
         stateDispatch({
           type: ACTION_TYPES.GET_PLAYLIST_DATA,
@@ -197,6 +198,44 @@ const useAppServices = () => {
     }
   };
 
+  const addVideoToPlaylist = async ({ playlistId, video }) => {
+    try {
+      const res = await axios.post(
+        `/api/user/playlists/${playlistId}`,
+        {
+          video,
+        },
+        {
+          headers: {
+            authorization: myToken,
+          },
+        }
+      );
+      console.log(res);
+      if (res.status === 201) {
+        let arr = state.library.playlist.map((item) => {
+          if (item._id === res.data.playlist._id) {
+            return res.data.playlist;
+          }
+          return item;
+        });
+        stateDispatch({
+          type: ACTION_TYPES.GET_PLAYLIST_DATA,
+          payload: { myPlaylist: arr },
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const isVideoInPlaylist = (_id, playlistId) => {
+    const playlistToCheck = state.library.playlist.find(
+      (item) => item._id === playlistId
+    );
+    return playlistToCheck.videos.find((item) => item._id === _id);
+  };
+
   return {
     addToLikeVideos,
     removeFromLikedVideos,
@@ -208,6 +247,8 @@ const useAppServices = () => {
     removeAllVideosFromHistory,
     createPlaylists,
     deletePlaylist,
+    addVideoToPlaylist,
+    isVideoInPlaylist,
   };
 };
 

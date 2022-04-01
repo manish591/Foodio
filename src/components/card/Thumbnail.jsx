@@ -67,6 +67,7 @@ const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
         <PlaylistModal
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
+          video={video}
         />
       )}
     </div>
