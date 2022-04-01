@@ -40,15 +40,17 @@ const History = () => {
       <section className="flex history__top">
         <span className="material-icons-outlined">history</span>
         <p className="hero">History ({history?.length} Videos)</p>
-        <button
-          className="flex history__clear"
-          onClick={() => {
-            removeAllVideosFromHistory();
-          }}
-        >
-          <span className="material-icons">clear</span>
-          <p>Clear History</p>
-        </button>
+        {history?.length === 0 ? null : (
+          <button
+            className="flex history__clear"
+            onClick={() => {
+              removeAllVideosFromHistory();
+            }}
+          >
+            <span className="material-icons">clear</span>
+            <p>Clear History</p>
+          </button>
+        )}
       </section>
       {isLoading ? null : (
         <section className="history__container grid">
