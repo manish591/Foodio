@@ -3,11 +3,11 @@ import "./Thumbnail.css";
 import { VideoActions } from "../video-action/VideoActions";
 import { useNavigate } from "react-router-dom";
 import { PlaylistModal } from "../../pages";
+import { getInitials } from "../../utilis";
 
 const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
   const navigate = useNavigate();
   const { _id, title, videoUrl, category, author = "Manish Devrani" } = video;
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -31,7 +31,7 @@ const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
             className="avatar avatar--large avatar--initial"
             onClick={() => navigate(`/explore/watch/${_id}`)}
           >
-            <p>SK</p>
+            <p>{getInitials(author)}</p>
           </div>
         </div>
         <div

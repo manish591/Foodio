@@ -39,7 +39,7 @@ const MobileBottomSidebar = () => {
           <li className="mb-sidebar__item">
             <section className="mb-sidebar__item-wrapper flex">
               <div className="mb__item-icon">
-                <span class="material-icons-outlined">playlist_play</span>
+                <span className="material-icons-outlined">playlist_play</span>
               </div>
               <Link to="/explore/playlist" className="mb-item-name">
                 <p>Playlist</p>
@@ -49,7 +49,7 @@ const MobileBottomSidebar = () => {
           <li className="mb-sidebar__item">
             <section className="mb-sidebar__item-wrapper flex">
               <div className="mb__item-icon">
-                <span class="material-icons-outlined">person</span>
+                <span className="material-icons-outlined">person</span>
               </div>
               <div className="mb-item-name">
                 <p>Profile</p>
