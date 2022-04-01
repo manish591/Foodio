@@ -179,6 +179,24 @@ const useAppServices = () => {
     }
   };
 
+  const deletePlaylist = async ({ playlistId }) => {
+    try {
+      const res = await axios.delete(`/api/user/playlists/${playlistId}`, {
+        headers: {
+          authorization: myToken,
+        },
+      });
+      if (res.status === 200) {
+        stateDispatch({
+          type: ACTION_TYPES.GET_PLAYLIST_DATA,
+          payload: { myPlaylist: res.data.playlists },
+        });
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return {
     addToLikeVideos,
     removeFromLikedVideos,
@@ -189,6 +207,7 @@ const useAppServices = () => {
     removeFromHistory,
     removeAllVideosFromHistory,
     createPlaylists,
+    deletePlaylist,
   };
 };
 

@@ -10,8 +10,12 @@ const VideoActions = ({
   isModalOpen,
   setIsModalOpen,
 }) => {
-  const { addToWatchLater, removeFromWatchLater, removeFromHistory } =
-    useAppServices();
+  const {
+    addToWatchLater,
+    removeFromWatchLater,
+    removeFromHistory,
+    deletePlaylist,
+  } = useAppServices();
   const { _id } = video;
 
   return (
@@ -50,18 +54,33 @@ const VideoActions = ({
             <p className="video-action__item-name">Save To Watch Later</p>
           </li>
         )}
-        <li
-          className="video-action__item flex"
-          onClick={() => {
-            setSelectedId("");
-            setIsModalOpen(true);
-          }}
-        >
-          <div className="video-action__icon">
-            <span className="material-icons-outlined">playlist_add</span>
-          </div>
-          <p className="video-action__item-name">Save To Playlist</p>
-        </li>
+        {page === "Playlist" ? (
+          <li
+            className="video-action__item flex"
+            onClick={() => {
+              setSelectedId("");
+              deletePlaylist({ playlistId: _id });
+            }}
+          >
+            <div className="video-action__icon">
+              <span className="material-icons-outlined">delete</span>
+            </div>
+            <p className="video-action__item-name">Delete Playlist</p>
+          </li>
+        ) : (
+          <li
+            className="video-action__item flex"
+            onClick={() => {
+              setSelectedId("");
+              setIsModalOpen(true);
+            }}
+          >
+            <div className="video-action__icon">
+              <span className="material-icons-outlined">playlist_add</span>
+            </div>
+            <p className="video-action__item-name">Save To Playlist</p>
+          </li>
+        )}
         {page === "History" && (
           <li
             className="video-action__item flex"

@@ -1,8 +1,9 @@
 import React from "react";
 import "./PlaylistCard.css";
-import { PlaylistModal } from "../../pages";
+import { VideoActions } from "../video-action/VideoActions";
 
-const PlaylistCard = ({ _id, title, description, videos }) => {
+const PlaylistCard = ({ video, setSelectedId, selectedId, page }) => {
+  const { _id, title, description, videos } = video;
   return (
     <div className="playlist-card">
       <section className="playlist-card__image-container">
@@ -20,9 +21,24 @@ const PlaylistCard = ({ _id, title, description, videos }) => {
         <div className="plcd-content__description">
           <h3 className="playlist-card__title">{title}</h3>
         </div>
-        <div className="plcd-content__actions">
+        <div
+          className="plcd-content__actions"
+          onClick={() =>
+            setSelectedId((id) => {
+              if (id !== _id) return _id;
+              return id === "" ? _id : "";
+            })
+          }
+        >
           <span class="material-icons-outlined">more_vert</span>
         </div>
+        {selectedId === _id ? (
+          <VideoActions
+            video={video}
+            setSelectedId={setSelectedId}
+            page={page}
+          />
+        ) : null}
       </section>
     </div>
   );

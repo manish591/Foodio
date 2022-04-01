@@ -16,6 +16,7 @@
   padding-inline: 0.3rem;
   margin-block-start: 1rem;
   align-items: center;
+  position: relative;
 }
 
 .plcd-content__profile {
@@ -24,6 +25,7 @@
 
 .plcd-content__actions {
   margin-inline-start: auto;
+  cursor: pointer;
 }
 
 .plcd-content__description {

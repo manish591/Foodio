@@ -12,6 +12,7 @@ const Playlist = () => {
   const { state, stateDispatch } = useStateContext();
   const { library } = state;
   const { playlist } = library;
+  const [selectedId, setSelectedId] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -42,7 +43,15 @@ const Playlist = () => {
       {isLoading ? null : (
         <section className="playlist__container grid">
           {myPlaylistData.map((item) => {
-            return <PlaylistCard key={item._id} {...item} />;
+            return (
+              <PlaylistCard
+                key={item._id}
+                video={item}
+                selectedId={selectedId}
+                setSelectedId={setSelectedId}
+                page={"Playlist"}
+              />
+            );
           })}
         </section>
       )}
