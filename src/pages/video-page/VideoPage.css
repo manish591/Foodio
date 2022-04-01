@@ -49,3 +49,21 @@
   font-size: var(--fs-700);
   margin-block-end: 1rem;
 }
+
+@media (max-width: 900px) {
+  .video-page__notes {
+    display: none;
+  }
+
+  .video-page__main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .video-page__additionals {
+    grid-template-columns: 1fr;
+  }
+
+  .vp-actions__top {
+    gap: 1rem;
+  } 
+}
