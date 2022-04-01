@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./VideoPage.css";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { HorizontalCard, NotesCard } from "../../components";
 import { useStateContext, useAppServices, useAuthContext } from "../../hooks";
+import { PlaylistModal } from "../playlist/PlaylistModal";
 
 const VideoPage = () => {
   const { state, stateDispatch } = useStateContext();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     addToLikeVideos,
     removeFromLikedVideos,
@@ -111,7 +113,13 @@ const VideoPage = () => {
                   <span className="material-icons-outlined">watch_later</span>
                 </button>
               )}
-              <button className="vp-actions__icon" title="Add To Playlist">
+              <button
+                className="vp-actions__icon"
+                title="Add To Playlist"
+                onClick={() => {
+                  setIsModalOpen(true);
+                }}
+              >
                 <span className="material-icons-outlined">playlist_add</span>
               </button>
             </section>
@@ -162,6 +170,11 @@ const VideoPage = () => {
           </div>
         </section>
       </div>
+      <PlaylistModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        video={video}
+      />
     </div>
   );
 };
