@@ -69,3 +69,31 @@
   border: 1px solid var(--brand);
 
 }
+
+.playlist-listing {
+  margin-block-start: 1rem;
+  margin-inline: auto;
+}
+
+.playlist-listing__top {
+  inline-size: 95%;
+  margin-inline: auto;
+  gap: 0.5rem;
+}
+
+.playlist-listing__container {
+  margin-block-start: 1.5rem;
+  inline-size: 95%;
+  margin-inline: auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.playlist-listing__clear {
+  margin-inline-start: auto;
+  border: 1px solid var(--surface3);
+  border-radius: 8px;
+  padding-block: .5rem;
+  padding-inline: .7rem;
+  cursor: pointer;
+}

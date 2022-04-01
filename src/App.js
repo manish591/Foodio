@@ -1,5 +1,5 @@
 import "./App.css";
-import { Main } from "./pages";
+import { Main, PlaylistListing } from "./pages";
 import {
   VideoListing,
   Login,
@@ -52,6 +52,10 @@ const App = () => {
                 <Playlist />
               </ProtectedRoute>
             }
+          ></Route>
+          <Route
+            path="playlist/list/:playlistId"
+            element={<PlaylistListing />}
           />
           <Route
             path="watchlater"
