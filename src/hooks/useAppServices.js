@@ -229,6 +229,34 @@ const useAppServices = () => {
     }
   };
 
+  const deleteVideoFromPlaylist = async ({ videoId, playlistId }) => {
+    try {
+      const res = await axios.delete(
+        `/api/user/playlists/${playlistId}/${videoId}`,
+        {
+          headers: {
+            authorization: myToken,
+          },
+        }
+      );
+      console.log(res);
+      if (res.status === 200) {
+        let arr = state.library.playlist.map((item) => {
+          if (item._id === res.data.playlist._id) {
+            return res.data.playlist;
+          }
+          return item;
+        });
+        stateDispatch({
+          type: ACTION_TYPES.GET_PLAYLIST_DATA,
+          payload: { myPlaylist: arr },
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const isVideoInPlaylist = (_id, playlistId) => {
     const playlistToCheck = state.library.playlist.find(
       (item) => item._id === playlistId
@@ -249,6 +277,7 @@ const useAppServices = () => {
     deletePlaylist,
     addVideoToPlaylist,
     isVideoInPlaylist,
+    deleteVideoFromPlaylist,
   };
 };
 

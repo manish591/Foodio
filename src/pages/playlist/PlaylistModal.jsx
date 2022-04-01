@@ -9,8 +9,12 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen, video }) => {
   const [isCreatePlaylistMode, setIsCreatePlaylistMode] = useState(false);
   const [createPlaylistInput, setCreatePlaylistInput] = useState("");
   const { myToken } = useAuthContext();
-  const { createPlaylists, addVideoToPlaylist, isVideoInPlaylist } =
-    useAppServices();
+  const {
+    createPlaylists,
+    addVideoToPlaylist,
+    isVideoInPlaylist,
+    deleteVideoFromPlaylist,
+  } = useAppServices();
   const [myPlaylistData, setMyPlaylistData] = useState([]);
   const { state, stateDispatch } = useStateContext();
   const { library } = state;
@@ -76,7 +80,10 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen, video }) => {
                   }
                   onChange={() => {
                     if (isVideoInPlaylist(video._id, item._id)) {
-                      console.log("dd");
+                      deleteVideoFromPlaylist({
+                        videoId: video._id,
+                        playlistId: item._id,
+                      });
                     } else {
                       addVideoToPlaylist({ playlistId: item._id, video });
                     }
