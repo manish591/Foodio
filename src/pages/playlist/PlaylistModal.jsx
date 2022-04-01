@@ -65,7 +65,6 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen, video }) => {
             <label htmlFor="item1">Watch Later</label>
           </div>
           {myPlaylistData.map((item) => {
-            console.log(isVideoInPlaylist(video._id, item._id));
             return (
               <div
                 className="dialog__input-area dialog__input-area--flex"

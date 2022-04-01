@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useAuthContext, useStateContext } from "../../hooks";
 import { useParams } from "react-router-dom";
+import { Thumbnail } from "../../components";
 
 const PlaylistListing = () => {
   const { state } = useStateContext();
@@ -10,6 +11,8 @@ const PlaylistListing = () => {
   const { myToken } = useAuthContext();
   const [isLoading, setIsLoading] = useState(true);
   const [playlistListingData, setPlaylistListingData] = useState([]);
+  const { library } = state;
+  const { playlist } = library;
 
   useEffect(() => {
     (async () => {
@@ -19,7 +22,6 @@ const PlaylistListing = () => {
             authorization: myToken,
           },
         });
-        console.log(res);
         if (res.status === 200) {
           setPlaylistListingData(res.data.playlist.videos);
           setIsLoading(false);
@@ -29,7 +31,7 @@ const PlaylistListing = () => {
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, [playlist]);
 
   return (
     <section className="playlist-listing__container grid">
@@ -37,9 +39,13 @@ const PlaylistListing = () => {
         <>
           {playlistListingData.map((item) => {
             return (
-              <div
-                style={{ border: "1px solid black", blockSize: "200px" }}
-              ></div>
+              <Thumbnail
+                key={item._id}
+                video={item}
+                page={"PlaylistListing"}
+                setSelectedId={setSelectedId}
+                selectedId={selectedId}
+              />
             );
           })}
         </>

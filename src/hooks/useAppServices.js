@@ -211,7 +211,6 @@ const useAppServices = () => {
           },
         }
       );
-      console.log(res);
       if (res.status === 201) {
         let arr = state.library.playlist.map((item) => {
           if (item._id === res.data.playlist._id) {
@@ -239,7 +238,6 @@ const useAppServices = () => {
           },
         }
       );
-      console.log(res);
       if (res.status === 200) {
         let arr = state.library.playlist.map((item) => {
           if (item._id === res.data.playlist._id) {
