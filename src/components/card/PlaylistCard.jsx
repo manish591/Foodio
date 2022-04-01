@@ -2,7 +2,7 @@ import React from "react";
 import "./PlaylistCard.css";
 import { PlaylistModal } from "../../pages";
 
-const PlaylistCard = () => {
+const PlaylistCard = ({ _id, title, description, videos }) => {
   return (
     <div className="playlist-card">
       <section className="playlist-card__image-container">
@@ -12,13 +12,13 @@ const PlaylistCard = () => {
           className="playlist-card__img"
         />
         <div className="playlist-card__count flex">
-          <p>2</p>
+          <p>{videos?.length}</p>
           <span class="material-icons-outlined">playlist_play</span>
         </div>
       </section>
       <section className="playlist-card__content plcd-content flex">
         <div className="plcd-content__description">
-          <h3 className="playlist-card__title">My Playlist Title</h3>
+          <h3 className="playlist-card__title">{title}</h3>
         </div>
         <div className="plcd-content__actions">
           <span class="material-icons-outlined">more_vert</span>
