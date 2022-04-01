@@ -7,10 +7,12 @@ import axios from "axios";
 import { useStateContext } from "../../hooks";
 import { ACTION_TYPES } from "../../reducer";
 import { CategoryCard } from "../../components";
+import { useAuthContext } from "../../hooks";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { state, stateDispatch } = useStateContext();
+  const { myToken } = useAuthContext();
 
   useEffect(() => {
     (async () => {
@@ -43,9 +45,15 @@ const Home = () => {
               </ul>
               <ul className="home-nav__list home-nav__list--links flex">
                 <li className="home-nav__items">
-                  <button className="btn btn--contained-primary home-nav__get-started">
-                    <Link to="/login">Get Started</Link>
-                  </button>
+                  {myToken ? (
+                    <button className="btn btn--contained-primary home-nav__get-started">
+                      Logout
+                    </button>
+                  ) : (
+                    <button className="btn btn--contained-primary home-nav__get-started">
+                      <Link to="/login">Get Started</Link>
+                    </button>
+                  )}
                 </li>
               </ul>
             </nav>
@@ -62,12 +70,21 @@ const Home = () => {
                   Join the exiciting and growing community.
                 </p>
                 <div className="home-hero__actions flex">
-                  <button
-                    className="btn btn--contained-primary"
-                    style={{ backgroundColor: "var(--brand)" }}
-                  >
-                    <Link to="/login">Get Started</Link>
-                  </button>
+                  {myToken ? (
+                    <button
+                      className="btn btn--contained-primary"
+                      style={{ backgroundColor: "var(--brand)" }}
+                    >
+                      <a href="#categories">View Categories</a>
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn--contained-primary"
+                      style={{ backgroundColor: "var(--brand)" }}
+                    >
+                      <Link to="/login">Get Started</Link>
+                    </button>
+                  )}
                   <button className="btn btn--text home-hero__explore">
                     <Link to="/explore">Explore</Link>
                   </button>
@@ -92,7 +109,10 @@ const Home = () => {
             </p>
           </div>
         </main>
-        <section className="home-page__categories hm-categories">
+        <section
+          className="home-page__categories hm-categories"
+          id="categories"
+        >
           <div className="home-page__categories__wrapper">
             <h1>Featured Categories</h1>
             <section className="hm-categories__container flex">
