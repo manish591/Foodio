@@ -13,6 +13,7 @@ const VideoPage = () => {
     isAlreadyInDatabaseVideo,
     addToWatchLater,
     removeFromWatchLater,
+    addToHistory,
   } = useAppServices();
   const { videoId } = useParams();
   const video = state.videos.find((item) => item._id === videoId);
@@ -22,10 +23,13 @@ const VideoPage = () => {
       <div className="video-page__main grid">
         <div className="video-page__show-vodeo">
           <ReactPlayer
-            url={`https://www.youtube.com/watch?v=${videoId}`}
+            url={`https://www.youtube.com/embed/${videoId}`}
             controls
             width="100%"
             height="480px"
+            onStart={() => {
+              addToHistory({ video });
+            }}
           />
         </div>
         <div className="video-page__notes">

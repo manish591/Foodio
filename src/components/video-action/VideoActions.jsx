@@ -3,7 +3,8 @@ import "./VideoActions.css";
 import { useAppServices } from "../../hooks";
 
 const VideoActions = ({ video, setSelectedId, page }) => {
-  const { addToWatchLater, removeFromWatchLater } = useAppServices();
+  const { addToWatchLater, removeFromWatchLater, removeFromHistory } =
+    useAppServices();
   const { _id } = video;
 
   return (
@@ -48,6 +49,20 @@ const VideoActions = ({ video, setSelectedId, page }) => {
           </div>
           <p className="video-action__item-name">Save To Playlist</p>
         </li>
+        {page === "History" && (
+          <li
+            className="video-action__item flex"
+            onClick={() => {
+              setSelectedId("");
+              removeFromHistory({ videoId: _id });
+            }}
+          >
+            <div className="video-action__icon">
+              <span className="material-icons-outlined">delete</span>
+            </div>
+            <p className="video-action__item-name">Remove From History</p>
+          </li>
+        )}
         <li className="video-action__item flex">
           <div className="video-action__icon">
             <span className="material-icons-outlined">share</span>

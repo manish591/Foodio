@@ -95,12 +95,75 @@ const useAppServices = () => {
     }
   };
 
+  const addToHistory = async ({ video }) => {
+    try {
+      const res = await axios.post(
+        "/api/user/history",
+        {
+          video,
+        },
+        {
+          headers: {
+            authorization: myToken,
+          },
+        }
+      );
+      if (res.status === 201) {
+        stateDispatch({
+          type: ACTION_TYPES.GET_HISTORY_VIDEOS,
+          payload: { history: res.data.history },
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const removeFromHistory = async ({ videoId }) => {
+    try {
+      const res = await axios.delete(`/api/user/history/${videoId}`, {
+        headers: {
+          authorization: myToken,
+        },
+      });
+      if (res.status === 200) {
+        stateDispatch({
+          type: ACTION_TYPES.GET_HISTORY_VIDEOS,
+          payload: { history: res.data.history },
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const removeAllVideosFromHistory = async () => {
+    try {
+      const res = await axios.delete("/api/user/history/all", {
+        headers: {
+          authorization: myToken,
+        },
+      });
+      if (res.status === 200) {
+        stateDispatch({
+          type: ACTION_TYPES.GET_HISTORY_VIDEOS,
+          payload: { history: res.data.history },
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return {
     addToLikeVideos,
     removeFromLikedVideos,
     isAlreadyInDatabaseVideo,
     addToWatchLater,
     removeFromWatchLater,
+    addToHistory,
+    removeFromHistory,
+    removeAllVideosFromHistory,
   };
 };
 
