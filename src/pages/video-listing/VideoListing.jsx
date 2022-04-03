@@ -14,7 +14,6 @@ const VideoListing = () => {
     (async () => {
       try {
         const res = await axios.get("/api/videos");
-        console.log(res.status);
         if (res.status === 200) {
           stateDispatch({
             type: ACTION_TYPES.GET_VIDEOS,
@@ -36,7 +35,7 @@ const VideoListing = () => {
             return (
               <Thumbnail
                 key={videoItem.id}
-                {...videoItem}
+                video={videoItem}
                 selectedId={selectedId}
                 setSelectedId={setSelectedId}
               />

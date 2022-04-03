@@ -44,7 +44,6 @@ const useAuth = () => {
         email,
         password,
       });
-      console.log(res);
       if (res.status === 201) {
         setIsUserLogedIn(true);
         setMyToken(res.data.encodedToken);
