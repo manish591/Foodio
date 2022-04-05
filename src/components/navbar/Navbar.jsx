@@ -4,6 +4,7 @@ import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const [showSearchBar, setShowSearchBar] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ const Navbar = () => {
           <li className="navbar__item navbar__item--logo">
             <h1 className="navbar__logo">foodio</h1>
           </li>
-          <li className="navbar__item navbar--hide">
+          <li className="navbar__item">
             <section className="navbar__search-group flex">
               <div className="navbar__icon navbar-icon--search">
                 <span className="material-icons-outlined">search</span>
@@ -63,7 +64,7 @@ const Navbar = () => {
         <ul className="navbar__list navbar__list--right flex">
           <li className="navbar__item navbar__item--display">
             <button className="btn btn--contained-primary navbar__upload">
-              Upload Video
+              Upload
             </button>
           </li>
           <li className="navbar__item navbar__item--display">
@@ -71,7 +72,12 @@ const Navbar = () => {
               <span className="material-icons-outlined">notifications</span>
             </div>
           </li>
-          <li className="navbar__item navbar__menu--hide">
+          <li
+            className="navbar__item navbar__menu--hide"
+            onClick={() => {
+              setShowSearchBar(true);
+            }}
+          >
             <div className="navbar__icon">
               <span className="material-icons-outlined">search</span>
             </div>
@@ -84,6 +90,38 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
+        {showSearchBar && (
+          <ul className="navbar__item navbar--mobile-search mobile-search">
+            <section className="mobile-search__search-group flex">
+              <div
+                className="navbar__icon navbar-icon--search"
+                onClick={() => {
+                  setSearchQuery("");
+                  setShowSearchBar(false);
+                }}
+              >
+                <span class="material-icons-outlined">arrow_back</span>
+              </div>
+              <form
+                className="mobile-search__input-field"
+                onSubmit={handleSearchVideos}
+              >
+                <input
+                  type="text"
+                  className="mobile-search__input"
+                  placeholder="Search food here..."
+                  name="search"
+                  id="search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <label htmlFor="search" className="sr-only">
+                  search
+                </label>
+              </form>
+            </section>
+          </ul>
+        )}
       </section>
     </div>
   );
