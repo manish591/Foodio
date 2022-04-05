@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./VideoActions.css";
 import { useAppServices } from "../../hooks";
+import { PlaylistModal } from "../../pages";
+import { useParams } from "react-router-dom";
 
-const VideoActions = ({ video, setSelectedId, page }) => {
-  const { addToWatchLater, removeFromWatchLater, removeFromHistory } =
-    useAppServices();
+const VideoActions = ({
+  video,
+  setSelectedId,
+  page,
+  isModalOpen,
+  setIsModalOpen,
+}) => {
+  const {
+    addToWatchLater,
+    removeFromWatchLater,
+    removeFromHistory,
+    deletePlaylist,
+    deleteVideoFromPlaylist,
+  } = useAppServices();
   const { _id } = video;
+
+  const { playlistId } = useParams();
 
   return (
     <div className="video-action">
@@ -43,12 +58,49 @@ const VideoActions = ({ video, setSelectedId, page }) => {
             <p className="video-action__item-name">Save To Watch Later</p>
           </li>
         )}
-        <li className="video-action__item flex">
-          <div className="video-action__icon">
-            <span className="material-icons-outlined">playlist_add</span>
-          </div>
-          <p className="video-action__item-name">Save To Playlist</p>
-        </li>
+        {page === "Playlist" ? (
+          <li
+            className="video-action__item flex"
+            onClick={() => {
+              setSelectedId("");
+              deletePlaylist({ playlistId: _id });
+            }}
+          >
+            <div className="video-action__icon">
+              <span className="material-icons-outlined">delete</span>
+            </div>
+            <p className="video-action__item-name">Delete Playlist</p>
+          </li>
+        ) : page === "PlaylistListing" ? (
+          <li
+            className="video-action__item flex"
+            onClick={() => {
+              setSelectedId("");
+              deleteVideoFromPlaylist({
+                videoId: _id,
+                playlistId,
+              });
+            }}
+          >
+            <div className="video-action__icon">
+              <span className="material-icons-outlined">delete</span>
+            </div>
+            <p className="video-action__item-name">Remove From Playlist</p>
+          </li>
+        ) : (
+          <li
+            className="video-action__item flex"
+            onClick={() => {
+              setSelectedId("");
+              setIsModalOpen(true);
+            }}
+          >
+            <div className="video-action__icon">
+              <span className="material-icons-outlined">playlist_add</span>
+            </div>
+            <p className="video-action__item-name">Save To Playlist</p>
+          </li>
+        )}
         {page === "History" && (
           <li
             className="video-action__item flex"

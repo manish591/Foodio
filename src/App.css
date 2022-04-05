@@ -12,6 +12,7 @@ html {
   grid-column: 1;
 }
 
+
 @media (min-width: 800px) {
   .main-ar {
     grid-template-columns: 100px minmax(0, 1fr);

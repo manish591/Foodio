@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Sidebar,
@@ -11,7 +11,7 @@ import { Outlet } from "react-router-dom";
 
 const Main = () => {
   return (
-    <div className="main-ar">
+    <div className={`main-ar`}>
       <Sidebar />
       <MobileBottomSidebar />
       <MobileTopSidebar />

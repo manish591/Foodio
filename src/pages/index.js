@@ -8,3 +8,5 @@ export { Playlist } from "./playlist/Playlist";
 export { VideoListing } from "./video-listing/VideoListing";
 export { Home } from "./Home/Home";
 export { VideoPage } from "./video-page/VideoPage";
+export { PlaylistModal } from "./playlist/PlaylistModal";
+export { PlaylistListing } from "./playlist/PlaylistListing";

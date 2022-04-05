@@ -32,6 +32,12 @@ const stateReducer = (state, action) => {
         library: { ...state.library, history: action.payload.history },
       };
 
+    case ACTION_TYPES.GET_PLAYLIST_DATA:
+      return {
+        ...state,
+        library: { ...state.library, playlist: action.payload.myPlaylist },
+      };
+
     default:
       return { ...state };
   }

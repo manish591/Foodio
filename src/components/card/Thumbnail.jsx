@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Thumbnail.css";
 import { VideoActions } from "../video-action/VideoActions";
 import { useNavigate } from "react-router-dom";
+import { PlaylistModal } from "../../pages";
 
 const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
   const navigate = useNavigate();
   const { _id, title, videoUrl, category, author = "Manish Devrani" } = video;
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="thumbnail">
@@ -55,9 +58,18 @@ const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
             video={video}
             setSelectedId={setSelectedId}
             page={page}
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
           />
         ) : null}
       </section>
+      {isModalOpen && (
+        <PlaylistModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          video={video}
+        />
+      )}
     </div>
   );
 };
