@@ -3,7 +3,12 @@ import "./VideoPage.css";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { HorizontalCard, NotesCard } from "../../components";
-import { useStateContext, useAppServices, useAuthContext } from "../../hooks";
+import {
+  useStateContext,
+  useAppServices,
+  useAuthContext,
+  useScrollToTop,
+} from "../../hooks";
 import { PlaylistModal } from "../playlist/PlaylistModal";
 
 const VideoPage = () => {
@@ -17,8 +22,11 @@ const VideoPage = () => {
     removeFromWatchLater,
     addToHistory,
   } = useAppServices();
+
   const { videoId } = useParams();
   const video = state.videos.find((item) => item._id === videoId);
+
+  useScrollToTop();
 
   return (
     <div className="video-page">

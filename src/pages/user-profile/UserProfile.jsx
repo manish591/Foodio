@@ -1,12 +1,14 @@
 import React from "react";
 import "./UserProfile.css";
 
-import { useAuthContext, useAuth } from "../../hooks";
+import { useAuthContext, useAuth, useScrollToTop } from "../../hooks";
 
 const UserProfile = () => {
   const { currentUser } = useAuthContext();
   const { firstName, lastName, email } = currentUser;
   const { logoutUser } = useAuth();
+
+  useScrollToTop();
 
   return (
     <div className="user-profile flex">

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./WatchLater.css";
 import { Thumbnail } from "../../components";
-import { useStateContext } from "../../hooks";
-import { useAuthContext } from "../../hooks";
+import { useStateContext, useAuthContext, useScrollToTop } from "../../hooks";
 import axios from "axios";
-import { ACTION_TYPES } from "../../reducer";
 
 const WatchLater = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -14,6 +12,8 @@ const WatchLater = () => {
   const { myToken } = useAuthContext();
   const { library } = state;
   const { watchLater } = library;
+
+  useScrollToTop();
 
   useEffect(() => {
     (async () => {

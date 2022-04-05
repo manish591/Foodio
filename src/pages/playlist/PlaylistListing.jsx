@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useAuthContext, useStateContext } from "../../hooks";
+import { useAuthContext, useStateContext, useScrollToTop } from "../../hooks";
 import { useParams } from "react-router-dom";
 import { Thumbnail } from "../../components";
 
@@ -32,6 +32,8 @@ const PlaylistListing = () => {
       }
     })();
   }, [playlist]);
+
+  useScrollToTop();
 
   return (
     <section className="playlist-listing__container grid">

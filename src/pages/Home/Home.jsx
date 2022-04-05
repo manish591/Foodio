@@ -4,10 +4,14 @@ import "./Home.css";
 import food from "../../assets/photo-1475090169767-40ed8d18f67d-removebg-preview.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useStateContext } from "../../hooks";
 import { ACTION_TYPES } from "../../reducer";
 import { CategoryCard } from "../../components";
-import { useAuthContext, useAuth } from "../../hooks";
+import {
+  useAuthContext,
+  useAuth,
+  useStateContext,
+  useScrollToTop,
+} from "../../hooks";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +36,8 @@ const Home = () => {
       }
     })();
   }, []);
+
+  useScrollToTop();
 
   return (
     <div className="home-page hm-pg">

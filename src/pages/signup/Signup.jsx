@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Signup.css";
 
 import { Link } from "react-router-dom";
-import { useAuth } from "../../hooks";
+import { useAuth, useScrollToTop } from "../../hooks";
 
 const Signup = () => {
   const [userSignupData, setUserSignupData] = useState({
@@ -20,6 +20,8 @@ const Signup = () => {
     if (userSignupData.password !== userSignupData.confirmPassword) return;
     signupUser(userSignupData);
   };
+
+  useScrollToTop();
 
   return (
     <main className="signup">

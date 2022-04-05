@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Liked.module.css";
 import { Thumbnail } from "../../components";
 import axios from "axios";
-import { useAuthContext } from "../../hooks";
-import { useStateContext } from "../../hooks";
+import { useAuthContext, useStateContext, useScrollToTop } from "../../hooks";
 import { ACTION_TYPES } from "../../reducer";
 
 const LikedVideos = () => {
@@ -37,6 +36,8 @@ const LikedVideos = () => {
       }
     })();
   }, [likedVideos]);
+
+  useScrollToTop();
 
   return (
     <div className={styles.liked}>

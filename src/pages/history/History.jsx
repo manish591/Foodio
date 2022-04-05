@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./History.css";
 import { Thumbnail } from "../../components";
-import { useStateContext } from "../../hooks";
-import { useAuthContext } from "../../hooks";
-import { useAppServices } from "../../hooks";
+import {
+  useScrollToTop,
+  useStateContext,
+  useAuthContext,
+  useAppServices,
+} from "../../hooks";
 import axios from "axios";
 
 const History = () => {
@@ -34,6 +37,8 @@ const History = () => {
       }
     })();
   }, [history]);
+
+  useScrollToTop();
 
   return (
     <div className="history">

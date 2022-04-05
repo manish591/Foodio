@@ -16,10 +16,11 @@ import {
 import { ProtectedRoute } from "./components";
 
 import { Routes, Route } from "react-router-dom";
-import { useKeepAuth } from "./hooks";
+import { useKeepAuth, useScrollToTop } from "./hooks";
 
 const App = () => {
   useKeepAuth();
+  useScrollToTop();
 
   return (
     <div className="App">
