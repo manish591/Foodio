@@ -9,6 +9,7 @@ const Navbar = () => {
 
   const handleSearchVideos = (e) => {
     e.preventDefault();
+    if (searchQuery === "") return;
     navigate(`/explore/search?query=${searchQuery}`);
   };
 
