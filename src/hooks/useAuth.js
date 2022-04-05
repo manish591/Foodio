@@ -62,7 +62,7 @@ const useAuth = () => {
     setCurrentUser({});
     setMyToken("");
     stateDispatch({ type: "CLEAR_USER_DATA" });
-    navigate("/");
+    navigate("/explore");
   };
 
   return { loginUser, signupUser, logoutUser };
