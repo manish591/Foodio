@@ -14,6 +14,24 @@ const stateReducer = (state, action) => {
         filter: { ...state.filter, category: action.payload },
       };
 
+    case ACTION_TYPES.GET_LIKED_VIDEOS:
+      return {
+        ...state,
+        library: { ...state.library, likedVideos: action.payload.likes },
+      };
+
+    case ACTION_TYPES.GET_WATCH_LATER_VIDEOS:
+      return {
+        ...state,
+        library: { ...state.library, watchLater: action.payload.watched },
+      };
+
+    case ACTION_TYPES.GET_HISTORY_VIDEOS:
+      return {
+        ...state,
+        library: { ...state.library, history: action.payload.history },
+      };
+
     default:
       return { ...state };
   }

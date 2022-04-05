@@ -16,6 +16,7 @@
   padding-inline: 0.5rem;
   padding-block: 0.8rem;
   align-items: center;
+  position: relative;
 }
 
 .th-content__profile {
@@ -26,11 +27,16 @@
   margin-inline-start: auto;
   opacity: 0;
   pointer-events: none;
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 
 .thumbnail:hover .th-content__actions {
   opacity: 1;
-  pointer-events: auto;
+  pointer-events: all;
 }
 
 .th-content__description {
@@ -39,6 +45,7 @@
 
 .thumbnail__title {
   font-size: 1rem;
+  inline-size: 80%;
 }
 
 .thumbnail__author,

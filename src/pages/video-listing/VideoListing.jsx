@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./VideoListing.css";
 import { Chips, Thumbnail } from "../../components";
 import { useStateContext } from "../../hooks";
@@ -8,12 +8,12 @@ import axios from "axios";
 
 const VideoListing = () => {
   const { state, stateDispatch } = useStateContext();
+  const [selectedId, setSelectedId] = useState("");
 
   useEffect(() => {
     (async () => {
       try {
         const res = await axios.get("/api/videos");
-        console.log(res.status);
         if (res.status === 200) {
           stateDispatch({
             type: ACTION_TYPES.GET_VIDEOS,
@@ -32,7 +32,14 @@ const VideoListing = () => {
       <div className="video-listing__container grid">
         {getFilterByCategoryItem(state.videos, state.filter.category).map(
           (videoItem) => {
-            return <Thumbnail key={videoItem.id} {...videoItem} />;
+            return (
+              <Thumbnail
+                key={videoItem.id}
+                video={videoItem}
+                selectedId={selectedId}
+                setSelectedId={setSelectedId}
+              />
+            );
           }
         )}
       </div>
