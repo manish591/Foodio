@@ -10,6 +10,7 @@ import {
   useScrollToTop,
 } from "../../hooks";
 import { PlaylistModal } from "../playlist/PlaylistModal";
+import { ACTION_TYPES } from "../../reducer";
 
 const VideoPage = () => {
   const { state, stateDispatch } = useStateContext();
@@ -25,6 +26,7 @@ const VideoPage = () => {
 
   const { videoId } = useParams();
   const video = state.videos.find((item) => item._id === videoId);
+  const { author, title, views } = video;
 
   useScrollToTop();
 
@@ -38,6 +40,10 @@ const VideoPage = () => {
             width="100%"
             height="480px"
             onStart={() => {
+              stateDispatch({
+                type: ACTION_TYPES.UPDATE_VIEWS,
+                payload: { video },
+              });
               addToHistory({ video });
             }}
           />
@@ -54,15 +60,12 @@ const VideoPage = () => {
                 <p>SK</p>
               </div>
               <div>
-                <h3>Manish Devrani</h3>
+                <h3>{author}</h3>
                 <p>255k Subscriber</p>
               </div>
             </section>
             <section>
-              <h1 className="video-page__title">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto,
-                veritatis?
-              </h1>
+              <h1 className="video-page__title">{title}</h1>
             </section>
             <section>
               <p className="video-page__content">
@@ -136,17 +139,14 @@ const VideoPage = () => {
                 className="flex"
                 style={{
                   alignItems: "center",
-                  opacity: "0.6",
-                  alignItems: "center",
-                  gap: "0.2rem",
                 }}
               >
                 <span className="material-icons-outlined">visibility</span>
-                <p style={{ whiteSpace: "nowrap" }}>6856 Views</p>
+                <p style={{ whiteSpace: "nowrap" }}>{views} Views</p>
               </div>
               <div
                 className="flex"
-                style={{ alignItems: "center", opacity: "0.6", opacity: "0.6" }}
+                style={{ alignItems: "center", opacity: "0.6" }}
               >
                 <span className="material-icons-outlined">thumb_up</span>
                 <p style={{ whiteSpace: "nowrap" }}>1016 Likes</p>
