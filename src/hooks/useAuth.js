@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useAuthContext } from "./";
+import { useAuthContext, useStateContext } from "./";
 import { useNavigate } from "react-router-dom";
 
 const useAuth = () => {
@@ -11,6 +11,8 @@ const useAuth = () => {
     setMyToken,
     setCurrentUser,
   } = useAuthContext();
+
+  const { stateDispatch } = useStateContext();
 
   const navigate = useNavigate();
 
