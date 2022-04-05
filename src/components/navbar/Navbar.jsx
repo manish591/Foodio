@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearchVideos = (e) => {
+    e.preventDefault();
+    navigate(`/explore/search?query=${searchQuery}`);
+  };
+
   return (
     <div className="navbar">
       <section className="navbar__wrapper flex">
@@ -23,13 +31,23 @@ const Navbar = () => {
               <div className="navbar__icon navbar-icon--search">
                 <span className="material-icons-outlined">search</span>
               </div>
-              <div className="navbar__input-field">
+              <form
+                className="navbar__input-field"
+                onSubmit={handleSearchVideos}
+              >
                 <input
                   type="text"
                   className="navbar__input"
                   placeholder="Search food here..."
+                  name="search"
+                  id="search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                 />
-              </div>
+                <label htmlFor="search" className="sr-only">
+                  search
+                </label>
+              </form>
               <div className="navbar__icon navbar-icon--search">
                 <span
                   className="material-icons-outlined"

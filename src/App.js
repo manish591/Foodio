@@ -13,6 +13,7 @@ import {
   Home,
   VideoPage,
   UserProfile,
+  SearchResults,
 } from "./pages";
 
 import { ProtectedRoute } from "./components";
@@ -44,6 +45,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="/explore" element={<Main />}>
           <Route index element={<VideoListing />} />
+          <Route path="search" element={<SearchResults />} />
           <Route path="watch/:videoId" element={<VideoPage />} />
           <Route
             path="liked"
