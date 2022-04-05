@@ -47,14 +47,16 @@ const MobileBottomSidebar = () => {
             </section>
           </li>
           <li className="mb-sidebar__item">
-            <section className="mb-sidebar__item-wrapper flex">
-              <div className="mb__item-icon">
-                <span className="material-icons-outlined">person</span>
-              </div>
-              <div className="mb-item-name">
-                <p>Profile</p>
-              </div>
-            </section>
+            <Link to="/explore/profile">
+              <section className="mb-sidebar__item-wrapper flex">
+                <div className="mb__item-icon">
+                  <span className="material-icons-outlined">person</span>
+                </div>
+                <div className="mb-item-name">
+                  <p>Profile</p>
+                </div>
+              </section>
+            </Link>
           </li>
         </ul>
       </section>

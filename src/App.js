@@ -10,6 +10,7 @@ import {
   Playlist,
   Home,
   VideoPage,
+  UserProfile,
 } from "./pages";
 
 import { ProtectedRoute } from "./components";
@@ -62,6 +63,14 @@ const App = () => {
             element={
               <ProtectedRoute>
                 <WatchLater />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="profile"
+            element={
+              <ProtectedRoute>
+                <UserProfile />
               </ProtectedRoute>
             }
           />

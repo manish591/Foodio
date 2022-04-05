@@ -45,6 +45,6 @@
   font-size: 1.1rem;
 }
 
-:target {
+.mt-sidebar:target {
   display: grid;
 }

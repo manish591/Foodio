@@ -1,6 +1,8 @@
 import React from "react";
 import "./Navbar.css";
 
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <div className="navbar">
@@ -56,9 +58,11 @@ const Navbar = () => {
             </div>
           </li>
           <li className="navbar__item navbar__item--profile">
-            <div className="navbar__icon">
-              <span className="material-icons-outlined">person</span>
-            </div>
+            <Link to="/explore/profile">
+              <div className="navbar__icon">
+                <span className="material-icons-outlined">person</span>
+              </div>
+            </Link>
           </li>
         </ul>
       </section>
