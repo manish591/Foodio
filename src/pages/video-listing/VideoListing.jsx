@@ -5,10 +5,12 @@ import { useStateContext, useScrollToTop } from "../../hooks";
 import { ACTION_TYPES } from "../../reducer";
 import { getFilterByCategoryItem } from "../../utilis";
 import axios from "axios";
+import { useAuthContext } from "../../hooks";
 
 const VideoListing = () => {
   const { state, stateDispatch } = useStateContext();
   const [selectedId, setSelectedId] = useState("");
+  const { isUserLogedIn } = useAuthContext();
 
   useScrollToTop();
 
@@ -26,7 +28,7 @@ const VideoListing = () => {
         console.error(err);
       }
     })();
-  }, []);
+  }, [isUserLogedIn]);
 
   return (
     <div className="video-listing">

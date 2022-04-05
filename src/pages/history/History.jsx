@@ -9,6 +9,8 @@ import {
 } from "../../hooks";
 import axios from "axios";
 
+import toast from "react-hot-toast";
+
 const History = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [historyData, setHistoryData] = useState([]);
@@ -34,6 +36,7 @@ const History = () => {
       } catch (err) {
         console.error(err);
         setIsLoading(false);
+        toast.error("Couldn't get data! Try Again Later");
       }
     })();
   }, [history]);

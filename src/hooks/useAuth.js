@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useAuthContext, useStateContext } from "./";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const useAuth = () => {
   const {
@@ -27,9 +28,11 @@ const useAuth = () => {
         setMyToken(res.data.encodedToken);
         setCurrentUser(res.data.foundUser);
         navigate("/explore");
+        toast.success("Loged In Succesfully!");
       }
     } catch (err) {
       console.error(err);
+      toast.error("Something Went Wrong! Try Again Later");
     }
   };
 
@@ -51,9 +54,11 @@ const useAuth = () => {
         setMyToken(res.data.encodedToken);
         setCurrentUser(res.data.createdUser);
         navigate("/explore");
+        toast.success("Successfully Created Account");
       }
     } catch (err) {
       console.error(err);
+      toast.error("Something Went Wrong! Try Again Later");
     }
   };
 
@@ -63,6 +68,7 @@ const useAuth = () => {
     setMyToken("");
     stateDispatch({ type: "CLEAR_USER_DATA" });
     navigate("/explore");
+    toast("Logout Successfully!");
   };
 
   return { loginUser, signupUser, logoutUser };

@@ -101,25 +101,6 @@ const Sidebar = () => {
             </section>
           </li>
         </ul>
-        {myToken && (
-          <ul className="s-bottom__list s-bottom__list--logout">
-            <li className="s-bottom__items">
-              <section className="s-bottom__item-wrapper flex">
-                <div className="s-bottom__item-icon">
-                  <span className="material-icons-outlined size-30">
-                    logout
-                  </span>
-                </div>
-                <div
-                  className="s-bottom-item-name"
-                  onClick={() => logoutUser()}
-                >
-                  <p>Logout</p>
-                </div>
-              </section>
-            </li>
-          </ul>
-        )}
       </section>
     </div>
   );

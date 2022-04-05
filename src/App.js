@@ -19,6 +19,7 @@ import { ProtectedRoute } from "./components";
 
 import { Routes, Route } from "react-router-dom";
 import { useKeepAuth, useScrollToTop } from "./hooks";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   useKeepAuth();
@@ -26,6 +27,16 @@ const App = () => {
 
   return (
     <div className="App">
+      <Toaster
+        position="bottom-left"
+        toastOptions={{
+          duration: 5000,
+          style: {
+            background: "var(--text2)",
+            color: "var(--surface2)",
+          },
+        }}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />

@@ -53,7 +53,7 @@ const LikedVideos = () => {
             return (
               <Thumbnail
                 key={item._id}
-                {...item}
+                video={item}
                 selectedId={selectedId}
                 setSelectedId={setSelectedId}
               />
