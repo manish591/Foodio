@@ -1,0 +1,24 @@
+.not-found {
+  block-size: 100vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.not-found__wrapper {
+  margin-block-start: 10rem;
+}
+
+.not-found__title {
+  font-size: 8rem;
+  line-height: 1.1;
+}
+
+.not-found__desc {
+  font-size: var(--fs-800);
+  font-weight: 100;
+  color: var(--clr-danger);
+}
+
+.not-found__action-btn {
+  margin-block-start: 1.5rem;
+}

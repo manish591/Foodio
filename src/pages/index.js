@@ -11,3 +11,4 @@ export { VideoPage } from "./video-page/VideoPage";
 export { PlaylistModal } from "./playlist/PlaylistModal";
 export { PlaylistListing } from "./playlist/PlaylistListing";
 export { UserProfile } from "./user-profile/UserProfile";
+export { NotFound } from "./not-found/NotFound";

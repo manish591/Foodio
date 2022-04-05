@@ -1,6 +1,8 @@
 import "./App.css";
-import { Main, PlaylistListing } from "./pages";
 import {
+  Main,
+  NotFound,
+  PlaylistListing,
   VideoListing,
   Login,
   Signup,
@@ -28,6 +30,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/explore" element={<Main />}>
           <Route index element={<VideoListing />} />
           <Route path="watch/:videoId" element={<VideoPage />} />
