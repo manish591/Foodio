@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./History.css";
 import { Thumbnail } from "../../components";
-import { useStateContext } from "../../hooks";
-import { useAuthContext } from "../../hooks";
-import { useAppServices } from "../../hooks";
+import {
+  useScrollToTop,
+  useStateContext,
+  useAuthContext,
+  useAppServices,
+} from "../../hooks";
 import axios from "axios";
+
+import toast from "react-hot-toast";
 
 const History = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,9 +36,12 @@ const History = () => {
       } catch (err) {
         console.error(err);
         setIsLoading(false);
+        toast.error("Couldn't get data! Try Again Later");
       }
     })();
   }, [history]);
+
+  useScrollToTop();
 
   return (
     <div className="history">

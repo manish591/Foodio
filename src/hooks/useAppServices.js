@@ -2,6 +2,7 @@ import axios from "axios";
 import { useAuthContext } from "./useAuthContext";
 import { useStateContext } from "./useStateContext";
 import { ACTION_TYPES } from "../reducer";
+import toast from "react-hot-toast";
 
 const useAppServices = () => {
   const { myToken } = useAuthContext();
@@ -29,9 +30,11 @@ const useAppServices = () => {
           type: ACTION_TYPES.GET_LIKED_VIDEOS,
           payload: { likes: res.data.likes },
         });
+        toast("Video Added To Favorites");
       }
     } catch (err) {
       console.log(err);
+      toast.error("Unable To Add Video To Favorites");
     }
   };
 
@@ -47,13 +50,19 @@ const useAppServices = () => {
           type: ACTION_TYPES.GET_LIKED_VIDEOS,
           payload: { likes: res.data.likes },
         });
+        toast("Video Removed From Favorites");
       }
     } catch (err) {
       console.error(err);
+      toast.error("Unable To Remove Video From Favorites! Try Again Later");
     }
   };
 
   const addToWatchLater = async ({ video }) => {
+    if (state.library.watchLater.some((item) => item._id === video._id)) {
+      toast.error("Already Added To Your Watchlist");
+      return;
+    }
     try {
       const res = await axios.post(
         "/api/user/watchlater",
@@ -71,9 +80,11 @@ const useAppServices = () => {
           type: ACTION_TYPES.GET_WATCH_LATER_VIDEOS,
           payload: { watched: res.data.watchlater },
         });
+        toast("Video Added To Your Watchlist");
       }
     } catch (err) {
       console.error(err);
+      toast.error("Unable To Add To Your Watchlist! Try Again Later");
     }
   };
 
@@ -89,13 +100,18 @@ const useAppServices = () => {
           type: ACTION_TYPES.GET_WATCH_LATER_VIDEOS,
           payload: { watched: res.data.watchlater },
         });
+        toast("Video Removed From Your Watchlist");
       }
     } catch (err) {
       console.error(err);
+      toast.error("Unable To Remove From Watchlist! Try Again Later");
     }
   };
 
   const addToHistory = async ({ video }) => {
+    if (state.library.history.some((item) => item._id === video._id)) {
+      return;
+    }
     try {
       const res = await axios.post(
         "/api/user/history",
@@ -131,9 +147,11 @@ const useAppServices = () => {
           type: ACTION_TYPES.GET_HISTORY_VIDEOS,
           payload: { history: res.data.history },
         });
+        toast("Successfully Removed From The History");
       }
     } catch (err) {
       console.log(err);
+      toast.error("Unable To Remove From History! Try Again Later");
     }
   };
 
@@ -149,9 +167,11 @@ const useAppServices = () => {
           type: ACTION_TYPES.GET_HISTORY_VIDEOS,
           payload: { history: res.data.history },
         });
+        toast("Your History Cleared");
       }
     } catch (err) {
       console.log(err);
+      toast.error("Unable To Clear History! Try Again Later");
     }
   };
 
@@ -168,15 +188,16 @@ const useAppServices = () => {
           },
         }
       );
-      console.log(res.data);
       if (res.status === 201) {
         stateDispatch({
           type: ACTION_TYPES.GET_PLAYLIST_DATA,
           payload: { myPlaylist: res.data.playlists },
         });
+        toast(`Created Playlist "${title}"`);
       }
     } catch (err) {
       console.error(err);
+      toast.error(`Unable To Create Playlist "${title}"! Try Again Later`);
     }
   };
 
@@ -192,9 +213,11 @@ const useAppServices = () => {
           type: ACTION_TYPES.GET_PLAYLIST_DATA,
           payload: { myPlaylist: res.data.playlists },
         });
+        toast("Playlist Successfully Deleted");
       }
     } catch (err) {
       console.error(err);
+      toast.error("Unable To Delete Playlist! Try Again Later");
     }
   };
 
@@ -222,9 +245,11 @@ const useAppServices = () => {
           type: ACTION_TYPES.GET_PLAYLIST_DATA,
           payload: { myPlaylist: arr },
         });
+        toast("Video Added To Playlist");
       }
     } catch (err) {
       console.log(err);
+      toast.error("Unable To Add Video To The Playlist! Try Again Later");
     }
   };
 
@@ -249,9 +274,11 @@ const useAppServices = () => {
           type: ACTION_TYPES.GET_PLAYLIST_DATA,
           payload: { myPlaylist: arr },
         });
+        toast("Video Deleted From The Playlist");
       }
     } catch (err) {
       console.log(err);
+      toast.error("Unable To Delete Video From The Playlist! Try Again Later");
     }
   };
 

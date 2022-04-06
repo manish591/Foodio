@@ -1,6 +1,8 @@
 import "./App.css";
-import { Main, PlaylistListing } from "./pages";
 import {
+  Main,
+  NotFound,
+  PlaylistListing,
   VideoListing,
   Login,
   Signup,
@@ -10,22 +12,36 @@ import {
   Playlist,
   Home,
   VideoPage,
+  UserProfile,
 } from "./pages";
 
 import { ProtectedRoute } from "./components";
 
 import { Routes, Route } from "react-router-dom";
-import { useKeepAuth } from "./hooks";
+import { useKeepAuth, useScrollToTop } from "./hooks";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   useKeepAuth();
+  useScrollToTop();
 
   return (
     <div className="App">
+      <Toaster
+        position="bottom-left"
+        toastOptions={{
+          duration: 5000,
+          style: {
+            background: "var(--text2)",
+            color: "var(--surface2)",
+          },
+        }}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/explore" element={<Main />}>
           <Route index element={<VideoListing />} />
           <Route path="watch/:videoId" element={<VideoPage />} />
@@ -62,6 +78,14 @@ const App = () => {
             element={
               <ProtectedRoute>
                 <WatchLater />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="profile"
+            element={
+              <ProtectedRoute>
+                <UserProfile />
               </ProtectedRoute>
             }
           />

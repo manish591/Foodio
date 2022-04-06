@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./VideoListing.css";
 import { Chips, Thumbnail } from "../../components";
-import { useStateContext } from "../../hooks";
+import { useStateContext, useScrollToTop } from "../../hooks";
 import { ACTION_TYPES } from "../../reducer";
 import { getFilterByCategoryItem } from "../../utilis";
 import axios from "axios";
+import { useAuthContext } from "../../hooks";
 
 const VideoListing = () => {
   const { state, stateDispatch } = useStateContext();
   const [selectedId, setSelectedId] = useState("");
+  const { isUserLogedIn } = useAuthContext();
+
+  useScrollToTop();
 
   useEffect(() => {
     (async () => {
@@ -24,7 +28,7 @@ const VideoListing = () => {
         console.error(err);
       }
     })();
-  }, []);
+  }, [isUserLogedIn]);
 
   return (
     <div className="video-listing">
