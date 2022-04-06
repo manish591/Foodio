@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useAuthContext } from "./";
+import { useAuthContext, useStateContext } from "./";
 import { useNavigate } from "react-router-dom";
 
 const useAuth = () => {
@@ -11,6 +11,8 @@ const useAuth = () => {
     setMyToken,
     setCurrentUser,
   } = useAuthContext();
+
+  const { stateDispatch } = useStateContext();
 
   const navigate = useNavigate();
 
@@ -55,7 +57,15 @@ const useAuth = () => {
     }
   };
 
-  return { loginUser, signupUser };
+  const logoutUser = () => {
+    setIsUserLogedIn(false);
+    setCurrentUser({});
+    setMyToken("");
+    stateDispatch({ type: "CLEAR_USER_DATA" });
+    navigate("/");
+  };
+
+  return { loginUser, signupUser, logoutUser };
 };
 
 export { useAuth };

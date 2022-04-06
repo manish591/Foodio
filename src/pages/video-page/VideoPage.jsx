@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./VideoPage.css";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { HorizontalCard, NotesCard } from "../../components";
 import { useStateContext, useAppServices, useAuthContext } from "../../hooks";
+import { PlaylistModal } from "../playlist/PlaylistModal";
 
 const VideoPage = () => {
   const { state, stateDispatch } = useStateContext();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     addToLikeVideos,
     removeFromLikedVideos,
@@ -62,10 +64,7 @@ const VideoPage = () => {
               </p>
             </section>
           </div>
-          <div
-            className="vd-desc__right vp-actions"
-            style={{ marginInlineStart: "auto" }}
-          >
+          <div className="vd-desc__right vp-actions">
             <section className="vp-actions__top flex">
               {isAlreadyInDatabaseVideo(state.library.likedVideos, videoId) ? (
                 <button
@@ -114,24 +113,35 @@ const VideoPage = () => {
                   <span className="material-icons-outlined">watch_later</span>
                 </button>
               )}
-              <button className="vp-actions__icon" title="Add To Playlist">
+              <button
+                className="vp-actions__icon"
+                title="Add To Playlist"
+                onClick={() => {
+                  setIsModalOpen(true);
+                }}
+              >
                 <span className="material-icons-outlined">playlist_add</span>
               </button>
             </section>
             <section className="vp-actions__bottom grid">
               <div
                 className="flex"
-                style={{ alignItems: "center", opacity: "0.6" }}
+                style={{
+                  alignItems: "center",
+                  opacity: "0.6",
+                  alignItems: "center",
+                  gap: "0.2rem",
+                }}
               >
                 <span className="material-icons-outlined">visibility</span>
-                <p>6856 Views</p>
+                <p style={{ whiteSpace: "nowrap" }}>6856 Views</p>
               </div>
               <div
                 className="flex"
                 style={{ alignItems: "center", opacity: "0.6", opacity: "0.6" }}
               >
                 <span className="material-icons-outlined">thumb_up</span>
-                <p>1016 Likes</p>
+                <p style={{ whiteSpace: "nowrap" }}>1016 Likes</p>
               </div>
               <div
                 className="flex"
@@ -140,14 +150,14 @@ const VideoPage = () => {
                 <span className="material-icons-outlined">
                   chat_bubble_outline
                 </span>
-                <p>75 Comments</p>
+                <p style={{ whiteSpace: "nowrap" }}>75 Comments</p>
               </div>
               <div
                 className="flex"
                 style={{ alignItems: "center", opacity: "0.6" }}
               >
                 <span className="material-icons-outlined">event</span>
-                <p>Dec 20, 2022</p>
+                <p style={{ whiteSpace: "nowrap" }}>Dec 20, 2022</p>
               </div>
             </section>
           </div>
@@ -160,6 +170,11 @@ const VideoPage = () => {
           </div>
         </section>
       </div>
+      <PlaylistModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        video={video}
+      />
     </div>
   );
 };

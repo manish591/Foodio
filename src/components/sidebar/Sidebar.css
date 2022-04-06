@@ -47,6 +47,7 @@
   padding-block: 0.8rem;
   transition: background-color 250ms ease-in-out;
   position: relative;
+  cursor: pointer;
 }
 
 .s-bottom__items:hover::before {

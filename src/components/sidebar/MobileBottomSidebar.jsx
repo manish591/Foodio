@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./MobileBottomSidebar.css";
 
 const MobileBottomSidebar = () => {
@@ -11,18 +12,18 @@ const MobileBottomSidebar = () => {
               <div className="mb__item-icon">
                 <span className="material-icons-outlined">home</span>
               </div>
-              <div className="mb-item-name">
+              <Link to="/explore" className="mb-item-name">
                 <p>Home</p>
-              </div>
+              </Link>
             </section>
           </li>
           <li className="mb-sidebar__item">
             <section className="mb-sidebar__item-wrapper flex">
               <div className="mb__item-icon">
-                <span className="material-icons-outlined">explore</span>
+                <span className="material-icons-round">star_border</span>
               </div>
               <div className="mb-item-name">
-                <p>Discover</p>
+                <p>Trending</p>
               </div>
             </section>
           </li>
@@ -38,20 +39,20 @@ const MobileBottomSidebar = () => {
           <li className="mb-sidebar__item">
             <section className="mb-sidebar__item-wrapper flex">
               <div className="mb__item-icon">
-                <span className="material-icons-round">star_border</span>
+                <span className="material-icons-outlined">playlist_play</span>
               </div>
-              <div className="mb-item-name">
-                <p>Trending</p>
-              </div>
+              <Link to="/explore/playlist" className="mb-item-name">
+                <p>Playlist</p>
+              </Link>
             </section>
           </li>
           <li className="mb-sidebar__item">
             <section className="mb-sidebar__item-wrapper flex">
               <div className="mb__item-icon">
-                <span className="material-icons-outlined">notifications</span>
+                <span className="material-icons-outlined">person</span>
               </div>
               <div className="mb-item-name">
-                <p>Activity</p>
+                <p>Profile</p>
               </div>
             </section>
           </li>

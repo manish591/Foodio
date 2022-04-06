@@ -6,6 +6,7 @@
   block-size: 100vh;
   display: grid;
   grid-template-columns: 70% 1fr;
+  z-index: 15;
   display: none;
 }
 
@@ -21,6 +22,11 @@
   gap: 2rem;
 }
 
+.mt-sidebar__bottom {
+  padding-block: 1.1rem;
+  padding-inline: 1.5rem;
+}
+
 .mt-sidebar__icon {
   display: flex;
   align-items: center;
@@ -33,4 +39,12 @@
 .mt-sidebar__logo {
   font-family: "Pacifico", cursive;
   font-size: 1.8rem;
+}
+
+.mt-sidebar-btm__list {
+  font-size: 1.1rem;
+}
+
+:target {
+  display: grid;
 }

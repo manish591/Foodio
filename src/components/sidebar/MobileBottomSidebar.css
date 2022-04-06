@@ -4,6 +4,7 @@
   inset-inline-start: 0;
   inline-size: 100%;
   background-color: var(--surface3);
+  z-index: 12;
 }
 
 .mb-sidebar__list {
@@ -19,7 +20,8 @@
   gap: 0;
 }
 
-.mb-item-name > p {
+.mb-item-name > p,
+.mb-item-name > a {
   font-size: 0.7rem;
   line-height: 1.1;
 }

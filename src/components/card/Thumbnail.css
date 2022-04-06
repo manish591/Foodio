@@ -53,3 +53,10 @@
   font-size: 0.8rem;
   opacity: 0.8;
 }
+
+@media (pointer: coarse) {
+  .th-content__actions {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

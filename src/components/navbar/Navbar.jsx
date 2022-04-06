@@ -7,9 +7,11 @@ const Navbar = () => {
       <section className="navbar__wrapper flex">
         <ul className="navbar__list navbar__list--logos flex">
           <li className="navbar__item navbar__menu--hide">
-            <div className="navbar__icon">
-              <span className="material-icons-outlined">notes</span>
-            </div>
+            <a href="#mt-sidebar">
+              <div className="navbar__icon">
+                <span className="material-icons-outlined">notes</span>
+              </div>
+            </a>
           </li>
           <li className="navbar__item navbar__item--logo">
             <h1 className="navbar__logo">foodio</h1>

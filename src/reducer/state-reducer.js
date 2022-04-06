@@ -38,6 +38,22 @@ const stateReducer = (state, action) => {
         library: { ...state.library, playlist: action.payload.myPlaylist },
       };
 
+    case ACTION_TYPES.CLEAR_USER_DATA:
+      return {
+        ...state,
+        videos: [],
+        categoryData: [],
+        filter: {
+          category: "All",
+        },
+        library: {
+          playlist: [],
+          watchLater: [],
+          history: [],
+          likedVideos: [],
+        },
+      };
+
     default:
       return { ...state };
   }

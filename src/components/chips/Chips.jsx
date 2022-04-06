@@ -3,10 +3,12 @@ import React, { useState, useEffect } from "react";
 import { ACTION_TYPES } from "../../reducer/state-constant";
 import { useStateContext } from "../../hooks";
 import "./Chips.css";
+import { useLocation } from "react-router-dom";
 
 const Chips = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { state, stateDispatch } = useStateContext();
+  const loaction = useLocation();
 
   useEffect(() => {
     (async () => {
@@ -18,6 +20,12 @@ const Chips = () => {
             payload: { categories: res.data.categories },
           });
           setIsLoading(false);
+        }
+        if (loaction.state) {
+          stateDispatch({
+            type: ACTION_TYPES.FILTER_BY_CATEGORY,
+            payload: loaction.state,
+          });
         }
       } catch (err) {
         console.error(err);
