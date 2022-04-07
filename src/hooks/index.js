@@ -4,4 +4,3 @@ export { useKeepAuth } from "./useKeepAuth";
 export { useStateContext } from "./useStateContext";
 export { useAppServices } from "./useAppServices";
 export { useScrollToTop } from "./useScrollToTop";
-export { useInitializeData } from "./useInitializeData";

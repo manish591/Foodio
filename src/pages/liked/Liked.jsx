@@ -23,15 +23,11 @@ const LikedVideos = () => {
           },
         });
         if (res.status === 200) {
-          stateDispatch({
-            type: ACTION_TYPES.GET_LIKED_VIDEOS,
-            payload: { likes: res.data.likes },
-          });
           setLikedVideoData(res.data.likes);
           setIsLoading(false);
         }
       } catch (err) {
-        console.log(err);
+        console.log("getLikedHandler : Error in getting data", err);
         setIsLoading(false);
       }
     })();

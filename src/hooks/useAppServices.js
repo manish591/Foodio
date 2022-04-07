@@ -33,7 +33,7 @@ const useAppServices = () => {
         toast("Video Added To Favorites");
       }
     } catch (err) {
-      console.log(err);
+      console.log("addLikeVideoHandler : Error in saving to liked videos", err);
       toast.error("Unable To Add Video To Favorites");
     }
   };
@@ -53,7 +53,10 @@ const useAppServices = () => {
         toast("Video Removed From Favorites");
       }
     } catch (err) {
-      console.error(err);
+      console.error(
+        "removeFromLikedHandler : Error in removing data from liked",
+        err
+      );
       toast.error("Unable To Remove Video From Favorites! Try Again Later");
     }
   };
@@ -83,7 +86,10 @@ const useAppServices = () => {
         toast("Video Added To Your Watchlist");
       }
     } catch (err) {
-      console.error(err);
+      console.error(
+        "watchLaterHandler : Error in adding video to watch later",
+        err
+      );
       toast.error("Unable To Add To Your Watchlist! Try Again Later");
     }
   };
@@ -103,7 +109,10 @@ const useAppServices = () => {
         toast("Video Removed From Your Watchlist");
       }
     } catch (err) {
-      console.error(err);
+      console.error(
+        "removeFromWatchLaterHandler : Error in removing from watchlater",
+        err
+      );
       toast.error("Unable To Remove From Watchlist! Try Again Later");
     }
   };
@@ -131,7 +140,7 @@ const useAppServices = () => {
         });
       }
     } catch (err) {
-      console.log(err);
+      console.log("addHistoryHandler : Error in adding to the history", err);
     }
   };
 
@@ -150,7 +159,10 @@ const useAppServices = () => {
         toast("Successfully Removed From The History");
       }
     } catch (err) {
-      console.log(err);
+      console.log(
+        "removeFromHistoryHandler : Error in removing videos from the history",
+        err
+      );
       toast.error("Unable To Remove From History! Try Again Later");
     }
   };
@@ -170,7 +182,7 @@ const useAppServices = () => {
         toast("Your History Cleared");
       }
     } catch (err) {
-      console.log(err);
+      console.log("clearHistoryHandler : Error in clearing history", err);
       toast.error("Unable To Clear History! Try Again Later");
     }
   };
@@ -196,7 +208,7 @@ const useAppServices = () => {
         toast(`Created Playlist "${title}"`);
       }
     } catch (err) {
-      console.error(err);
+      console.error("createPlaylistHandler : Error in creating playlist", err);
       toast.error(`Unable To Create Playlist "${title}"! Try Again Later`);
     }
   };
@@ -216,7 +228,7 @@ const useAppServices = () => {
         toast("Playlist Successfully Deleted");
       }
     } catch (err) {
-      console.error(err);
+      console.error("deletePlaylistHandler : Error in deleting playlist", err);
       toast.error("Unable To Delete Playlist! Try Again Later");
     }
   };
@@ -248,7 +260,10 @@ const useAppServices = () => {
         toast("Video Added To Playlist");
       }
     } catch (err) {
-      console.log(err);
+      console.log(
+        "addToPlaylistHandler : Error in adding videos to playlist",
+        err
+      );
       toast.error("Unable To Add Video To The Playlist! Try Again Later");
     }
   };
@@ -277,7 +292,10 @@ const useAppServices = () => {
         toast("Video Deleted From The Playlist");
       }
     } catch (err) {
-      console.log(err);
+      console.log(
+        "deleteVideoFromPlaylistHandler : Error in deleting videos from playlist",
+        err
+      );
       toast.error("Unable To Delete Video From The Playlist! Try Again Later");
     }
   };
@@ -323,7 +341,7 @@ const useAppServices = () => {
         toast("Notes Successfully Added!");
       }
     } catch (err) {
-      console.error(err);
+      console.error("addNotesHandler : Error in adding notes", err);
       toast.error("Something Went Wrong! Try Again Later!");
     }
   };
@@ -343,7 +361,10 @@ const useAppServices = () => {
         toast("Notes Has Been Deleted From The Video.");
       }
     } catch (err) {
-      console.error(err);
+      console.error(
+        "deleteNotesHandler : Error in deleting notes handler",
+        err
+      );
       toast.error("Unable To Delete Note! Try Again Later");
     }
   };
@@ -369,7 +390,7 @@ const useAppServices = () => {
         toast("Notes Successfully Updated");
       }
     } catch (err) {
-      console.error(err);
+      console.error("editNotesHandler : Error in deleting notes", err);
       toast.error("Unable To Edit Now! Try Again Later");
     }
   };

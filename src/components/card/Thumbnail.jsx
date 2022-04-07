@@ -7,7 +7,7 @@ import { getInitials } from "../../utilis";
 
 const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
   const navigate = useNavigate();
-  const { _id, title, videoUrl, category, author = "Manish Devrani" } = video;
+  const { _id, title, videoUrl, category, author } = video;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -31,7 +31,7 @@ const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
             className="avatar avatar--large avatar--initial"
             onClick={() => navigate(`/explore/watch/${_id}`)}
           >
-            <p>{getInitials(author)}</p>
+            <p>{getInitials(video?.author)}</p>
           </div>
         </div>
         <div
@@ -39,7 +39,7 @@ const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
           onClick={() => navigate(`/explore/watch/${_id}`)}
         >
           <h3 className="thumbnail__title">{title}</h3>
-          <p className="thumbnail__author">{author}</p>
+          <p className="thumbnail__author">{video?.author}</p>
           <span className="thumbnail__counts">12M views - 2 days ago</span>
         </div>
         <div

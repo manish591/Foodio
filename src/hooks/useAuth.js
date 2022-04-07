@@ -31,7 +31,7 @@ const useAuth = () => {
         toast.success("Loged In Succesfully!");
       }
     } catch (err) {
-      console.error(err);
+      console.error("loginHandler : Error in login", errrr);
       toast.error("Something Went Wrong! Try Again Later");
     }
   };
@@ -57,7 +57,7 @@ const useAuth = () => {
         toast.success("Successfully Created Account");
       }
     } catch (err) {
-      console.error(err);
+      console.error("singupHandler : Error in signing up", err);
       toast.error("Something Went Wrong! Try Again Later");
     }
   };

@@ -31,7 +31,6 @@ const VideoPage = () => {
 
   const { videoId } = useParams();
   const video = state.videos.find((item) => item._id === videoId);
-  const { author, title, views } = video;
 
   const { isUserLogedIn, myToken } = useAuthContext();
 
@@ -47,14 +46,10 @@ const VideoPage = () => {
           },
         });
         if (res.status === 200) {
-          stateDispatch({
-            type: ACTION_TYPES.GET_NOTES,
-            payload: { myNotes: res.data.notes },
-          });
           setMyNotes(res.data.notes);
         }
       } catch (err) {
-        console.error(err);
+        console.error("getnoteshandler : Error in getting notes data", err);
       }
     })();
   }, [notes]);
@@ -86,12 +81,12 @@ const VideoPage = () => {
                 <p>SK</p>
               </div>
               <div>
-                <h3>{author}</h3>
+                <h3>{video?.author}</h3>
                 <p>255k Subscriber</p>
               </div>
             </section>
             <section>
-              <h1 className="video-page__title">{title}</h1>
+              <h1 className="video-page__title">{video?.title}</h1>
             </section>
             <section>
               <p className="video-page__content">
@@ -168,7 +163,7 @@ const VideoPage = () => {
                 }}
               >
                 <span className="material-icons-outlined">visibility</span>
-                <p style={{ whiteSpace: "nowrap" }}>{views} Views</p>
+                <p style={{ whiteSpace: "nowrap" }}>{video?.views} Views</p>
               </div>
               <div
                 className="flex"

@@ -22,13 +22,15 @@ const Playlist = () => {
             authorization: myToken,
           },
         });
-        console.log(res);
         if (res.status === 200) {
           setMyPlaylistData(res.data.playlists);
           setIsLoading(false);
         }
       } catch (err) {
-        console.error(err);
+        console.error(
+          "getPlaylistHandler : Error in getting playlist data",
+          err
+        );
         setIsLoading(false);
       }
     })();
