@@ -10,6 +10,7 @@ export const videos = [
     videoUrl: "https://youtu.be/inVClSNYBQ4",
     category: "Paneer Recipe",
     author: "Chef Ranveer Brar",
+    views: 0,
   },
   {
     _id: "njAWJHGqsPs",
@@ -17,6 +18,7 @@ export const videos = [
     videoUrl: "https://youtu.be/njAWJHGqsPs",
     category: "Snacks",
     author: "Banglar Ranaghor",
+    views: 0,
   },
   {
     _id: "WV2GlYJY1TE",
@@ -24,6 +26,7 @@ export const videos = [
     videoUrl: "https://youtu.be/WV2GlYJY1TE",
     category: "Sweets",
     author: "Hebbars Kitchen",
+    views: 0,
   },
   {
     _id: "nRPmoioNisI",
@@ -31,6 +34,7 @@ export const videos = [
     videoUrl: "https://youtu.be/nRPmoioNisI",
     category: "Paneer Recipes",
     author: "Chef Ranveer Brar",
+    views: 0,
   },
   {
     _id: "glUEnS8J84Q",
@@ -38,6 +42,7 @@ export const videos = [
     videoUrl: "https://youtu.be/glUEnS8J84Q",
     category: "Egg Recipes",
     author: "Get Curried",
+    views: 0,
   },
   {
     _id: "zMZL_7HlcQc",
@@ -45,6 +50,7 @@ export const videos = [
     videoUrl: "https://youtu.be/zMZL_7HlcQc",
     category: "Sweets",
     author: "Your Food Lab",
+    views: 0,
   },
   {
     _id: "J75VQSxOtdo",
@@ -52,6 +58,7 @@ export const videos = [
     videoUrl: "https://youtu.be/J75VQSxOtdo",
     category: "South Indian",
     author: "Hebbars Kitchen",
+    views: 0,
   },
   {
     _id: "8Lp8qXu5mvo",
@@ -59,6 +66,7 @@ export const videos = [
     videoUrl: "https://youtu.be/8Lp8qXu5mvo",
     category: "Fast Food",
     author: "Rajshri Food",
+    views: 0,
   },
   {
     _id: "Nkndlln0j8c",
@@ -66,6 +74,7 @@ export const videos = [
     videoUrl: "https://youtu.be/Nkndlln0j8c",
     category: "Fast Food",
     author: "Cooking Shooking",
+    views: 0,
   },
   {
     _id: "nnp02lEYi0I",
@@ -73,6 +82,7 @@ export const videos = [
     videoUrl: "https://youtu.be/nnp02lEYi0I",
     category: "Snacks",
     author: "Chef Ranveer Brar",
+    views: 0,
   },
   {
     _id: "v4ZRuZgFrZA",
@@ -80,6 +90,7 @@ export const videos = [
     videoUrl: "https://youtu.be/v4ZRuZgFrZA",
     category: "Sweets",
     author: "Chef Ranveer Brar",
+    views: 0,
   },
   {
     _id: "nIoIzarlQ1k",
@@ -87,6 +98,7 @@ export const videos = [
     videoUrl: "https://youtu.be/nIoIzarlQ1k",
     category: "South Indian",
     author: "Hebbars Kitchen",
+    views: 0,
   },
   {
     _id: "WlxOy62n584",
@@ -94,6 +106,7 @@ export const videos = [
     videoUrl: "https://youtu.be/WlxOy62n584",
     category: "Drinks",
     author: "Hands Touch",
+    views: 0,
   },
   {
     _id: "wSeVF0YWLV4",
@@ -101,6 +114,7 @@ export const videos = [
     videoUrl: "https://youtu.be/wSeVF0YWLV4",
     category: "Paneer Recipe",
     author: "The Terrace Kitchen",
+    views: 0,
   },
 
   {
@@ -109,6 +123,7 @@ export const videos = [
     videoUrl: "https://youtu.be/j3pDXY9fqSo",
     category: "Parantha",
     author: "Chef Ranveer Brar",
+    views: 0,
   },
   {
     _id: "W6K9LD8SOjU",
@@ -116,6 +131,7 @@ export const videos = [
     videoUrl: "https://youtu.be/W6K9LD8SOjU",
     category: "Drinks",
     author: "Hebbars Kitchen",
+    views: 0,
   },
   {
     _id: "LvAh29JlquA",
@@ -123,6 +139,7 @@ export const videos = [
     videoUrl: "https://youtu.be/LvAh29JlquA",
     category: "Sweets",
     author: "Masala Kitchen",
+    views: 0,
   },
   {
     _id: "w_2eb9uaXns",
@@ -130,6 +147,7 @@ export const videos = [
     videoUrl: "https://youtu.be/w_2eb9uaXns",
     category: "Snacks",
     author: "Home Cooking Show",
+    views: 0,
   },
   {
     _id: "YsLX170tDzI",
@@ -137,6 +155,7 @@ export const videos = [
     videoUrl: "https://youtu.be/YsLX170tDzI",
     category: "Parantha",
     author: "Kabita's Kitchen",
+    views: 0,
   },
   {
     _id: "gNWW_46qJFA",
@@ -144,5 +163,6 @@ export const videos = [
     videoUrl: "https://youtu.be/gNWW_46qJFA",
     category: "Snacks",
     author: "Chef Ranveer Brar",
+    views: 0,
   },
 ];

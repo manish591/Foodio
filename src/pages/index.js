@@ -12,3 +12,4 @@ export { PlaylistModal } from "./playlist/PlaylistModal";
 export { PlaylistListing } from "./playlist/PlaylistListing";
 export { UserProfile } from "./user-profile/UserProfile";
 export { NotFound } from "./not-found/NotFound";
+export { SearchResults } from "./search-results/SearchResults";

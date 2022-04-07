@@ -38,6 +38,12 @@ const stateReducer = (state, action) => {
         library: { ...state.library, playlist: action.payload.myPlaylist },
       };
 
+    case ACTION_TYPES.GET_NOTES:
+      return {
+        ...state,
+        library: { ...state.library, notes: action.payload.myNotes },
+      };
+
     case ACTION_TYPES.CLEAR_USER_DATA:
       return {
         ...state,
@@ -51,6 +57,7 @@ const stateReducer = (state, action) => {
           watchLater: [],
           history: [],
           likedVideos: [],
+          notes: [],
         },
       };
 

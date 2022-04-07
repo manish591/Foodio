@@ -27,7 +27,10 @@ const PlaylistListing = () => {
           setIsLoading(false);
         }
       } catch (err) {
-        console.error(err);
+        console.error(
+          "getVideoFromPlaylistId : Error in getting data using playlist Id",
+          err
+        );
         setIsLoading(false);
       }
     })();

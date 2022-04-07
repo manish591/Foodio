@@ -6,6 +6,7 @@ const initialState = {
     watchLater: [],
     history: [],
     likedVideos: [],
+    notes: [],
   },
   filter: {
     category: "All",
@@ -21,6 +22,7 @@ const ACTION_TYPES = {
   GET_PLAYLIST_DATA: "GET_PLAYLIST_DATA",
   FILTER_BY_CATEGORY: "FILTER_BY_CATEGORY",
   CLEAR_USER_DATA: "CLEAR_USER_DATA",
+  GET_NOTES: "GET_NOTES",
 };
 
 export { ACTION_TYPES, initialState };

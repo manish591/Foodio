@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./VideoPage.css";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
@@ -6,14 +6,19 @@ import { HorizontalCard, NotesCard } from "../../components";
 import {
   useStateContext,
   useAppServices,
-  useAuthContext,
   useScrollToTop,
+  useAuthContext,
 } from "../../hooks";
 import { PlaylistModal } from "../playlist/PlaylistModal";
+import axios from "axios";
+import { ACTION_TYPES } from "../../reducer";
 
 const VideoPage = () => {
+  const [myNotes, setMyNotes] = useState([]);
   const { state, stateDispatch } = useStateContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { library } = state;
+  const { notes } = library;
   const {
     addToLikeVideos,
     removeFromLikedVideos,
@@ -21,12 +26,33 @@ const VideoPage = () => {
     addToWatchLater,
     removeFromWatchLater,
     addToHistory,
+    updateVideoViews,
   } = useAppServices();
 
   const { videoId } = useParams();
   const video = state.videos.find((item) => item._id === videoId);
 
+  const { isUserLogedIn, myToken } = useAuthContext();
+
   useScrollToTop();
+
+  useEffect(() => {
+    if (!isUserLogedIn) return;
+    (async () => {
+      try {
+        const res = await axios.get(`/api/user/notes`, {
+          headers: {
+            authorization: myToken,
+          },
+        });
+        if (res.status === 200) {
+          setMyNotes(res.data.notes);
+        }
+      } catch (err) {
+        console.error("getnoteshandler : Error in getting notes data", err);
+      }
+    })();
+  }, [notes]);
 
   return (
     <div className="video-page">
@@ -39,11 +65,12 @@ const VideoPage = () => {
             height="480px"
             onStart={() => {
               addToHistory({ video });
+              updateVideoViews({ video });
             }}
           />
         </div>
         <div className="video-page__notes">
-          <NotesCard />
+          <NotesCard videoId={videoId} myNotes={myNotes} />
         </div>
       </div>
       <div className="video-page__additionals grid">
@@ -54,15 +81,12 @@ const VideoPage = () => {
                 <p>SK</p>
               </div>
               <div>
-                <h3>Manish Devrani</h3>
+                <h3>{video?.author}</h3>
                 <p>255k Subscriber</p>
               </div>
             </section>
             <section>
-              <h1 className="video-page__title">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto,
-                veritatis?
-              </h1>
+              <h1 className="video-page__title">{video?.title}</h1>
             </section>
             <section>
               <p className="video-page__content">
@@ -136,17 +160,14 @@ const VideoPage = () => {
                 className="flex"
                 style={{
                   alignItems: "center",
-                  opacity: "0.6",
-                  alignItems: "center",
-                  gap: "0.2rem",
                 }}
               >
                 <span className="material-icons-outlined">visibility</span>
-                <p style={{ whiteSpace: "nowrap" }}>6856 Views</p>
+                <p style={{ whiteSpace: "nowrap" }}>{video?.views} Views</p>
               </div>
               <div
                 className="flex"
-                style={{ alignItems: "center", opacity: "0.6", opacity: "0.6" }}
+                style={{ alignItems: "center", opacity: "0.6" }}
               >
                 <span className="material-icons-outlined">thumb_up</span>
                 <p style={{ whiteSpace: "nowrap" }}>1016 Likes</p>

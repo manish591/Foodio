@@ -34,7 +34,7 @@ const History = () => {
           setIsLoading(false);
         }
       } catch (err) {
-        console.error(err);
+        console.error("gethistorydata : Error in getting data", err);
         setIsLoading(false);
         toast.error("Couldn't get data! Try Again Later");
       }

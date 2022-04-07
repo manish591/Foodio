@@ -29,7 +29,7 @@ const WatchLater = () => {
         }
       } catch (err) {
         setIsLoading(false);
-        console.error(err);
+        console.error("getWatchLaterHandler : Error in getting Data", err);
       }
     })();
   }, [watchLater]);

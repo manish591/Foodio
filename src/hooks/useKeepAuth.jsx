@@ -49,10 +49,10 @@ const useKeepAuth = () => {
           });
         }
       } catch (err) {
-        console.error(err);
+        console.error("getVideosHandler : Error in getting videos up", err);
       }
     })();
-  }, []);
+  }, [isUserLogedIn]);
 };
 
 export { useKeepAuth };

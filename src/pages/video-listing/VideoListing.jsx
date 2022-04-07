@@ -8,27 +8,10 @@ import axios from "axios";
 import { useAuthContext } from "../../hooks";
 
 const VideoListing = () => {
-  const { state, stateDispatch } = useStateContext();
+  const { state } = useStateContext();
   const [selectedId, setSelectedId] = useState("");
-  const { isUserLogedIn } = useAuthContext();
 
   useScrollToTop();
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await axios.get("/api/videos");
-        if (res.status === 200) {
-          stateDispatch({
-            type: ACTION_TYPES.GET_VIDEOS,
-            payload: { videos: res.data.videos },
-          });
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    })();
-  }, [isUserLogedIn]);
 
   return (
     <div className="video-listing">
