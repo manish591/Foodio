@@ -302,6 +302,32 @@ const useAppServices = () => {
     return playlistToCheck.videos.find((item) => item._id === _id);
   };
 
+  const addNotesToVideo = async ({ note }) => {
+    try {
+      const res = await axios.post(
+        "/api/user/notes",
+        {
+          note,
+        },
+        {
+          headers: {
+            authorization: myToken,
+          },
+        }
+      );
+      if (res.status === 201) {
+        stateDispatch({
+          type: ACTION_TYPES.GET_NOTES,
+          payload: { myNotes: res.data.notes },
+        });
+        toast("Notes Successfully Added!");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Something Went Wrong! Try Again Later!");
+    }
+  };
+
   return {
     addToLikeVideos,
     removeFromLikedVideos,
@@ -317,6 +343,7 @@ const useAppServices = () => {
     isVideoInPlaylist,
     deleteVideoFromPlaylist,
     updateVideoViews,
+    addNotesToVideo,
   };
 };
 
