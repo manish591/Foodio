@@ -3,7 +3,7 @@ import "./NotesCard.css";
 import { SingleNote } from "./SingleNote";
 import { useAppServices, useStateContext, useAuthContext } from "../../hooks";
 
-const NotesCard = ({ videoId }) => {
+const NotesCard = ({ videoId, myNotes }) => {
   const [notesData, setNotesData] = useState({
     title: "",
     body: "",
@@ -20,9 +20,7 @@ const NotesCard = ({ videoId }) => {
     setNotesData({ title: "", body: "", videoId });
   };
 
-  const notesArr = state.library.notes.filter(
-    (item) => item.videoId === videoId
-  );
+  const notesArr = myNotes.filter((item) => item.videoId === videoId);
 
   return (
     <div className="notes-card">
@@ -83,7 +81,7 @@ const NotesCard = ({ videoId }) => {
           <>
             <h1>Your Notes</h1>
             {notesArr.map((item) => {
-              return <SingleNote {...item} />;
+              return <SingleNote {...item} key={item._id} />;
             })}
           </>
         )}

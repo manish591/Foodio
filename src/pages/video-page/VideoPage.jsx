@@ -14,8 +14,11 @@ import axios from "axios";
 import { ACTION_TYPES } from "../../reducer";
 
 const VideoPage = () => {
+  const [myNotes, setMyNotes] = useState([]);
   const { state, stateDispatch } = useStateContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { library } = state;
+  const { notes } = library;
   const {
     addToLikeVideos,
     removeFromLikedVideos,
@@ -48,12 +51,13 @@ const VideoPage = () => {
             type: ACTION_TYPES.GET_NOTES,
             payload: { myNotes: res.data.notes },
           });
+          setMyNotes(res.data.notes);
         }
       } catch (err) {
         console.error(err);
       }
     })();
-  }, []);
+  }, [notes]);
 
   return (
     <div className="video-page">
@@ -71,7 +75,7 @@ const VideoPage = () => {
           />
         </div>
         <div className="video-page__notes">
-          <NotesCard videoId={videoId} />
+          <NotesCard videoId={videoId} myNotes={myNotes} />
         </div>
       </div>
       <div className="video-page__additionals grid">

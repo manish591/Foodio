@@ -328,6 +328,26 @@ const useAppServices = () => {
     }
   };
 
+  const deleteNoteFromVideo = async ({ noteId }) => {
+    try {
+      const res = await axios.delete(`/api/user/notes/${noteId}`, {
+        headers: {
+          authorization: myToken,
+        },
+      });
+      if (res.status === 200) {
+        stateDispatch({
+          type: ACTION_TYPES.GET_NOTES,
+          payload: { myNotes: res.data.notes },
+        });
+        toast("Notes Has Been Deleted From The Video.");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Unable To Delete Note! Try Again Later");
+    }
+  };
+
   return {
     addToLikeVideos,
     removeFromLikedVideos,
@@ -344,6 +364,7 @@ const useAppServices = () => {
     deleteVideoFromPlaylist,
     updateVideoViews,
     addNotesToVideo,
+    deleteNoteFromVideo,
   };
 };
 
