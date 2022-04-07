@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./VideoPage.css";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { HorizontalCard, NotesCard } from "../../components";
-import { useStateContext, useAppServices, useScrollToTop } from "../../hooks";
+import {
+  useStateContext,
+  useAppServices,
+  useScrollToTop,
+  useAuthContext,
+} from "../../hooks";
 import { PlaylistModal } from "../playlist/PlaylistModal";
+import axios from "axios";
+import { ACTION_TYPES } from "../../reducer";
 
 const VideoPage = () => {
-  const { state } = useStateContext();
+  const { state, stateDispatch } = useStateContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     addToLikeVideos,
@@ -23,7 +30,30 @@ const VideoPage = () => {
   const video = state.videos.find((item) => item._id === videoId);
   const { author, title, views } = video;
 
+  const { isUserLogedIn, myToken } = useAuthContext();
+
   useScrollToTop();
+
+  useEffect(() => {
+    if (!isUserLogedIn) return;
+    (async () => {
+      try {
+        const res = await axios.get(`/api/user/notes`, {
+          headers: {
+            authorization: myToken,
+          },
+        });
+        if (res.status === 200) {
+          stateDispatch({
+            type: ACTION_TYPES.GET_NOTES,
+            payload: { myNotes: res.data.notes },
+          });
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    })();
+  }, []);
 
   return (
     <div className="video-page">
@@ -41,7 +71,7 @@ const VideoPage = () => {
           />
         </div>
         <div className="video-page__notes">
-          <NotesCard />
+          <NotesCard videoId={videoId} />
         </div>
       </div>
       <div className="video-page__additionals grid">

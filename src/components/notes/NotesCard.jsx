@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./NotesCard.css";
 import { SingleNote } from "./SingleNote";
 
-const NotesCard = () => {
+const NotesCard = ({ videoId }) => {
   return (
     <div className="notes-card">
       <h3 className="notes-card__title">Add Notes</h3>
@@ -29,9 +29,7 @@ const NotesCard = () => {
         </section>
       </form>
       <section className="notes-card__your-cards your-notes">
-        <h3>Your Notes</h3>
-        <SingleNote />
-        <SingleNote />
+        {/* { isUserLogedIn ?  }  <h3>Your Notes</h3> */}
       </section>
     </div>
   );

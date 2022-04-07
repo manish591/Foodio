@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useStateContext } from "./useStateContext";
 import { useAuthContext } from "./useAuthContext";
+import axios from "axios";
+import { ACTION_TYPES } from "../reducer";
 
 const useInitializeData = () => {
   const { state, stateDispatch } = useStateContext();
