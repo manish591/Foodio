@@ -348,6 +348,32 @@ const useAppServices = () => {
     }
   };
 
+  const editNote = async ({ noteId, note }) => {
+    try {
+      const res = await axios.post(
+        `/api/user/notes/${noteId}`,
+        {
+          note,
+        },
+        {
+          headers: {
+            authorization: myToken,
+          },
+        }
+      );
+      if (res.status === 201) {
+        stateDispatch({
+          type: ACTION_TYPES.GET_NOTES,
+          payload: { myNotes: res.data.notes },
+        });
+        toast("Notes Successfully Updated");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Unable To Edit Now! Try Again Later");
+    }
+  };
+
   return {
     addToLikeVideos,
     removeFromLikedVideos,
@@ -365,6 +391,7 @@ const useAppServices = () => {
     updateVideoViews,
     addNotesToVideo,
     deleteNoteFromVideo,
+    editNote,
   };
 };
 

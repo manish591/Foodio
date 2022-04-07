@@ -1,7 +1,15 @@
 import React from "react";
 import { useAppServices } from "../../hooks";
 
-const SingleNote = ({ videoId, title, body, _id }) => {
+const SingleNote = ({
+  videoId,
+  title,
+  body,
+  _id,
+  setNotesData,
+  setIsNoteEditing,
+  setItemToEditID,
+}) => {
   const { deleteNoteFromVideo } = useAppServices();
 
   return (
@@ -10,7 +18,16 @@ const SingleNote = ({ videoId, title, body, _id }) => {
       <p className="single-note__desc">{body}</p>
       <div className="single-note__actions flex">
         <button className="single-note__edit">
-          <span className="material-icons-outlined">edit</span>
+          <span
+            className="material-icons-outlined"
+            onClick={() => {
+              setItemToEditID(_id);
+              setIsNoteEditing(true);
+              setNotesData({ title, body, videoId });
+            }}
+          >
+            edit
+          </span>
         </button>
         <button className="single-note__delete">
           <span

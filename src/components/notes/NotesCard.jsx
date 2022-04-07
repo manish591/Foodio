@@ -9,8 +9,10 @@ const NotesCard = ({ videoId, myNotes }) => {
     body: "",
     videoId,
   });
+  const [isNoteEditing, setIsNoteEditing] = useState(false);
+  const [itemToEditID, setItemToEditID] = useState("");
 
-  const { addNotesToVideo } = useAppServices();
+  const { addNotesToVideo, editNote } = useAppServices();
   const { state } = useStateContext();
   const { isUserLogedIn } = useAuthContext();
 
@@ -60,7 +62,21 @@ const NotesCard = ({ videoId, myNotes }) => {
           ></textarea>
         </section>
         <section className="notes-form__actions flex">
-          <button className="btn btn--contained-primary">Add</button>
+          {isNoteEditing ? (
+            <button
+              className="btn btn--contained-primary"
+              type="button"
+              onClick={() => {
+                editNote({ noteId: itemToEditID, note: notesData });
+                setNotesData({ title: "", body: "", videoId });
+                setIsNoteEditing(false);
+              }}
+            >
+              Update
+            </button>
+          ) : (
+            <button className="btn btn--contained-primary">Add</button>
+          )}
           <button
             className="btn btn--outlined-secondary"
             type="button"
@@ -81,7 +97,16 @@ const NotesCard = ({ videoId, myNotes }) => {
           <>
             <h1>Your Notes</h1>
             {notesArr.map((item) => {
-              return <SingleNote {...item} key={item._id} />;
+              return (
+                <SingleNote
+                  {...item}
+                  key={item._id}
+                  setNotesData={setNotesData}
+                  notesData={notesData}
+                  setItemToEditID={setItemToEditID}
+                  setIsNoteEditing={setIsNoteEditing}
+                />
+              );
             })}
           </>
         )}
