@@ -10,3 +10,4 @@ export { ProtectedRoute } from "./ProtectedRoute";
 export { HorizontalCard } from "./card/HorizontalCard";
 export { NotesCard } from "./notes/NotesCard";
 export { CategoryCard } from "./card/CategoryCard";
+export { RedirectRoute } from "./RedirectRoute";

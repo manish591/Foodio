@@ -16,9 +16,9 @@ import {
   SearchResults,
 } from "./pages";
 
-import { ProtectedRoute } from "./components";
+import { ProtectedRoute, RedirectRoute } from "./components";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useKeepAuth, useScrollToTop } from "./hooks";
 import { Toaster } from "react-hot-toast";
 
@@ -39,7 +39,14 @@ const App = () => {
         }}
       />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <RedirectRoute>
+              <Home />
+            </RedirectRoute>
+          }
+        />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />

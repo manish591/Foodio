@@ -31,7 +31,7 @@ const useAuth = () => {
         toast.success("Loged In Succesfully!");
       }
     } catch (err) {
-      console.error("loginHandler : Error in login", errrr);
+      console.error("loginHandler : Error in login", err);
       toast.error("Something Went Wrong! Try Again Later");
     }
   };
