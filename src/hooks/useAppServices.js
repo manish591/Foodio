@@ -282,6 +282,19 @@ const useAppServices = () => {
     }
   };
 
+  const updateVideoViews = ({ video }) => {
+    const updatedVideoList = state.videos.map((item) => {
+      if (item._id === video._id) {
+        return { ...item, views: item.views + 1 };
+      }
+      return item;
+    });
+    stateDispatch({
+      type: ACTION_TYPES.GET_VIDEOS,
+      payload: { videos: updatedVideoList },
+    });
+  };
+
   const isVideoInPlaylist = (_id, playlistId) => {
     const playlistToCheck = state.library.playlist.find(
       (item) => item._id === playlistId
@@ -303,6 +316,7 @@ const useAppServices = () => {
     addVideoToPlaylist,
     isVideoInPlaylist,
     deleteVideoFromPlaylist,
+    updateVideoViews,
   };
 };
 

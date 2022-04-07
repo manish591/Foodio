@@ -19,12 +19,13 @@ import {
 import { ProtectedRoute } from "./components";
 
 import { Routes, Route } from "react-router-dom";
-import { useKeepAuth, useScrollToTop } from "./hooks";
+import { useKeepAuth, useScrollToTop, useInitializeData } from "./hooks";
 import { Toaster } from "react-hot-toast";
 
 const App = () => {
   useKeepAuth();
   useScrollToTop();
+  useInitializeData();
 
   return (
     <div className="App">

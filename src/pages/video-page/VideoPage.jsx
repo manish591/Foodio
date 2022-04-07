@@ -3,17 +3,11 @@ import "./VideoPage.css";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { HorizontalCard, NotesCard } from "../../components";
-import {
-  useStateContext,
-  useAppServices,
-  useAuthContext,
-  useScrollToTop,
-} from "../../hooks";
+import { useStateContext, useAppServices, useScrollToTop } from "../../hooks";
 import { PlaylistModal } from "../playlist/PlaylistModal";
-import { ACTION_TYPES } from "../../reducer";
 
 const VideoPage = () => {
-  const { state, stateDispatch } = useStateContext();
+  const { state } = useStateContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     addToLikeVideos,
@@ -22,6 +16,7 @@ const VideoPage = () => {
     addToWatchLater,
     removeFromWatchLater,
     addToHistory,
+    updateVideoViews,
   } = useAppServices();
 
   const { videoId } = useParams();
@@ -40,11 +35,8 @@ const VideoPage = () => {
             width="100%"
             height="480px"
             onStart={() => {
-              stateDispatch({
-                type: ACTION_TYPES.UPDATE_VIEWS,
-                payload: { video },
-              });
               addToHistory({ video });
+              updateVideoViews({ video });
             }}
           />
         </div>

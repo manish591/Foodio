@@ -38,17 +38,6 @@ const stateReducer = (state, action) => {
         library: { ...state.library, playlist: action.payload.myPlaylist },
       };
 
-    case ACTION_TYPES.UPDATE_VIEWS:
-      return {
-        ...state,
-        videos: [...state.videos].map((item) => {
-          if (item._id === action.payload.video._id) {
-            return { ...item, views: item.views + 1 };
-          }
-          return item;
-        }),
-      };
-
     case ACTION_TYPES.CLEAR_USER_DATA:
       return {
         ...state,
