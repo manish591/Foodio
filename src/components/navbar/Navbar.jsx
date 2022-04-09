@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 
 import { Link, useNavigate } from "react-router-dom";
+import { UploadForm } from "../upload/UploadForm";
 
 const Navbar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -123,6 +124,7 @@ const Navbar = () => {
           </ul>
         )}
       </section>
+      <UploadForm />
     </div>
   );
 };
