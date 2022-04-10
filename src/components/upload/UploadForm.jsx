@@ -4,6 +4,10 @@ import "./UploadForm.css";
 const UploadForm = ({ setIsUploadFormOpen }) => {
   return (
     <div className="upload-form">
+      <div
+        className="upload-form__overlay"
+        onClick={() => setIsUploadFormOpen(false)}
+      ></div>
       <div className="upload-form__wrappper">
         <form className="grid">
           <h2 className="upload-form__title">Upload Video</h2>

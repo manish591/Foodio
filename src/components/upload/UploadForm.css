@@ -1,3 +1,10 @@
+.upload-form__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background-color: rgba(74, 74, 75, 0.588);
+}
+
 .upload-form__wrappper {
   background-color: var(--surface3);
   position: fixed;
@@ -7,13 +14,14 @@
   padding-inline: 0.8rem;
   inline-size: min(90%, 400px);
   transform: translate(-50%, -50%);
-  box-shadow: 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-    100px 100px 80px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 0px 2.2px rgba(0, 0, 0, 0.02),
+    0px 0px 5.3px rgba(0, 0, 0, 0.028), 0px 0px 10px rgba(0, 0, 0, 0.035),
+    0px 0px 17.9px rgba(0, 0, 0, 0.042), 0px 0px 33.4px rgba(0, 0, 0, 0.05),
+    0px 0px 80px rgba(0, 0, 0, 0.07);
   max-block-size: 35rem;
   overflow: hidden;
   overflow-y: auto;
-  z-index: 20;
+  z-index: 21;
   animation: fade 250ms ease-in-out;
 }
 
