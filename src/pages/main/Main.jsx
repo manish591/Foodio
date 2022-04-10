@@ -6,20 +6,25 @@ import {
   Navbar,
   MobileBottomSidebar,
   MobileTopSidebar,
+  UploadForm,
 } from "../../components";
 
 import { Outlet } from "react-router-dom";
 
 const Main = () => {
+  const [isUploadFormOpen, setIsUploadFormOpen] = useState(false);
   useScrollToTop();
 
   return (
     <div className={`main-ar`}>
       <Sidebar />
-      <MobileBottomSidebar />
+      <MobileBottomSidebar setIsUploadFormOpen={setIsUploadFormOpen} />
+      {isUploadFormOpen ? (
+        <UploadForm setIsUploadFormOpen={setIsUploadFormOpen} />
+      ) : null}
       <MobileTopSidebar />
       <div className="main-ar__feed">
-        <Navbar />
+        <Navbar setIsUploadFormOpen={setIsUploadFormOpen} />
         <Outlet />
       </div>
     </div>

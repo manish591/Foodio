@@ -13,6 +13,8 @@
   max-block-size: 35rem;
   overflow: hidden;
   overflow-y: auto;
+  z-index: 20;
+  animation: fade 250ms ease-in-out;
 }
 
 .upload-form__input {
@@ -36,4 +38,13 @@
 
 textarea {
   resize: vertical;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

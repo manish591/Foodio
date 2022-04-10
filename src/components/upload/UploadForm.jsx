@@ -1,7 +1,7 @@
 import React from "react";
 import "./UploadForm.css";
 
-const UploadForm = () => {
+const UploadForm = ({ setIsUploadFormOpen }) => {
   return (
     <div className="upload-form">
       <div className="upload-form__wrappper">
