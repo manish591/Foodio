@@ -395,6 +395,18 @@ const useAppServices = () => {
     }
   };
 
+  const uploadVideo = (videoData) => {
+    const newVideo = {
+      ...videoData,
+      _id: videoData.videoUrl.split("v=")[1],
+      views: 0,
+    };
+    stateDispatch({
+      type: ACTION_TYPES.GET_VIDEOS,
+      payload: { videos: [newVideo, ...state.videos] },
+    });
+  };
+
   return {
     addToLikeVideos,
     removeFromLikedVideos,
@@ -413,6 +425,7 @@ const useAppServices = () => {
     addNotesToVideo,
     deleteNoteFromVideo,
     editNote,
+    uploadVideo,
   };
 };
 

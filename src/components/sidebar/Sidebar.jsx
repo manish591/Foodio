@@ -91,7 +91,7 @@ const Sidebar = () => {
           <li className="s-bottom__items">
             <section className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
-                <span class="material-icons-outlined">videocam</span>
+                <span className="material-icons-outlined">videocam</span>
               </div>
               <div className="s-bottom-item-name">
                 <p>Your Uploads</p>
