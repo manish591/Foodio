@@ -44,6 +44,12 @@ const stateReducer = (state, action) => {
         library: { ...state.library, notes: action.payload.myNotes },
       };
 
+    case ACTION_TYPES.GET_UPLOADED_VIDEOS:
+      return {
+        ...state,
+        library: { ...state.library, uploads: action.payload.uploadedVideos },
+      };
+
     case ACTION_TYPES.CLEAR_USER_DATA:
       return {
         ...state,

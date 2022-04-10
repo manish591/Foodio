@@ -89,14 +89,14 @@ const Sidebar = () => {
             </section>
           </li>
           <li className="s-bottom__items">
-            <section className="s-bottom__item-wrapper flex">
+            <Link to="/explore/uploads" className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
                 <span className="material-icons-outlined">videocam</span>
               </div>
               <div className="s-bottom-item-name">
                 <p>Your Uploads</p>
               </div>
-            </section>
+            </Link>
           </li>
         </ul>
       </section>

@@ -7,6 +7,7 @@ const initialState = {
     history: [],
     likedVideos: [],
     notes: [],
+    uploads: [],
   },
   filter: {
     category: "All",
@@ -23,6 +24,7 @@ const ACTION_TYPES = {
   FILTER_BY_CATEGORY: "FILTER_BY_CATEGORY",
   CLEAR_USER_DATA: "CLEAR_USER_DATA",
   GET_NOTES: "GET_NOTES",
+  GET_UPLOADED_VIDEOS: "GET_UPLOADED_VIDEOS",
 };
 
 export { ACTION_TYPES, initialState };

@@ -14,6 +14,7 @@ import {
   VideoPage,
   UserProfile,
   SearchResults,
+  Uploads,
 } from "./pages";
 
 import { ProtectedRoute, RedirectRoute } from "./components";
@@ -95,6 +96,14 @@ const App = () => {
             element={
               <ProtectedRoute>
                 <UserProfile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="uploads"
+            element={
+              <ProtectedRoute>
+                <Uploads />
               </ProtectedRoute>
             }
           />

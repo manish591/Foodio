@@ -405,6 +405,10 @@ const useAppServices = () => {
       type: ACTION_TYPES.GET_VIDEOS,
       payload: { videos: [newVideo, ...state.videos] },
     });
+    stateDispatch({
+      type: ACTION_TYPES.GET_UPLOADED_VIDEOS,
+      payload: { uploadedVideos: [newVideo, ...state.library.uploads] },
+    });
   };
 
   return {
