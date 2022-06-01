@@ -7,17 +7,16 @@ import { getInitials } from "../../utilis";
 
 const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
   const navigate = useNavigate();
-  const { _id, title, videoUrl, category, author } = video;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="thumbnail">
       <section
         className="thumbnail__image-container"
-        onClick={() => navigate(`/explore/watch/${_id}`)}
+        onClick={() => navigate(`/explore/watch/${video?._id}`)}
       >
         <img
-          src={`https://i.ytimg.com/vi/${_id}/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD1dg5JXDycuG06NEn9A-0Pnd40zQ`}
+          src={`https://i.ytimg.com/vi/${video?._id}/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD1dg5JXDycuG06NEn9A-0Pnd40zQ`}
           alt="thumbnail"
           className="thumbnail__img"
         />
@@ -25,20 +24,20 @@ const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
       <section className="thumbnail__content th-content flex">
         <div
           className="th-content__profile"
-          onClick={() => navigate(`/explore/watch/${_id}`)}
+          onClick={() => navigate(`/explore/watch/${video?._id}`)}
         >
           <div
             className="avatar avatar--large avatar--initial"
-            onClick={() => navigate(`/explore/watch/${_id}`)}
+            onClick={() => navigate(`/explore/watch/${video?._id}`)}
           >
             <p>{getInitials(video?.author)}</p>
           </div>
         </div>
         <div
           className="th-content__description"
-          onClick={() => navigate(`/explore/watch/${_id}`)}
+          onClick={() => navigate(`/explore/watch/${video?._id}`)}
         >
-          <h3 className="thumbnail__title">{title}</h3>
+          <h3 className="thumbnail__title">{video?.title}</h3>
           <p className="thumbnail__author">{video?.author}</p>
           <span className="thumbnail__counts">12M views - 2 days ago</span>
         </div>
@@ -46,14 +45,14 @@ const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
           className="th-content__actions"
           onClick={() =>
             setSelectedId((id) => {
-              if (id !== _id) return _id;
-              return id === "" ? _id : "";
+              if (id !== video?._id) return video?._id;
+              return id === "" ? video?._id : "";
             })
           }
         >
           <span className="material-icons-outlined">more_vert</span>
         </div>
-        {selectedId === _id ? (
+        {selectedId === video?._id ? (
           <VideoActions
             video={video}
             setSelectedId={setSelectedId}

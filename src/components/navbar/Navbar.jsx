@@ -3,7 +3,7 @@ import "./Navbar.css";
 
 import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ setIsUploadFormOpen }) => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
@@ -63,7 +63,10 @@ const Navbar = () => {
         </ul>
         <ul className="navbar__list navbar__list--right flex">
           <li className="navbar__item navbar__item--display">
-            <button className="btn btn--contained-primary navbar__upload">
+            <button
+              className="btn btn--contained-primary navbar__upload"
+              onClick={() => setIsUploadFormOpen((uf) => !uf)}
+            >
               Upload
             </button>
           </li>

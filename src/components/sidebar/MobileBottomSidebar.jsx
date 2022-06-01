@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./MobileBottomSidebar.css";
 
-const MobileBottomSidebar = () => {
+const MobileBottomSidebar = ({ setIsUploadFormOpen }) => {
   return (
     <div className="mb-sidebar">
       <section className="mb-sidebar__wrapper">
@@ -29,7 +29,10 @@ const MobileBottomSidebar = () => {
           </li>
           <li className="mb-sidebar__item">
             <section className="mb-sidebar__item-wrapper flex">
-              <div className="mb__item-icon mb__item-icon--main">
+              <div
+                className="mb__item-icon mb__item-icon--main"
+                onClick={() => setIsUploadFormOpen((uf) => !uf)}
+              >
                 <span className="material-icons-outlined upload-icon">
                   videocam
                 </span>
