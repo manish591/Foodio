@@ -54,7 +54,7 @@ PlaylistCard.propTypes = {
   video: PropTypes.object.isRequired,
   setSelectedId: PropTypes.func.isRequired,
   selectedId: PropTypes.string.isRequired,
-  page: PropTypes.object.string.isRequired
+  page: PropTypes.string.isRequired
 };
 
 export { PlaylistCard };
