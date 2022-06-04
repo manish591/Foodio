@@ -1,12 +1,13 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { useAuthContext, useStateContext, useScrollToTop } from "../../hooks";
-import { useParams } from "react-router-dom";
-import { Thumbnail } from "../../components";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { useParams } from 'react-router-dom';
+import { useAuthContext, useStateContext, useScrollToTop } from 'hooks';
+import { Thumbnail } from 'components';
 
 const PlaylistListing = () => {
   const { state } = useStateContext();
-  const [selectedId, setSelectedId] = useState("");
+  const [selectedId, setSelectedId] = useState('');
   const { playlistId } = useParams();
   const { myToken } = useAuthContext();
   const [isLoading, setIsLoading] = useState(true);
@@ -19,18 +20,15 @@ const PlaylistListing = () => {
       try {
         const res = await axios.get(`/api/user/playlists/${playlistId}`, {
           headers: {
-            authorization: myToken,
-          },
+            authorization: myToken
+          }
         });
         if (res.status === 200) {
           setPlaylistListingData(res.data.playlist.videos);
           setIsLoading(false);
         }
       } catch (err) {
-        console.error(
-          "getVideoFromPlaylistId : Error in getting data using playlist Id",
-          err
-        );
+        toast.error('Error occured');
         setIsLoading(false);
       }
     })();
@@ -47,7 +45,7 @@ const PlaylistListing = () => {
               <Thumbnail
                 key={item._id}
                 video={item}
-                page={"PlaylistListing"}
+                page="PlaylistListing"
                 setSelectedId={setSelectedId}
                 selectedId={selectedId}
               />

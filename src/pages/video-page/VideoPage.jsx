@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from "react";
-import "./VideoPage.css";
-import ReactPlayer from "react-player";
-import { useParams } from "react-router-dom";
-import { HorizontalCard, NotesCard } from "../../components";
-import {
-  useStateContext,
-  useAppServices,
-  useScrollToTop,
-  useAuthContext,
-} from "../../hooks";
-import { PlaylistModal } from "../playlist/PlaylistModal";
-import axios from "axios";
-import { ACTION_TYPES } from "../../reducer";
+import React, { useState, useEffect } from 'react';
+import './VideoPage.css';
+import axios from 'axios';
+import ReactPlayer from 'react-player';
+import toast from 'react-hot-toast';
+import { useParams } from 'react-router-dom';
+import { HorizontalCard, NotesCard } from 'components';
+import { useStateContext, useAppServices, useScrollToTop, useAuthContext } from 'hooks';
+import { PlaylistModal } from '../playlist/PlaylistModal';
 
 const VideoPage = () => {
   const [myNotes, setMyNotes] = useState([]);
-  const { state, stateDispatch } = useStateContext();
+  const { state } = useStateContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { library } = state;
   const { notes } = library;
@@ -26,7 +21,7 @@ const VideoPage = () => {
     addToWatchLater,
     removeFromWatchLater,
     addToHistory,
-    updateVideoViews,
+    updateVideoViews
   } = useAppServices();
 
   const { videoId } = useParams();
@@ -42,14 +37,14 @@ const VideoPage = () => {
       try {
         const res = await axios.get(`/api/user/notes`, {
           headers: {
-            authorization: myToken,
-          },
+            authorization: myToken
+          }
         });
         if (res.status === 200) {
           setMyNotes(res.data.notes);
         }
       } catch (err) {
-        console.error("getnoteshandler : Error in getting notes data", err);
+        toast.error('Unable to get notes data');
       }
     })();
   }, [notes]);
@@ -90,9 +85,8 @@ const VideoPage = () => {
             </section>
             <section>
               <p className="video-page__content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-                ipsa quidem atque quas laborum, optio qui soluta illum
-                reiciendis nostrum.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ipsa quidem atque quas
+                laborum, optio qui soluta illum reiciendis nostrum.
               </p>
             </section>
           </div>
@@ -100,58 +94,56 @@ const VideoPage = () => {
             <section className="vp-actions__top flex">
               {isAlreadyInDatabaseVideo(state.library.likedVideos, videoId) ? (
                 <button
+                  type="button"
                   className="vp-actions__icon"
                   title="Liked"
                   onClick={() => {
                     removeFromLikedVideos({ videoId });
-                  }}
-                >
+                  }}>
                   <span className="material-icons-outlined">favorite</span>
                 </button>
               ) : (
                 <button
+                  type="button"
                   className="vp-actions__icon"
                   title="Liked"
                   onClick={() => {
                     addToLikeVideos({ video });
-                  }}
-                >
-                  <span className="material-icons-outlined">
-                    favorite_border
-                  </span>
+                  }}>
+                  <span className="material-icons-outlined">favorite_border</span>
                 </button>
               )}
-              <button className="vp-actions__icon" title="Share">
+              <button type="button" className="vp-actions__icon" title="Share">
                 <span className="material-icons-outlined">share</span>
               </button>
               {isAlreadyInDatabaseVideo(state.library.watchLater, videoId) ? (
                 <button
+                  type="button"
                   className="vp-actions__icon"
                   title="Watch Later"
                   onClick={() => {
                     removeFromWatchLater({ videoId });
-                  }}
-                >
+                  }}>
                   <span className="material-icons">watch_later</span>
                 </button>
               ) : (
                 <button
+                  type="button"
                   className="vp-actions__icon"
                   title="Watch Later"
                   onClick={() => {
                     addToWatchLater({ video });
-                  }}
-                >
+                  }}>
                   <span className="material-icons-outlined">watch_later</span>
                 </button>
               )}
               <button
+                type="button"
                 className="vp-actions__icon"
                 title="Add To Playlist"
                 onClick={() => {
                   setIsModalOpen(true);
-                }}
-              >
+                }}>
                 <span className="material-icons-outlined">playlist_add</span>
               </button>
             </section>
@@ -159,34 +151,22 @@ const VideoPage = () => {
               <div
                 className="flex"
                 style={{
-                  alignItems: "center",
-                }}
-              >
+                  alignItems: 'center'
+                }}>
                 <span className="material-icons-outlined">visibility</span>
-                <p style={{ whiteSpace: "nowrap" }}>{video?.views} Views</p>
+                <p style={{ whiteSpace: 'nowrap' }}>{video?.views} Views</p>
               </div>
-              <div
-                className="flex"
-                style={{ alignItems: "center", opacity: "0.6" }}
-              >
+              <div className="flex" style={{ alignItems: 'center', opacity: '0.6' }}>
                 <span className="material-icons-outlined">thumb_up</span>
-                <p style={{ whiteSpace: "nowrap" }}>1016 Likes</p>
+                <p style={{ whiteSpace: 'nowrap' }}>1016 Likes</p>
               </div>
-              <div
-                className="flex"
-                style={{ alignItems: "center", opacity: "0.6" }}
-              >
-                <span className="material-icons-outlined">
-                  chat_bubble_outline
-                </span>
-                <p style={{ whiteSpace: "nowrap" }}>75 Comments</p>
+              <div className="flex" style={{ alignItems: 'center', opacity: '0.6' }}>
+                <span className="material-icons-outlined">chat_bubble_outline</span>
+                <p style={{ whiteSpace: 'nowrap' }}>75 Comments</p>
               </div>
-              <div
-                className="flex"
-                style={{ alignItems: "center", opacity: "0.6" }}
-              >
+              <div className="flex" style={{ alignItems: 'center', opacity: '0.6' }}>
                 <span className="material-icons-outlined">event</span>
-                <p style={{ whiteSpace: "nowrap" }}>Dec 20, 2022</p>
+                <p style={{ whiteSpace: 'nowrap' }}>Dec 20, 2022</p>
               </div>
             </section>
           </div>
@@ -199,11 +179,7 @@ const VideoPage = () => {
           </div>
         </section>
       </div>
-      <PlaylistModal
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        video={video}
-      />
+      <PlaylistModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} video={video} />
     </div>
   );
 };

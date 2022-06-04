@@ -1,16 +1,15 @@
-import React, { useState } from "react";
-import "./Signup.css";
-
-import { Link } from "react-router-dom";
-import { useAuth, useScrollToTop } from "../../hooks";
+import React, { useState } from 'react';
+import './Signup.css';
+import { Link } from 'react-router-dom';
+import { useAuth, useScrollToTop } from 'hooks';
 
 const Signup = () => {
   const [userSignupData, setUserSignupData] = useState({
-    firstname: "",
-    lastname: "dev",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    firstname: '',
+    lastname: 'dev',
+    email: '',
+    password: '',
+    confirmPassword: ''
   });
 
   const { signupUser } = useAuth();
@@ -43,7 +42,7 @@ const Signup = () => {
               onChange={(e) =>
                 setUserSignupData({
                   ...userSignupData,
-                  firstname: e.target.value,
+                  firstname: e.target.value
                 })
               }
               required
@@ -61,7 +60,7 @@ const Signup = () => {
               onChange={(e) =>
                 setUserSignupData({
                   ...userSignupData,
-                  email: e.target.value,
+                  email: e.target.value
                 })
               }
               required
@@ -78,7 +77,7 @@ const Signup = () => {
               onChange={(e) =>
                 setUserSignupData({
                   ...userSignupData,
-                  password: e.target.value,
+                  password: e.target.value
                 })
               }
               required
@@ -95,7 +94,7 @@ const Signup = () => {
               onChange={(e) =>
                 setUserSignupData({
                   ...userSignupData,
-                  confirmPassword: e.target.value,
+                  confirmPassword: e.target.value
                 })
               }
               required
@@ -109,7 +108,7 @@ const Signup = () => {
         </form>
         <div className="signup__footer">
           <p>Already have an account?</p>
-          <button className="signup__signup">
+          <button type="button" className="signup__signup">
             <Link to="/login">Login</Link>
           </button>
         </div>

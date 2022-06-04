@@ -1,6 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./MobileBottomSidebar.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './MobileBottomSidebar.css';
+import PropTypes from 'prop-types';
 
 const MobileBottomSidebar = ({ setIsUploadFormOpen }) => {
   return (
@@ -29,14 +30,12 @@ const MobileBottomSidebar = ({ setIsUploadFormOpen }) => {
           </li>
           <li className="mb-sidebar__item">
             <section className="mb-sidebar__item-wrapper flex">
-              <div
+              <button
+                type="button"
                 className="mb__item-icon mb__item-icon--main"
-                onClick={() => setIsUploadFormOpen((uf) => !uf)}
-              >
-                <span className="material-icons-outlined upload-icon">
-                  videocam
-                </span>
-              </div>
+                onClick={() => setIsUploadFormOpen((uf) => !uf)}>
+                <span className="material-icons-outlined upload-icon">videocam</span>
+              </button>
             </section>
           </li>
           <li className="mb-sidebar__item">
@@ -65,6 +64,10 @@ const MobileBottomSidebar = ({ setIsUploadFormOpen }) => {
       </section>
     </div>
   );
+};
+
+MobileBottomSidebar.propTypes = {
+  setIsUploadFormOpen: PropTypes.func.isRequired
 };
 
 export { MobileBottomSidebar };

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import "./Thumbnail.css";
-import { VideoActions } from "../video-action/VideoActions";
-import { useNavigate } from "react-router-dom";
-import { PlaylistModal } from "../../pages";
-import { getInitials } from "../../utilis";
+import React, { useState } from 'react';
+import './Thumbnail.css';
+import { useNavigate } from 'react-router-dom';
+import { PlaylistModal } from 'pages';
+import { getInitials } from 'utilis';
+import { VideoActions } from 'components';
+import PropTypes from 'prop-types';
 
 const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
   const navigate = useNavigate();
@@ -14,7 +15,9 @@ const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
       <section
         className="thumbnail__image-container"
         onClick={() => navigate(`/explore/watch/${video?._id}`)}
-      >
+        onKeyUp={() => navigate(`/explore/watch/${video?._id}`)}
+        tabIndex={0}
+        role="button">
         <img
           src={`https://i.ytimg.com/vi/${video?._id}/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD1dg5JXDycuG06NEn9A-0Pnd40zQ`}
           alt="thumbnail"
@@ -25,33 +28,35 @@ const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
         <div
           className="th-content__profile"
           onClick={() => navigate(`/explore/watch/${video?._id}`)}
-        >
-          <div
+          onKeyUp={() => navigate(`/explore/watch/${video?._id}`)}
+          role="button"
+          tabIndex={0}>
+          <button
+            type="button"
             className="avatar avatar--large avatar--initial"
-            onClick={() => navigate(`/explore/watch/${video?._id}`)}
-          >
+            onClick={() => navigate(`/explore/watch/${video?._id}`)}>
             <p>{getInitials(video?.author)}</p>
-          </div>
+          </button>
         </div>
-        <div
+        <button
+          type="button"
           className="th-content__description"
-          onClick={() => navigate(`/explore/watch/${video?._id}`)}
-        >
+          onClick={() => navigate(`/explore/watch/${video?._id}`)}>
           <h3 className="thumbnail__title">{video?.title}</h3>
           <p className="thumbnail__author">{video?.author}</p>
           <span className="thumbnail__counts">12M views - 2 days ago</span>
-        </div>
-        <div
+        </button>
+        <button
+          type="button"
           className="th-content__actions"
           onClick={() =>
             setSelectedId((id) => {
               if (id !== video?._id) return video?._id;
-              return id === "" ? video?._id : "";
+              return id === '' ? video?._id : '';
             })
-          }
-        >
+          }>
           <span className="material-icons-outlined">more_vert</span>
-        </div>
+        </button>
         {selectedId === video?._id ? (
           <VideoActions
             video={video}
@@ -63,14 +68,17 @@ const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
         ) : null}
       </section>
       {isModalOpen && (
-        <PlaylistModal
-          isModalOpen={isModalOpen}
-          setIsModalOpen={setIsModalOpen}
-          video={video}
-        />
+        <PlaylistModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} video={video} />
       )}
     </div>
   );
+};
+
+Thumbnail.propTypes = {
+  page: PropTypes.string.isRequired,
+  selectedId: PropTypes.string.isRequired,
+  video: PropTypes.object.isRequired,
+  setSelectedId: PropTypes.func.isRequired
 };
 
 export { Thumbnail };

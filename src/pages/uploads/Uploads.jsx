@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import "./Uploads.css";
-import { Thumbnail } from "../../components";
-import { useStateContext } from "../../hooks";
+import React, { useState } from 'react';
+import './Uploads.css';
+import { Thumbnail } from 'components';
+import { useStateContext } from 'hooks';
 
 const Uploads = () => {
-  const [selectedId, setSelectedId] = useState("");
+  const [selectedId, setSelectedId] = useState('');
   const { state } = useStateContext();
   return (
     <div className="uploads">
@@ -17,7 +17,7 @@ const Uploads = () => {
             <Thumbnail
               key={item._id}
               video={item}
-              page={"Uploads"}
+              page="Uploads"
               setSelectedId={setSelectedId}
               selectedId={selectedId}
             />

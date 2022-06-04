@@ -1,7 +1,7 @@
-import React from "react";
-import "./UserProfile.css";
+import React from 'react';
+import './UserProfile.css';
 
-import { useAuthContext, useAuth, useScrollToTop } from "../../hooks";
+import { useAuthContext, useAuth, useScrollToTop } from '../../hooks';
 
 const UserProfile = () => {
   const { currentUser } = useAuthContext();
@@ -25,9 +25,9 @@ const UserProfile = () => {
           </li>
           <li className="user-profile__item user-profile--logout">
             <button
+              type="button"
               className="btn btn--contained-primary"
-              onClick={() => logoutUser()}
-            >
+              onClick={() => logoutUser()}>
               Logout
             </button>
           </li>

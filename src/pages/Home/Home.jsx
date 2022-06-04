@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from "react";
-import "./Home.css";
-
-import food from "../../assets/photo-1475090169767-40ed8d18f67d-removebg-preview.png";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { ACTION_TYPES } from "../../reducer";
-import { CategoryCard } from "../../components";
-import {
-  useAuthContext,
-  useAuth,
-  useStateContext,
-  useScrollToTop,
-} from "../../hooks";
+import React, { useState, useEffect } from 'react';
+import './Home.css';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
+import { ACTION_TYPES } from 'reducer';
+import { CategoryCard } from 'components';
+import { useAuthContext, useAuth, useStateContext, useScrollToTop } from 'hooks';
+import food from '../../assets/photo-1475090169767-40ed8d18f67d-removebg-preview.png';
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,16 +17,16 @@ const Home = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get("/api/categories");
+        const res = await axios.get('/api/categories');
         if (res.status === 200) {
           stateDispatch({
             type: ACTION_TYPES.GET_CATEGORIES,
-            payload: { categories: res.data.categories },
+            payload: { categories: res.data.categories }
           });
           setIsLoading(false);
         }
       } catch (err) {
-        console.error(err);
+        toast.error('Unable to get data');
         setIsLoading(false);
       }
     })();
@@ -54,15 +49,17 @@ const Home = () => {
                 <li className="home-nav__items">
                   {myToken ? (
                     <button
+                      type="button"
                       className="btn btn--contained-primary home-nav__get-started"
                       onClick={() => {
                         logoutUser();
-                      }}
-                    >
+                      }}>
                       Logout
                     </button>
                   ) : (
-                    <button className="btn btn--contained-primary home-nav__get-started">
+                    <button
+                      type="button"
+                      className="btn btn--contained-primary home-nav__get-started">
                       <Link to="/login">Get Started</Link>
                     </button>
                   )}
@@ -73,37 +70,36 @@ const Home = () => {
               <div className="home-hero__content">
                 <p>The No 1 Food Related Videos</p>
                 <h1 className="home-hero__title">
-                  Foodio Brings you the best food content ever, Join The
-                  Community!
+                  Foodio Brings you the best food content ever, Join The Community!
                 </h1>
                 <p>
-                  Foodio brings you the best curated resources about food, so
-                  that you don't have to waste time searching about food videos.
-                  Join the exiciting and growing community.
+                  Foodio brings you the best curated resources about food, so that you don&apos;t
+                  have to waste time searching about food videos. Join the exiciting and growing
+                  community.
                 </p>
                 <div className="home-hero__actions flex">
                   {myToken ? (
                     <button
+                      type="button"
                       className="btn btn--contained-primary"
-                      style={{ backgroundColor: "var(--brand)" }}
-                    >
+                      style={{ backgroundColor: 'var(--brand)' }}>
                       <a href="#categories">View Categories</a>
                     </button>
                   ) : (
                     <button
+                      type="button"
                       className="btn btn--contained-primary"
-                      style={{ backgroundColor: "var(--brand)" }}
-                    >
+                      style={{ backgroundColor: 'var(--brand)' }}>
                       <Link to="/login">Get Started</Link>
                     </button>
                   )}
-                  <button className="btn btn--text home-hero__explore">
+                  <button type="button" className="btn btn--text home-hero__explore">
                     <Link to="/explore">Explore</Link>
                   </button>
                 </div>
               </div>
               <div className="home-hero__img-container">
-                <img src={food} alt="" />
+                <img src={food} alt="food" />
               </div>
             </section>
           </div>
@@ -111,20 +107,16 @@ const Home = () => {
         <main className="hm-pg__main home-main-pg">
           <div className="home-main-pg__wrapper">
             <h1 className="home-main-pg__title">
-              Foodio Is Video Library For The Food Lovers! We Have Curated The
-              Best Food Content For You!
+              Foodio Is Video Library For The Food Lovers! We Have Curated The Best Food Content For
+              You!
             </h1>
             <p className="home-main-pg__description">
-              Enjoy food here! Watch Videos, like videos, save them to watch
-              later, you can always see your history and many more features
-              coming.
+              Enjoy food here! Watch Videos, like videos, save them to watch later, you can always
+              see your history and many more features coming.
             </p>
           </div>
         </main>
-        <section
-          className="home-page__categories hm-categories"
-          id="categories"
-        >
+        <section className="home-page__categories hm-categories" id="categories">
           <div className="home-page__categories__wrapper">
             <h1>Featured Categories</h1>
             <section className="hm-categories__container flex">
@@ -133,7 +125,7 @@ const Home = () => {
                   {state.categoryData.map((item) => {
                     return (
                       <div className="hm-categories__item" key={item._id}>
-                        <CategoryCard {...item} />
+                        <CategoryCard _id={item._id} categoryName={item.categoryName} />
                       </div>
                     );
                   })}
@@ -152,21 +144,19 @@ const Home = () => {
               <li className="footer__items">Signup</li>
             </ul>
             <p className="footer__description">
-              Foodio provides you the best food curated videos. Join the
-              community and start exploring food content.
+              Foodio provides you the best food curated videos. Join the community and start
+              exploring food content.
             </p>
-            <p className="footer__copyright">
-              Copyright 2022. All Rights Reserved
-            </p>
+            <p className="footer__copyright">Copyright 2022. All Rights Reserved</p>
             <ul className="footer__socials flex">
               <li className="footer__items">
-                <a href="#">Github</a>
+                <a href="https://github.com/manish591">Github</a>
               </li>
               <li className="footer__items">
-                <a href="#">Twitter</a>
+                <a href="https://twitter.com/manishdevrani77">Twitter</a>
               </li>
               <li className="footer__items">
-                <a href="#">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/manishdevrani77/">LinkedIn</a>
               </li>
             </ul>
           </div>

@@ -1,22 +1,16 @@
-import React, { useState } from "react";
-import "./VideoActions.css";
-import { useAppServices } from "../../hooks";
-import { PlaylistModal } from "../../pages";
-import { useParams } from "react-router-dom";
+import React from 'react';
+import './VideoActions.css';
+import { useParams } from 'react-router-dom';
+import { useAppServices } from 'hooks';
+import PropTypes from 'prop-types';
 
-const VideoActions = ({
-  video,
-  setSelectedId,
-  page,
-  isModalOpen,
-  setIsModalOpen,
-}) => {
+const VideoActions = ({ video, setSelectedId, page, setIsModalOpen }) => {
   const {
     addToWatchLater,
     removeFromWatchLater,
     removeFromHistory,
     deletePlaylist,
-    deleteVideoFromPlaylist,
+    deleteVideoFromPlaylist
   } = useAppServices();
   const { _id } = video;
 
@@ -31,87 +25,87 @@ const VideoActions = ({
           </div>
           <p className="video-action__item-name">Add To Queue</p>
         </li>
-        {page === "WatchLater" ? (
-          <li
-            className="video-action__item flex"
-            onClick={() => {
-              setSelectedId("");
-              removeFromWatchLater({ videoId: _id });
-            }}
-          >
-            <div className="video-action__icon">
+        {page === 'WatchLater' ? (
+          <li className="video-action__item flex">
+            <button
+              type="button"
+              className="video-action__icon"
+              onClick={() => {
+                setSelectedId('');
+                removeFromWatchLater({ videoId: _id });
+              }}>
               <span className="material-icons-outlined">delete</span>
-            </div>
+            </button>
             <p className="video-action__item-name">Remove from Watch Later</p>
           </li>
         ) : (
-          <li
-            className="video-action__item flex"
-            onClick={() => {
-              setSelectedId("");
-              addToWatchLater({ video });
-            }}
-          >
-            <div className="video-action__icon">
+          <li className="video-action__item flex">
+            <button
+              type="button"
+              className="video-action__icon"
+              onClick={() => {
+                setSelectedId('');
+                addToWatchLater({ video });
+              }}>
               <span className="material-icons-outlined">watch_later</span>
-            </div>
+            </button>
             <p className="video-action__item-name">Save To Watch Later</p>
           </li>
         )}
-        {page === "Playlist" ? (
-          <li
-            className="video-action__item flex"
-            onClick={() => {
-              setSelectedId("");
-              deletePlaylist({ playlistId: _id });
-            }}
-          >
-            <div className="video-action__icon">
+        {page === 'Playlist' && (
+          <li className="video-action__item flex">
+            <button
+              type="button"
+              className="video-action__icon"
+              onClick={() => {
+                setSelectedId('');
+                deletePlaylist({ playlistId: _id });
+              }}>
               <span className="material-icons-outlined">delete</span>
-            </div>
+            </button>
             <p className="video-action__item-name">Delete Playlist</p>
           </li>
-        ) : page === "PlaylistListing" ? (
-          <li
-            className="video-action__item flex"
-            onClick={() => {
-              setSelectedId("");
-              deleteVideoFromPlaylist({
-                videoId: _id,
-                playlistId,
-              });
-            }}
-          >
-            <div className="video-action__icon">
+        )}
+        {page === 'PlaylistListing' && (
+          <li className="video-action__item flex">
+            <button
+              type="button"
+              className="video-action__icon"
+              onClick={() => {
+                setSelectedId('');
+                deleteVideoFromPlaylist({
+                  videoId: _id,
+                  playlistId
+                });
+              }}>
               <span className="material-icons-outlined">delete</span>
-            </div>
+            </button>
             <p className="video-action__item-name">Remove From Playlist</p>
           </li>
-        ) : (
-          <li
-            className="video-action__item flex"
-            onClick={() => {
-              setSelectedId("");
-              setIsModalOpen(true);
-            }}
-          >
-            <div className="video-action__icon">
-              <span className="material-icons-outlined">playlist_add</span>
-            </div>
-            <p className="video-action__item-name">Save To Playlist</p>
-          </li>
         )}
-        {page === "History" && (
-          <li
-            className="video-action__item flex"
+        <li className="video-action__item flex">
+          <button
+            type="button"
+            className="video-action__icon"
             onClick={() => {
-              setSelectedId("");
-              removeFromHistory({ videoId: _id });
-            }}
-          >
-            <div className="video-action__icon">
+              setSelectedId('');
+              setIsModalOpen(true);
+            }}>
+            <span className="material-icons-outlined">playlist_add</span>
+          </button>
+          <p className="video-action__item-name">Save To Playlist</p>
+        </li>
+        {page === 'History' && (
+          <li className="video-action__item flex">
+            <button
+              type="button"
+              className="video-action__icon"
+              onClick={() => {
+                setSelectedId('');
+                removeFromHistory({ videoId: _id });
+              }}>
               <span className="material-icons-outlined">delete</span>
-            </div>
+            </button>
             <p className="video-action__item-name">Remove From History</p>
           </li>
         )}
@@ -124,6 +118,13 @@ const VideoActions = ({
       </ul>
     </div>
   );
+};
+
+VideoActions.propTypes = {
+  video: PropTypes.object.isRequired,
+  setSelectedId: PropTypes.func.isRequired,
+  page: PropTypes.string.isRequired,
+  setIsModalOpen: PropTypes.func.isRequired
 };
 
 export { VideoActions };

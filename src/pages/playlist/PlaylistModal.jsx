@@ -1,87 +1,70 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { useAuthContext } from "../../hooks";
-import { useAppServices } from "../../hooks";
-import { useStateContext } from "../../hooks";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { useAuthContext, useAppServices, useStateContext } from 'hooks';
+import toast from 'react-hot-toast';
 
 const PlaylistModal = ({ isModalOpen, setIsModalOpen, video }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isCreatePlaylistMode, setIsCreatePlaylistMode] = useState(false);
-  const [createPlaylistInput, setCreatePlaylistInput] = useState("");
+  const [createPlaylistInput, setCreatePlaylistInput] = useState('');
   const { myToken } = useAuthContext();
-  const {
-    createPlaylists,
-    addVideoToPlaylist,
-    isVideoInPlaylist,
-    deleteVideoFromPlaylist,
-  } = useAppServices();
+  const { createPlaylists, addVideoToPlaylist, isVideoInPlaylist, deleteVideoFromPlaylist } =
+    useAppServices();
   const [myPlaylistData, setMyPlaylistData] = useState([]);
-  const { state, stateDispatch } = useStateContext();
+  const { state } = useStateContext();
   const { library } = state;
   const { playlist } = library;
 
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get("/api/user/playlists", {
+        const res = await axios.get('/api/user/playlists', {
           headers: {
-            authorization: myToken,
-          },
+            authorization: myToken
+          }
         });
         if (res.status === 200) {
           setMyPlaylistData(res.data.playlists);
         }
       } catch (err) {
-        console.error(err);
+        toast.error('Unable to get playlist data');
         setIsLoading(false);
       }
     })();
   }, [playlist]);
 
   return (
-    <section
-      className={`dialog dialog--confirmation ${
-        isModalOpen ? "" : "dialog--hide"
-      }`}
-    >
+    <section className={`dialog dialog--confirmation ${isModalOpen ? '' : 'dialog--hide'}`}>
+      {isLoading && 'loadin..'}
       <div className="dialog__content">
-        <span
+        <button
+          type="button"
           className="material-icons dialog__clear"
-          onClick={() => setIsModalOpen(false)}
-        >
+          onClick={() => setIsModalOpen(false)}>
           clear
-        </span>
+        </button>
         <div className="dialog__info dialog__info--confirm">
           <p className="dialog__header dialog__header--confirm">Save To...</p>
         </div>
         <form className="dialog__form">
           <div className="dialog__input-area dialog__input-area--flex">
-            <input
-              type="checkbox"
-              name="item"
-              id="item1"
-              className="dialog__input"
-            />
+            <input type="checkbox" name="item" id="item1" className="dialog__input" />
             <label htmlFor="item1">Watch Later</label>
           </div>
           {myPlaylistData.map((item) => {
             return (
-              <div
-                className="dialog__input-area dialog__input-area--flex"
-                key={item._id}
-              >
+              <div className="dialog__input-area dialog__input-area--flex" key={item._id}>
                 <input
                   type="checkbox"
                   name="item"
                   id={`item${item._id}`}
-                  checked={
-                    isVideoInPlaylist(video._id, item._id) ? true : false
-                  }
+                  checked={!!isVideoInPlaylist(video._id, item._id)}
                   onChange={() => {
                     if (isVideoInPlaylist(video._id, item._id)) {
                       deleteVideoFromPlaylist({
                         videoId: video._id,
-                        playlistId: item._id,
+                        playlistId: item._id
                       });
                     } else {
                       addVideoToPlaylist({ playlistId: item._id, video });
@@ -94,10 +77,7 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen, video }) => {
             );
           })}
         </form>
-        <div
-          className="dialog__cta dialog__cta--confirm"
-          style={{ flexDirection: "column" }}
-        >
+        <div className="dialog__cta dialog__cta--confirm" style={{ flexDirection: 'column' }}>
           {isCreatePlaylistMode ? (
             <div className="dialog__create-playlist">
               <section>
@@ -110,27 +90,27 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen, video }) => {
                 />
               </section>
               <button
+                type="button"
                 className="playlist-create-enter btn btn--text"
                 onClick={() => {
-                  if (setCreatePlaylistInput !== "") {
+                  if (setCreatePlaylistInput !== '') {
                     createPlaylists({
                       title: createPlaylistInput,
-                      description: "random",
+                      description: 'random'
                     });
                     setIsCreatePlaylistMode(false);
                   }
-                }}
-              >
+                }}>
                 Create
               </button>
             </div>
           ) : (
             <button
+              type="button"
               className="dialog__action-btn dialog__action-btn--gap-top flex"
               onClick={() => {
                 setIsCreatePlaylistMode(true);
-              }}
-            >
+              }}>
               <span className="material-icons">add</span>
               <p>Create New Playlist</p>
             </button>
@@ -139,6 +119,12 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen, video }) => {
       </div>
     </section>
   );
+};
+
+PlaylistModal.propTypes = {
+  isModalOpen: PropTypes.bool.isRequired,
+  setIsModalOpen: PropTypes.func.isRequired,
+  video: PropTypes.object.isRequired
 };
 
 export { PlaylistModal };

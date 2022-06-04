@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import "./Navbar.css";
-
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import './Navbar.css';
+import PropTypes from 'prop-types';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = ({ setIsUploadFormOpen }) => {
   const [showSearchBar, setShowSearchBar] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
   const handleSearchVideos = (e) => {
     e.preventDefault();
-    if (searchQuery === "") return;
+    if (searchQuery === '') return;
     navigate(`/explore/search?query=${searchQuery}`);
   };
 
@@ -33,10 +33,7 @@ const Navbar = ({ setIsUploadFormOpen }) => {
               <div className="navbar__icon navbar-icon--search">
                 <span className="material-icons-outlined">search</span>
               </div>
-              <form
-                className="navbar__input-field"
-                onSubmit={handleSearchVideos}
-              >
+              <form className="navbar__input-field" onSubmit={handleSearchVideos}>
                 <input
                   type="text"
                   className="navbar__input"
@@ -51,10 +48,7 @@ const Navbar = ({ setIsUploadFormOpen }) => {
                 </label>
               </form>
               <div className="navbar__icon navbar-icon--search">
-                <span
-                  className="material-icons-outlined"
-                  style={{ opacity: "0.5" }}
-                >
+                <span className="material-icons-outlined" style={{ opacity: '0.5' }}>
                   keyboard_voice
                 </span>
               </div>
@@ -64,9 +58,9 @@ const Navbar = ({ setIsUploadFormOpen }) => {
         <ul className="navbar__list navbar__list--right flex">
           <li className="navbar__item navbar__item--display">
             <button
+              type="button"
               className="btn btn--contained-primary navbar__upload"
-              onClick={() => setIsUploadFormOpen((uf) => !uf)}
-            >
+              onClick={() => setIsUploadFormOpen((uf) => !uf)}>
               Upload
             </button>
           </li>
@@ -75,15 +69,15 @@ const Navbar = ({ setIsUploadFormOpen }) => {
               <span className="material-icons-outlined">notifications</span>
             </div>
           </li>
-          <li
-            className="navbar__item navbar__menu--hide"
-            onClick={() => {
-              setShowSearchBar(true);
-            }}
-          >
-            <div className="navbar__icon">
+          <li className="navbar__item navbar__menu--hide">
+            <button
+              type="button"
+              className="navbar__icon"
+              onClick={() => {
+                setShowSearchBar(true);
+              }}>
               <span className="material-icons-outlined">search</span>
-            </div>
+            </button>
           </li>
           <li className="navbar__item navbar__item--profile">
             <Link to="/explore/profile">
@@ -96,19 +90,16 @@ const Navbar = ({ setIsUploadFormOpen }) => {
         {showSearchBar && (
           <ul className="navbar__item navbar--mobile-search mobile-search">
             <section className="mobile-search__search-group flex">
-              <div
+              <button
+                type="button"
                 className="navbar__icon navbar-icon--search"
                 onClick={() => {
-                  setSearchQuery("");
+                  setSearchQuery('');
                   setShowSearchBar(false);
-                }}
-              >
-                <span class="material-icons-outlined">arrow_back</span>
-              </div>
-              <form
-                className="mobile-search__input-field"
-                onSubmit={handleSearchVideos}
-              >
+                }}>
+                <span className="material-icons-outlined">arrow_back</span>
+              </button>
+              <form className="mobile-search__input-field" onSubmit={handleSearchVideos}>
                 <input
                   type="text"
                   className="mobile-search__input"
@@ -128,6 +119,10 @@ const Navbar = ({ setIsUploadFormOpen }) => {
       </section>
     </div>
   );
+};
+
+Navbar.propTypes = {
+  setIsUploadFormOpen: PropTypes.func.isRequired
 };
 
 export { Navbar };

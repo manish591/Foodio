@@ -1,13 +1,8 @@
-import React from "react";
-import "./Sidebar.css";
-
-import { Link, NavLink } from "react-router-dom";
-import { useAuth, useAuthContext } from "../../hooks";
+import React from 'react';
+import './Sidebar.css';
+import { Link, NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
-  const { logoutUser } = useAuth();
-  const { myToken } = useAuthContext();
-
   return (
     <div className="sidebar">
       <section className="sidebar__top s-top">
@@ -39,9 +34,7 @@ const Sidebar = () => {
           <li className="s-bottom__items">
             <section className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
-                <span className="material-icons-round size-30">
-                  star_border
-                </span>
+                <span className="material-icons-round size-30">star_border</span>
               </div>
               <div className="s-bottom-item-name">
                 <p>Trending</p>

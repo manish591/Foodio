@@ -1,36 +1,33 @@
-import React, { useState, useEffect } from "react";
-import "./Playlist.css";
-import { PlaylistCard } from "../../components";
-import { useStateContext, useAppServices, useAuthContext } from "../../hooks";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import './Playlist.css';
+import axios from 'axios';
+import { PlaylistCard } from 'components';
+import { useStateContext, useAuthContext } from 'hooks';
+import toast from 'react-hot-toast';
 
 const Playlist = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { myToken } = useAuthContext();
-  const { createPlaylists } = useAppServices();
   const [myPlaylistData, setMyPlaylistData] = useState([]);
-  const { state, stateDispatch } = useStateContext();
+  const { state } = useStateContext();
   const { library } = state;
   const { playlist } = library;
-  const [selectedId, setSelectedId] = useState("");
+  const [selectedId, setSelectedId] = useState('');
 
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get("/api/user/playlists", {
+        const res = await axios.get('/api/user/playlists', {
           headers: {
-            authorization: myToken,
-          },
+            authorization: myToken
+          }
         });
         if (res.status === 200) {
           setMyPlaylistData(res.data.playlists);
           setIsLoading(false);
         }
       } catch (err) {
-        console.error(
-          "getPlaylistHandler : Error in getting playlist data",
-          err
-        );
+        toast.error('Unable to get playlist data');
         setIsLoading(false);
       }
     })();
@@ -51,7 +48,7 @@ const Playlist = () => {
                 video={item}
                 selectedId={selectedId}
                 setSelectedId={setSelectedId}
-                page={"Playlist"}
+                page="Playlist"
               />
             );
           })}
