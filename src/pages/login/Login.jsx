@@ -21,6 +21,14 @@ const Login = () => {
     loginUser(loginData);
   };
 
+  const handleGuestLogin = () => {
+    setLoginData({
+      email: 'manishdevrani77@gmail.com',
+      password: 'manishdevrani77'
+    });
+    loginUser({ email: 'manishdevrani77@gmail.com', password: 'manishdevrani77' });
+  };
+
   const handleValidateUser = (e) => {
     const { name, validationMessage } = e.target;
     const isValid = e.target.validity.valid;
@@ -106,6 +114,12 @@ const Login = () => {
             <Link to="/signup" replace>
               Sign Up
             </Link>
+          </button>
+        </div>
+        <div className="guest-login">
+          <p>or</p>
+          <button type="button" className="guest-login__btn" onClick={handleGuestLogin}>
+            Guest Login
           </button>
         </div>
       </div>
