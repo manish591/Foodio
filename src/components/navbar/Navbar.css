@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 .navbar {
   padding-block: 1rem;
@@ -88,7 +88,7 @@
 }
 
 .navbar__logo {
-  font-family: "Pacifico", cursive;
+  font-family: 'Pacifico', cursive;
   font-size: 1.8rem;
   color: var(--brand);
 }
@@ -98,7 +98,6 @@
 }
 
 .navbar__upload {
-  margin-inline-end: 1.5rem;
   background-color: var(--brand);
 }
 
@@ -162,8 +161,12 @@
 @media (min-width: 1400px) {
   .navbar__item--display {
     display: block;
-    padding-block: 1rem;
+    padding-block: 0.5rem;
     padding-inline: 0.4rem;
+  }
+
+  .navbar {
+    padding-block: 0.5rem;
   }
 
   .navbar--hide {
@@ -179,7 +182,7 @@
   }
 
   .navbar__search-group {
-    padding-block: 0.6rem;
+    padding-block: 0.4rem;
     border: 1px solid var(--surface3);
     inline-size: 30rem;
     margin-inline-start: 0;

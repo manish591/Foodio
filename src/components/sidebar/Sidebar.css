@@ -51,7 +51,7 @@
 }
 
 .s-bottom__items:hover::before {
-  content: "";
+  content: '';
   position: absolute;
   block-size: 40%;
   inline-size: 4px;
@@ -85,12 +85,31 @@
 }
 
 .s-top__logo {
-  font-family: "Pacifico", cursive;
+  font-family: 'Pacifico', cursive;
   font-size: 2rem;
 }
 
 .size-30 {
   font-size: 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .sidebar {
+    display: block;
+  }
+
+  .s-bottom__item-wrapper {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .s-top__items--logo {
+    display: none;
+  }
+
+  .s-bottom-item-name > p {
+    font-size: 0.7rem;
+  }
 }
 
 @media (min-width: 800px) {
