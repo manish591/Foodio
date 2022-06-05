@@ -47,5 +47,8 @@
 
 .chips__item--selected {
   background-color: var(--text2);
+}
+
+.chips__item--selected > button {
   color: var(--light-clr);
 }
