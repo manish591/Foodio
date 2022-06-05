@@ -56,10 +56,10 @@ const Home = () => {
                       Logout
                     </button>
                   ) : (
-                    <button
-                      type="button"
-                      className="btn btn--contained-primary home-nav__get-started">
-                      <Link to="/login">Get Started</Link>
+                    <button type="button" className="home-nav__get-started">
+                      <Link to="/login" className="btn btn--contained-primary">
+                        Get Started
+                      </Link>
                     </button>
                   )}
                 </li>
@@ -76,24 +76,24 @@ const Home = () => {
                   have to waste time searching about food videos. Join the exiciting and growing
                   community.
                 </p>
-                <div className="home-hero__actions flex">
+                <div className="home-hero__actions home-actions flex">
                   {myToken ? (
-                    <button
-                      type="button"
-                      className="btn btn--contained-primary"
-                      style={{ backgroundColor: 'var(--brand)' }}>
-                      <a href="#categories">View Categories</a>
+                    <button type="button" className="home-actions__category">
+                      <a href="#categories" className="btn btn--contained-primary">
+                        View Categories
+                      </a>
                     </button>
                   ) : (
-                    <button
-                      type="button"
-                      className="btn btn--contained-primary"
-                      style={{ backgroundColor: 'var(--brand)' }}>
-                      <Link to="/login">Get Started</Link>
+                    <button type="button" className="home-actions__get-started">
+                      <Link to="/login" className="btn btn--contained-primary">
+                        Get Started
+                      </Link>
                     </button>
                   )}
-                  <button type="button" className="btn btn--text home-hero__explore">
-                    <Link to="/explore">Explore</Link>
+                  <button type="button" className="home-hero__explore">
+                    <Link to="/explore" className="btn btn--text">
+                      Explore
+                    </Link>
                   </button>
                 </div>
               </div>
