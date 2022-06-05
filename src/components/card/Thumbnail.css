@@ -41,6 +41,7 @@
 
 .th-content__description {
   align-self: flex-start;
+  text-align: start;
 }
 
 .thumbnail__title {
