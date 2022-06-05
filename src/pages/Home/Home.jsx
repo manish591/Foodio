@@ -127,7 +127,12 @@ const Home = () => {
                   {state.categoryData.map((item) => {
                     return (
                       <div className="hm-categories__item" key={item._id}>
-                        <CategoryCard _id={item._id} categoryName={item.categoryName} />
+                        <CategoryCard
+                          _id={item._id}
+                          categoryName={item.categoryName}
+                          img={item.img}
+                          description={item.description}
+                        />
                       </div>
                     );
                   })}
@@ -140,10 +145,18 @@ const Home = () => {
           <div className="footer__wrapper flow-space-2">
             <p className="footer__brand">foodio</p>
             <ul className="footer__list flex">
-              <li className="footer__items">Home</li>
-              <li className="footer__items">Explore</li>
-              <li className="footer__items">Login</li>
-              <li className="footer__items">Signup</li>
+              <li className="footer__items">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="footer__items">
+                <Link to="/explore">Explore</Link>
+              </li>
+              <li className="footer__items">
+                <Link to="/login">Login</Link>
+              </li>
+              <li className="footer__items">
+                <Link to="/signup">Signup</Link>
+              </li>
             </ul>
             <p className="footer__description">
               Foodio provides you the best food curated videos. Join the community and start
