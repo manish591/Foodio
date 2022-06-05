@@ -37,7 +37,7 @@
 }
 
 .mt-sidebar__logo {
-  font-family: "Pacifico", cursive;
+  font-family: 'Pacifico', cursive;
   font-size: 1.8rem;
 }
 
@@ -47,4 +47,8 @@
 
 .mt-sidebar:target {
   display: grid;
+}
+
+.mt-sidebar__logout-user {
+  color: var(--text1);
 }

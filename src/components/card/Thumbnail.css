@@ -32,6 +32,7 @@
   inset-block-start: 50%;
   transform: translateY(-50%);
   z-index: 10;
+  color: var(--text1);
 }
 
 .thumbnail:hover .th-content__actions {
@@ -42,6 +43,7 @@
 .th-content__description {
   align-self: flex-start;
   text-align: start;
+  color: var(--text1);
 }
 
 .thumbnail__title {

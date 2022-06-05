@@ -1,6 +1,7 @@
 .sidebar {
   block-size: 100vh;
-  background-color: rgba(141, 141, 141, 0.062);
+  background-color: var(--surface2);
+  color: var(--text2);
   position: fixed;
   inline-size: 100px;
   display: none;
@@ -62,7 +63,7 @@
 }
 
 .s-bottom__items:hover {
-  background-color: var(--surface3);
+  background-color: var(--surface4);
 }
 
 .s-bottom__list--logout {

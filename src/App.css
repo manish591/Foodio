@@ -13,6 +13,11 @@ html {
   grid-column: 1;
 }
 
+body {
+  background-color: var(--surface1);
+  color: var(--text1);
+}
+
 @media (min-width: 600px) {
   .main-ar {
     grid-template-columns: 100px minmax(0, 1fr);

@@ -1,7 +1,7 @@
 .chips-container {
-  background-color: var(--surface2);
+  background-color: var(--surface1);
   padding-block: 1rem;
-  border-block-end: 1px solid var(--surface3);
+  border-block-end: 1px solid var(--surface4);
   padding-inline: 2rem;
   position: relative;
 }
@@ -16,7 +16,7 @@
 }
 
 .chips__item {
-  border: 1px solid var(--surface3);
+  border: 1px solid var(--surface4);
   border-radius: 20px;
   inline-size: max-content;
   padding-inline: 0.8rem;
@@ -24,6 +24,10 @@
   display: inline-block;
   white-space: nowrap;
   cursor: pointer;
+}
+
+.chips__item > button {
+  color: var(--text1);
 }
 
 .chip-right,
@@ -46,7 +50,7 @@
 }
 
 .chips__item--selected {
-  background-color: var(--text2);
+  background-color: var(--surface2);
 }
 
 .chips__item--selected > button {

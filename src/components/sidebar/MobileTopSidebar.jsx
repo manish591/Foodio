@@ -37,7 +37,10 @@ const MobileTopSidebar = () => {
               <Link to="/explore/liked">Liked</Link>
             </li>
             <li className="mt-sidebar-btm__list">
-              <button type="button" onClick={() => logoutUser()}>
+              <button
+                type="button"
+                className="mt-sidebar__logout-user"
+                onClick={() => logoutUser()}>
                 Logout
               </button>
             </li>

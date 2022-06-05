@@ -88,7 +88,7 @@ const Navbar = ({ setIsUploadFormOpen }) => {
           </li>
         </ul>
         {showSearchBar && (
-          <ul className="navbar__item navbar--mobile-search mobile-search">
+          <div className="navbar__item navbar--mobile-search mobile-search">
             <section className="mobile-search__search-group flex">
               <button
                 type="button"
@@ -114,7 +114,7 @@ const Navbar = ({ setIsUploadFormOpen }) => {
                 </label>
               </form>
             </section>
-          </ul>
+          </div>
         )}
       </section>
     </div>
