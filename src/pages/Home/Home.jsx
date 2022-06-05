@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { ACTION_TYPES } from 'reducer';
 import { CategoryCard } from 'components';
 import { useAuthContext, useAuth, useStateContext, useScrollToTop } from 'hooks';
-import food from '../../assets/photo-1475090169767-40ed8d18f67d-removebg-preview.png';
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -99,7 +98,10 @@ const Home = () => {
                 </div>
               </div>
               <div className="home-hero__img-container">
-                <img src={food} alt="food" />
+                <img
+                  src="https://res.cloudinary.com/dcugqfvvg/image/upload/v1654433237/photo-1475090169767-40ed8d18f67d-removebg-preview_o5nlwl.png"
+                  alt="food"
+                />
               </div>
             </section>
           </div>
