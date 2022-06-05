@@ -4,9 +4,14 @@ import { Link } from 'react-router-dom';
 import { useAuth, useScrollToTop } from 'hooks';
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
+  });
+  const [loginErrorData, setLoginErrorData] = useState({
+    emailError: '',
+    passwordError: ''
   });
 
   const { loginUser } = useAuth();
@@ -16,10 +21,20 @@ const Login = () => {
     loginUser(loginData);
   };
 
+  const handleValidateUser = (e) => {
+    const { name, validationMessage } = e.target;
+    const isValid = e.target.validity.valid;
+    if (isValid) {
+      setLoginErrorData({ ...loginErrorData, [`${name}Error`]: '' });
+    } else {
+      setLoginErrorData({ ...loginErrorData, [`${name}Error`]: validationMessage });
+    }
+  };
+
   useScrollToTop();
 
   return (
-    <main className="login">
+    <main className="login main-shadow">
       <div className="wrapper">
         <div className="login__header">
           <h1 className="login__title">Log In</h1>
@@ -36,20 +51,39 @@ const Login = () => {
               autoComplete="email"
               value={loginData.email}
               onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
+              onBlur={handleValidateUser}
               required
             />
+            <p className="login-form__error error-state">{loginErrorData.emailError}</p>
           </section>
           <section className="password-container">
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="current-password"
-              className="login__password"
-              value={loginData.password}
-              onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
-              required
-            />
+            <section className="password-toggle">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                minLength="8"
+                name="password"
+                className="login__password"
+                value={loginData.password}
+                onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
+                onBlur={handleValidateUser}
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle__icon"
+                onClick={() => {
+                  setShowPassword((sp) => !sp);
+                }}>
+                {showPassword ? (
+                  <span className="material-icons-outlined">visibility_off</span>
+                ) : (
+                  <span className="material-icons-outlined">visibility</span>
+                )}
+              </button>
+            </section>
+            <p className="login-form__error error-state">{loginErrorData.passwordError}</p>
           </section>
           <section className="additional-data">
             <section className="rememberMe-container">
