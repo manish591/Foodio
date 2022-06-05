@@ -103,7 +103,9 @@ const Login = () => {
         <div className="login__footer">
           <p>Don&apos;t Have an account? </p>
           <button type="button" className="login__signup">
-            <Link to="/signup">Sign Up</Link>
+            <Link to="/signup" replace>
+              Sign Up
+            </Link>
           </button>
         </div>
       </div>
