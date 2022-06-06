@@ -8,7 +8,7 @@
 }
 
 .sidebar__top {
-  padding-block: 1.5rem;
+  padding-block: 1.2rem;
 }
 
 .s-top__list {
@@ -53,6 +53,19 @@
   padding-block: 0.8rem;
 }
 
+.s-bottom__items__link {
+  display: inline-block;
+  inline-size: 100%;
+}
+
+.active-link {
+  background-color: var(--surface4);
+}
+
+.s-bottom__items:hover {
+  background-color: var(--surface4);
+}
+
 .s-bottom__item-wrapper:hover::before {
   content: '';
   position: absolute;
@@ -62,10 +75,6 @@
   inset-inline-start: 0;
   inset-block-start: 50%;
   transform: translateY(-50%);
-}
-
-.s-bottom__items:hover {
-  background-color: var(--surface4);
 }
 
 .s-bottom__list--logout {

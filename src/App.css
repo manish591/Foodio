@@ -1,3 +1,7 @@
+:root {
+  --brand: #7a0bc0;
+}
+
 html {
   overflow-y: scroll;
   scroll-behavior: smooth;

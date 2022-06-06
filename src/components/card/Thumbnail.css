@@ -5,15 +5,14 @@
 }
 
 .thumbnail__image-container {
-  border-radius: 5px;
+  border-radius: 30px;
 }
 
 .thumbnail__img {
-  border-radius: 5px;
+  border-radius: 30px;
 }
 
 .thumbnail__content {
-  padding-inline: 0.5rem;
   padding-block: 0.8rem;
   align-items: center;
   position: relative;

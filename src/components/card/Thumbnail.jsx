@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import './Thumbnail.css';
 import { useNavigate } from 'react-router-dom';
 import { PlaylistModal } from 'pages';
-import { getInitials } from 'utilis';
+// import { getInitials } from 'utilis';
 import { VideoActions } from 'components';
 import PropTypes from 'prop-types';
 
-const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
+const Thumbnail = ({ video, selectedId, setSelectedId, page, avatarId }) => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -35,7 +35,11 @@ const Thumbnail = ({ video, selectedId, setSelectedId, page }) => {
             type="button"
             className="avatar avatar--large avatar--initial"
             onClick={() => navigate(`/explore/watch/${video?._id}`)}>
-            <p>{getInitials(video?.author)}</p>
+            <img
+              src={`https://i.pravatar.cc/150?img=${avatarId}`}
+              alt=""
+              style={{ borderRadius: '50%' }}
+            />
           </button>
         </div>
         <button
@@ -78,7 +82,8 @@ Thumbnail.propTypes = {
   page: PropTypes.string.isRequired,
   selectedId: PropTypes.string.isRequired,
   video: PropTypes.object.isRequired,
-  setSelectedId: PropTypes.func.isRequired
+  setSelectedId: PropTypes.func.isRequired,
+  avatarId: PropTypes.number.isRequired
 };
 
 export { Thumbnail };

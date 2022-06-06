@@ -14,9 +14,10 @@ const VideoListing = () => {
     <div className="video-listing">
       <Chips />
       <div className="video-listing__container grid">
-        {getFilterByCategoryItem(state.videos, state.filter.category).map((videoItem) => {
+        {getFilterByCategoryItem(state.videos, state.filter.category).map((videoItem, index) => {
           return (
             <Thumbnail
+              avatarId={index}
               key={videoItem._id}
               video={videoItem}
               selectedId={selectedId}
