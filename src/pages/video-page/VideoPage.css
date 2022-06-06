@@ -57,7 +57,7 @@
 }
 
 .related-vd {
-  padding-block-end: 1rem;
+  padding-block-end: 5rem;
 }
 
 .related-vd__container {
@@ -117,5 +117,21 @@
 
   .vp-actions__top {
     gap: 1.5rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .related-vd {
+    padding-block-end: 1rem;
+  }
+
+  .related-vd__container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .related-vd__container {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

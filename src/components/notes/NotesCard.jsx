@@ -59,6 +59,7 @@ const NotesCard = ({ videoId, myNotes }) => {
             <button
               className="btn btn--contained-primary"
               type="button"
+              style={{ backgroundColor: 'var(--brand)' }}
               onClick={() => {
                 editNote({ noteId: itemToEditID, note: notesData });
                 setNotesData({ title: '', body: '', videoId });
@@ -67,7 +68,10 @@ const NotesCard = ({ videoId, myNotes }) => {
               Update
             </button>
           ) : (
-            <button type="submit" className="btn btn--contained-primary">
+            <button
+              type="submit"
+              className="btn btn--contained-primary"
+              style={{ backgroundColor: 'var(--brand)' }}>
               Add
             </button>
           )}
