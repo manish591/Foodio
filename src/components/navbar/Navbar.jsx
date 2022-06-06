@@ -59,15 +59,11 @@ const Navbar = ({ setIsUploadFormOpen }) => {
           <li className="navbar__item navbar__item--display">
             <button
               type="button"
-              className="btn btn--contained-primary navbar__upload"
+              className="btn btn--contained-primary navbar__upload flex"
               onClick={() => setIsUploadFormOpen((uf) => !uf)}>
-              Upload
+              <span className="material-icons-outlined">file_upload</span>
+              <p>Upload</p>
             </button>
-          </li>
-          <li className="navbar__item navbar__item--display">
-            <div className="navbar__icon">
-              <span className="material-icons-outlined">notifications</span>
-            </div>
           </li>
           <li className="navbar__item navbar__menu--hide">
             <button

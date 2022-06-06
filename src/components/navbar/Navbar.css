@@ -92,6 +92,7 @@
   font-family: 'Pacifico', cursive;
   font-size: 1.8rem;
   color: var(--brand);
+  text-transform: capitalize;
 }
 
 .navbar__item--profile {
@@ -101,6 +102,13 @@
 .navbar__upload {
   border-radius: 10px;
   background-color: var(--surface3);
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.navbar__upload > span {
+  color: var(--brand);
 }
 
 .navbar--mobile-search {

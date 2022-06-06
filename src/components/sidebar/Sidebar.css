@@ -26,6 +26,7 @@
   font-size: var(--fs-800);
   font-family: var(--ff-sans-normal);
   line-height: 1.1;
+  text-transform: capitalize;
 }
 
 .s-top__items--menu {
