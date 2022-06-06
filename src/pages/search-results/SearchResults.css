@@ -12,3 +12,22 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
 }
+
+.search-result__not-found {
+  text-align: center;
+  margin-block-start: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-not-found__title {
+  margin-block-end: 1rem;
+}
+
+.search-not-found__back {
+  block-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
