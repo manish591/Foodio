@@ -20,6 +20,10 @@
   margin-block-start: 0.8rem;
 }
 
+.user-profile--logout > button {
+  background-color: var(--brand);
+}
+
 .user-profile__item > p {
   font-size: var(--fs-400);
   font-weight: bold;
