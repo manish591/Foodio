@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
-  const [isUserLogedIn, setIsUserLogedIn] = useState(false);
+  const [isUserLogedIn, setIsUserLogedIn] = useState(JSON.parse(localStorage.getItem('isLogIn')));
+  const [myToken, setMyToken] = useState(JSON.parse(localStorage.getItem('token')));
   const [currentUser, setCurrentUser] = useState('');
-  const [myToken, setMyToken] = useState('');
 
   return (
     <AuthContext.Provider
