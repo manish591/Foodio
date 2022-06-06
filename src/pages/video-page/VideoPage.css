@@ -56,6 +56,14 @@
   margin-inline-start: auto;
 }
 
+.related-vd {
+  padding-block-end: 1rem;
+}
+
+.related-vd__container {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 @media (max-width: 900px) {
   .video-page__notes {
     display: none;

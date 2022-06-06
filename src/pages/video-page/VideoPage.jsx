@@ -29,6 +29,12 @@ const VideoPage = () => {
 
   const { isUserLogedIn, myToken } = useAuthContext();
 
+  const relatedVideos = () => {
+    return state.videos.filter(
+      (item) => item.category === video.category && item._id !== video._id
+    );
+  };
+
   useScrollToTop();
 
   useEffect(() => {
@@ -174,8 +180,11 @@ const VideoPage = () => {
         <section className="video-page__related-video related-vd">
           <h3 className="related-vd__title">Related Videos</h3>
           <div className="related-vd__container grid">
-            <HorizontalCard />
-            <HorizontalCard />
+            {relatedVideos &&
+              relatedVideos().map((item) => {
+                // eslint-disable-next-line react/jsx-props-no-spreading
+                return <HorizontalCard key={item.id} {...item} />;
+              })}
           </div>
         </section>
       </div>
