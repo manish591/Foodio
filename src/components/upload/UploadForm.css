@@ -6,7 +6,7 @@
 }
 
 .upload-form__wrappper {
-  background-color: var(--surface3);
+  background-color: var(--surface2);
   position: fixed;
   inset-block-start: 50%;
   inset-inline-start: 50%;
@@ -14,10 +14,9 @@
   padding-inline: 0.8rem;
   inline-size: min(90%, 400px);
   transform: translate(-50%, -50%);
-  box-shadow: 0px 0px 2.2px rgba(0, 0, 0, 0.02),
-    0px 0px 5.3px rgba(0, 0, 0, 0.028), 0px 0px 10px rgba(0, 0, 0, 0.035),
-    0px 0px 17.9px rgba(0, 0, 0, 0.042), 0px 0px 33.4px rgba(0, 0, 0, 0.05),
-    0px 0px 80px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 0px 2.2px rgba(0, 0, 0, 0.02), 0px 0px 5.3px rgba(0, 0, 0, 0.028),
+    0px 0px 10px rgba(0, 0, 0, 0.035), 0px 0px 17.9px rgba(0, 0, 0, 0.042),
+    0px 0px 33.4px rgba(0, 0, 0, 0.05), 0px 0px 80px rgba(0, 0, 0, 0.07);
   max-block-size: 35rem;
   overflow: hidden;
   overflow-y: auto;
@@ -28,6 +27,7 @@
 .upload-form__input {
   inline-size: 100%;
   display: inline-block;
+  color: var(--text1);
   padding-block: 0.4rem;
   padding-inline: 0.5rem;
   margin-block-start: 0.3rem;

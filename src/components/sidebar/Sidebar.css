@@ -1,7 +1,7 @@
 .sidebar {
   block-size: 100vh;
   background-color: var(--surface2);
-  color: var(--text2);
+  color: var(--text1);
   position: fixed;
   inline-size: 100px;
   display: none;
@@ -40,18 +40,20 @@
   padding-block-end: 2rem;
 }
 
-.s-bottom__item-wrapper {
-  text-align: center;
-}
-
 .s-bottom__items {
-  padding-block: 0.8rem;
   transition: background-color 250ms ease-in-out;
   position: relative;
   cursor: pointer;
 }
 
-.s-bottom__items:hover::before {
+.s-bottom__item-wrapper {
+  text-align: center;
+  display: flex;
+  block-size: 100%;
+  padding-block: 0.8rem;
+}
+
+.s-bottom__item-wrapper:hover::before {
   content: '';
   position: absolute;
   block-size: 40%;
@@ -134,7 +136,7 @@
 
 @media (min-width: 1400px) {
   .sidebar {
-    inline-size: 280px;
+    inline-size: 230px;
   }
 
   .s-top__items--logo {

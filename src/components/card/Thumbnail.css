@@ -33,6 +33,7 @@
   transform: translateY(-50%);
   z-index: 10;
   color: var(--text1);
+  cursor: pointer;
 }
 
 .thumbnail:hover .th-content__actions {
@@ -44,6 +45,7 @@
   align-self: flex-start;
   text-align: start;
   color: var(--text1);
+  cursor: pointer;
 }
 
 .thumbnail__title {

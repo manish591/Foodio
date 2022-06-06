@@ -19,58 +19,52 @@ const VideoActions = ({ video, setSelectedId, page, setIsModalOpen }) => {
   return (
     <div className="video-action">
       <ul className="video-action__list">
-        <li className="video-action__item flex">
-          <div className="video-action__icon">
-            <span className="material-icons-outlined">add_to_queue</span>
-          </div>
-          <p className="video-action__item-name">Add To Queue</p>
-        </li>
         {page === 'WatchLater' ? (
-          <li className="video-action__item flex">
+          <li className="video-action__item">
             <button
               type="button"
-              className="video-action__icon"
+              className="video-action__icon flex"
               onClick={() => {
                 setSelectedId('');
                 removeFromWatchLater({ videoId: _id });
               }}>
               <span className="material-icons-outlined">delete</span>
+              <p className="video-action__item-name">Remove from Watch Later</p>
             </button>
-            <p className="video-action__item-name">Remove from Watch Later</p>
           </li>
         ) : (
-          <li className="video-action__item flex">
+          <li className="video-action__item">
             <button
               type="button"
-              className="video-action__icon"
+              className="video-action__icon flex"
               onClick={() => {
                 setSelectedId('');
                 addToWatchLater({ video });
               }}>
               <span className="material-icons-outlined">watch_later</span>
+              <p className="video-action__item-name">Save To Watch Later</p>
             </button>
-            <p className="video-action__item-name">Save To Watch Later</p>
           </li>
         )}
         {page === 'Playlist' && (
-          <li className="video-action__item flex">
+          <li className="video-action__item">
             <button
               type="button"
-              className="video-action__icon"
+              className="video-action__icon flex"
               onClick={() => {
                 setSelectedId('');
                 deletePlaylist({ playlistId: _id });
               }}>
               <span className="material-icons-outlined">delete</span>
+              <p className="video-action__item-name">Delete Playlist</p>
             </button>
-            <p className="video-action__item-name">Delete Playlist</p>
           </li>
         )}
         {page === 'PlaylistListing' && (
-          <li className="video-action__item flex">
+          <li className="video-action__item">
             <button
               type="button"
-              className="video-action__icon"
+              className="video-action__icon flex"
               onClick={() => {
                 setSelectedId('');
                 deleteVideoFromPlaylist({
@@ -79,34 +73,34 @@ const VideoActions = ({ video, setSelectedId, page, setIsModalOpen }) => {
                 });
               }}>
               <span className="material-icons-outlined">delete</span>
+              <p className="video-action__item-name">Remove From Playlist</p>
             </button>
-            <p className="video-action__item-name">Remove From Playlist</p>
           </li>
         )}
-        <li className="video-action__item flex">
+        <li className="video-action__item">
           <button
             type="button"
-            className="video-action__icon"
+            className="video-action__icon flex"
             onClick={() => {
               setSelectedId('');
               setIsModalOpen(true);
             }}>
             <span className="material-icons-outlined">playlist_add</span>
+            <p className="video-action__item-name">Save To Playlist</p>
           </button>
-          <p className="video-action__item-name">Save To Playlist</p>
         </li>
         {page === 'History' && (
-          <li className="video-action__item flex">
+          <li className="video-action__item ">
             <button
               type="button"
-              className="video-action__icon"
+              className="video-action__icon flex"
               onClick={() => {
                 setSelectedId('');
                 removeFromHistory({ videoId: _id });
               }}>
               <span className="material-icons-outlined">delete</span>
+              <p className="video-action__item-name">Remove From History</p>
             </button>
-            <p className="video-action__item-name">Remove From History</p>
           </li>
         )}
         <li className="video-action__item flex">

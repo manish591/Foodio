@@ -1,7 +1,7 @@
 .chips-container {
   background-color: var(--surface1);
   padding-block: 1rem;
-  border-block-end: 1px solid var(--surface4);
+  border-block-end: 1px solid var(--surface2);
   padding-inline: 2rem;
   position: relative;
 }
@@ -55,4 +55,8 @@
 
 .chips__item--selected > button {
   color: var(--light-clr);
+}
+
+.chips__category {
+  cursor: pointer;
 }

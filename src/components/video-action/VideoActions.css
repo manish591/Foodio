@@ -19,6 +19,7 @@
   justify-content: center;
   align-items: center;
   color: var(--text1);
+  cursor: pointer;
 }
 
 .video-action__item {

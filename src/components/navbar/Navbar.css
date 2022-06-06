@@ -4,7 +4,7 @@
   padding-block: 1rem;
   position: sticky;
   inset-block-start: 0;
-  border-block-end: 1px solid var(--surface4);
+  border-block-end: 1px solid var(--surface2);
   background-color: var(--surface1);
   z-index: 12;
 }
@@ -39,6 +39,7 @@
   border: none;
   outline: none;
   inline-size: 100%;
+  color: var(--text1);
 }
 
 .navbar__list--right {

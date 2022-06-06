@@ -30,7 +30,7 @@ body {
 
 @media (min-width: 1400px) {
   .main-ar {
-    grid-template-columns: 280px minmax(0, 1fr);
+    grid-template-columns: 230px minmax(0, 1fr);
   }
 
   .main-ar__feed {

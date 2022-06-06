@@ -22,14 +22,14 @@ const Sidebar = () => {
       <section className="sidebar__bottom s-bottom grid">
         <ul className="s-bottom__list">
           <li className="s-bottom__items">
-            <section className="s-bottom__item-wrapper flex">
+            <NavLink to="/explore" className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
                 <span className="material-icons-outlined size-30">home</span>
               </div>
               <div className="s-bottom-item-name">
-                <NavLink to="/explore">Home</NavLink>
+                <p>Home</p>
               </div>
-            </section>
+            </NavLink>
           </li>
           <li className="s-bottom__items">
             <section className="s-bottom__item-wrapper flex">
@@ -42,54 +42,54 @@ const Sidebar = () => {
             </section>
           </li>
           <li className="s-bottom__items">
-            <section className="s-bottom__item-wrapper flex">
+            <NavLink to="/explore/liked" className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
                 <span className="material-icons-outlined">favorite_border</span>
               </div>
               <div className="s-bottom-item-name">
-                <NavLink to="/explore/liked">Liked</NavLink>
+                <p>Liked</p>
               </div>
-            </section>
+            </NavLink>
           </li>
           <li className="s-bottom__items">
-            <section className="s-bottom__item-wrapper flex">
+            <NavLink to="/explore/watchlater" className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
                 <span className="material-icons-outlined">watch_later</span>
               </div>
               <div className="s-bottom-item-name">
-                <NavLink to="/explore/watchlater">Watch Later</NavLink>
+                <p>Watch Later</p>
               </div>
-            </section>
+            </NavLink>
           </li>
           <li className="s-bottom__items">
-            <section className="s-bottom__item-wrapper flex">
+            <NavLink to="/explore/playlist" className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
                 <span className="material-icons-outlined">playlist_play</span>
               </div>
               <div className="s-bottom-item-name">
-                <NavLink to="/explore/playlist">Playlist</NavLink>
+                <p>Playlist</p>
               </div>
-            </section>
+            </NavLink>
           </li>
           <li className="s-bottom__items">
-            <section className="s-bottom__item-wrapper flex">
+            <NavLink to="/explore/history" className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
                 <span className="material-icons-outlined">history</span>
               </div>
               <div className="s-bottom-item-name">
-                <NavLink to="/explore/history">History</NavLink>
+                <p>History</p>
               </div>
-            </section>
+            </NavLink>
           </li>
           <li className="s-bottom__items">
-            <Link to="/explore/uploads" className="s-bottom__item-wrapper flex">
+            <NavLink to="/explore/uploads" className="s-bottom__item-wrapper flex">
               <div className="s-bottom__item-icon">
                 <span className="material-icons-outlined">videocam</span>
               </div>
               <div className="s-bottom-item-name">
                 <p>Your Uploads</p>
               </div>
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </section>
