@@ -5,12 +5,12 @@
 .login {
   inline-size: 90%;
   max-inline-size: 400px;
-  background-color: #f2ede4;
+  background-color: var(--surface4);
+  color: var(--text1);
   margin-block: 7rem;
   margin-inline: auto;
   padding-block: 1.5rem;
   padding-inline: 0;
-  box-shadow: 3px 5px 8px 1px rgba(192, 192, 192, 0.787);
 }
 
 .wrapper {
@@ -37,13 +37,13 @@
 .login__password {
   display: block;
   inline-size: 100%;
-  padding-block: 0.7rem;
+  padding-block: 0.6rem;
   padding-inline: 0.7rem;
   background-color: rgba(253, 245, 245, 0.945);
   border: 1px solid rgba(0, 0, 0, 0.349);
   border-radius: 5px;
-  font-size: 0.8rem;
-  margin-block-end: 1rem;
+  font-size: 1rem;
+  margin-block-end: 0.2rem;
 }
 
 label {
@@ -87,7 +87,7 @@ label {
   padding-block: 1rem;
   font-weight: 700;
   border: none;
-  background: #d9843b;
+  background: var(--brand);
   border-radius: 3px;
   color: white;
 }
@@ -99,6 +99,41 @@ label {
 .login__footer p {
   font-size: 0.6rem;
   margin-inline-end: 5px;
+}
+
+.password-toggle {
+  position: relative;
+}
+
+.password-toggle__icon {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: 5px;
+  transform: translateY(-40%);
+}
+
+.password-toggle__icon > span {
+  font-size: 1.2rem;
+}
+
+.error-state {
+  font-size: 0.8rem;
+  color: red;
+}
+
+.guest-login {
+  margin-block-start: 0.5rem;
+  text-align: center;
+}
+
+.guest-login__btn {
+  background-color: var(--surface2);
+  color: var(--text1);
+  border-radius: 5px;
+  padding-block: 0.3rem;
+  padding-inline: 1.5rem;
+  margin-block-start: 0.4rem;
+  cursor: pointer;
 }
 
 /* ------------- */

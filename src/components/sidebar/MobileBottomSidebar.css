@@ -3,7 +3,7 @@
   inset-block-end: 0;
   inset-inline-start: 0;
   inline-size: 100%;
-  background-color: var(--surface3);
+  background-color: var(--surface2);
   z-index: 12;
 }
 
@@ -27,13 +27,14 @@
 }
 
 .mb__item-icon--main {
-  border: 1px solid black;
+  border: 1px solid var(--text1);
   inline-size: 45px;
   aspect-ratio: 1;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--text1);
 }
 
 @media (min-width: 500px) {

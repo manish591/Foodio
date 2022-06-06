@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
-import "./WatchLater.css";
-import { Thumbnail } from "../../components";
-import { useStateContext, useAuthContext, useScrollToTop } from "../../hooks";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import './WatchLater.css';
+import axios from 'axios';
+import { Thumbnail } from 'components';
+import { useStateContext, useAuthContext, useScrollToTop } from 'hooks';
+import toast from 'react-hot-toast';
 
 const WatchLater = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [watchLaterData, setWatchLaterData] = useState([]);
-  const [selectedId, setSelectedId] = useState("");
-  const { state, stateDispatch } = useStateContext();
+  const [selectedId, setSelectedId] = useState('');
+  const { state } = useStateContext();
   const { myToken } = useAuthContext();
   const { library } = state;
   const { watchLater } = library;
@@ -18,10 +19,10 @@ const WatchLater = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get("/api/user/watchlater", {
+        const res = await axios.get('/api/user/watchlater', {
           headers: {
-            authorization: myToken,
-          },
+            authorization: myToken
+          }
         });
         if (res.status === 200) {
           setWatchLaterData(res.data.watchlater);
@@ -29,7 +30,7 @@ const WatchLater = () => {
         }
       } catch (err) {
         setIsLoading(false);
-        console.error("getWatchLaterHandler : Error in getting Data", err);
+        toast.error('Error while getting data! Try again later');
       }
     })();
   }, [watchLater]);
@@ -47,7 +48,7 @@ const WatchLater = () => {
               <Thumbnail
                 key={item._id}
                 video={item}
-                page={"WatchLater"}
+                page="WatchLater"
                 setSelectedId={setSelectedId}
                 selectedId={selectedId}
               />

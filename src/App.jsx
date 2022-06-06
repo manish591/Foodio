@@ -1,4 +1,7 @@
-import "./App.css";
+import React from 'react';
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import {
   Main,
   NotFound,
@@ -14,14 +17,10 @@ import {
   VideoPage,
   UserProfile,
   SearchResults,
-  Uploads,
-} from "./pages";
-
-import { ProtectedRoute, RedirectRoute } from "./components";
-
-import { Routes, Route, Navigate } from "react-router-dom";
-import { useKeepAuth, useScrollToTop } from "./hooks";
-import { Toaster } from "react-hot-toast";
+  Uploads
+} from 'pages';
+import { ProtectedRoute, RedirectRoute } from 'components';
+import { useKeepAuth, useScrollToTop } from 'hooks';
 
 const App = () => {
   useKeepAuth();
@@ -34,9 +33,9 @@ const App = () => {
         toastOptions={{
           duration: 5000,
           style: {
-            background: "var(--text2)",
-            color: "var(--surface2)",
-          },
+            background: 'var(--text2)',
+            color: 'var(--surface2)'
+          }
         }}
       />
       <Routes>
@@ -78,11 +77,8 @@ const App = () => {
                 <Playlist />
               </ProtectedRoute>
             }
-          ></Route>
-          <Route
-            path="playlist/list/:playlistId"
-            element={<PlaylistListing />}
           />
+          <Route path="playlist/list/:playlistId" element={<PlaylistListing />} />
           <Route
             path="watchlater"
             element={

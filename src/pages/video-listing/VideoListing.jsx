@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
-import "./VideoListing.css";
-import { Chips, Thumbnail } from "../../components";
-import { useStateContext, useScrollToTop } from "../../hooks";
-import { ACTION_TYPES } from "../../reducer";
-import { getFilterByCategoryItem } from "../../utilis";
-import axios from "axios";
-import { useAuthContext } from "../../hooks";
+import React, { useState } from 'react';
+import './VideoListing.css';
+import { Chips, Thumbnail } from 'components';
+import { useStateContext, useScrollToTop } from 'hooks';
+import { getFilterByCategoryItem } from 'utilis';
 
 const VideoListing = () => {
   const { state } = useStateContext();
-  const [selectedId, setSelectedId] = useState("");
+  const [selectedId, setSelectedId] = useState('');
 
   useScrollToTop();
 
@@ -17,18 +14,17 @@ const VideoListing = () => {
     <div className="video-listing">
       <Chips />
       <div className="video-listing__container grid">
-        {getFilterByCategoryItem(state.videos, state.filter.category).map(
-          (videoItem) => {
-            return (
-              <Thumbnail
-                key={videoItem._id}
-                video={videoItem}
-                selectedId={selectedId}
-                setSelectedId={setSelectedId}
-              />
-            );
-          }
-        )}
+        {getFilterByCategoryItem(state.videos, state.filter.category).map((videoItem, index) => {
+          return (
+            <Thumbnail
+              avatarId={index}
+              key={videoItem._id}
+              video={videoItem}
+              selectedId={selectedId}
+              setSelectedId={setSelectedId}
+            />
+          );
+        })}
       </div>
     </div>
   );

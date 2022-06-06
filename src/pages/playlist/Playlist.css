@@ -25,7 +25,7 @@
 }
 
 .dialog__header {
-  padding-block: .2rem;
+  padding-block: 0.2rem;
   font-size: 1rem;
 }
 
@@ -47,9 +47,9 @@
 
 .dialog__create-playlist input {
   inline-size: 100%;
-  padding-block: .3rem;
-  padding-inline: .3rem;
-  font-size: .8rem;
+  padding-block: 0.3rem;
+  padding-inline: 0.3rem;
+  font-size: 0.8rem;
   border: none;
   background: none;
   border-bottom: 1px solid var(--surface4);
@@ -57,7 +57,7 @@
 }
 
 .dialog__create-playlist input:focus {
-  border-color: var(--text2)
+  border-color: var(--text2);
 }
 
 .playlist-create-enter {
@@ -67,7 +67,6 @@
   block-size: 40px;
   padding-inline: 20px;
   border: 1px solid var(--brand);
-
 }
 
 .playlist-listing {
@@ -93,7 +92,11 @@
   margin-inline-start: auto;
   border: 1px solid var(--surface3);
   border-radius: 8px;
-  padding-block: .5rem;
-  padding-inline: .7rem;
+  padding-block: 0.5rem;
+  padding-inline: 0.7rem;
   cursor: pointer;
+}
+
+#playlist-title {
+  color: var(--text1);
 }

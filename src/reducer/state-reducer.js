@@ -1,4 +1,4 @@
-import { ACTION_TYPES } from "./state-constant";
+import { ACTION_TYPES } from './state-constant';
 
 const stateReducer = (state, action) => {
   switch (action.type) {
@@ -11,43 +11,43 @@ const stateReducer = (state, action) => {
     case ACTION_TYPES.FILTER_BY_CATEGORY:
       return {
         ...state,
-        filter: { ...state.filter, category: action.payload },
+        filter: { ...state.filter, category: action.payload }
       };
 
     case ACTION_TYPES.GET_LIKED_VIDEOS:
       return {
         ...state,
-        library: { ...state.library, likedVideos: action.payload.likes },
+        library: { ...state.library, likedVideos: action.payload.likes }
       };
 
     case ACTION_TYPES.GET_WATCH_LATER_VIDEOS:
       return {
         ...state,
-        library: { ...state.library, watchLater: action.payload.watched },
+        library: { ...state.library, watchLater: action.payload.watched }
       };
 
     case ACTION_TYPES.GET_HISTORY_VIDEOS:
       return {
         ...state,
-        library: { ...state.library, history: action.payload.history },
+        library: { ...state.library, history: action.payload.history }
       };
 
     case ACTION_TYPES.GET_PLAYLIST_DATA:
       return {
         ...state,
-        library: { ...state.library, playlist: action.payload.myPlaylist },
+        library: { ...state.library, playlist: action.payload.myPlaylist }
       };
 
     case ACTION_TYPES.GET_NOTES:
       return {
         ...state,
-        library: { ...state.library, notes: action.payload.myNotes },
+        library: { ...state.library, notes: action.payload.myNotes }
       };
 
     case ACTION_TYPES.GET_UPLOADED_VIDEOS:
       return {
         ...state,
-        library: { ...state.library, uploads: action.payload.uploadedVideos },
+        library: { ...state.library, uploads: action.payload.uploadedVideos }
       };
 
     case ACTION_TYPES.CLEAR_USER_DATA:
@@ -56,15 +56,15 @@ const stateReducer = (state, action) => {
         videos: [],
         categoryData: [],
         filter: {
-          category: "All",
+          category: 'All'
         },
         library: {
           playlist: [],
           watchLater: [],
           history: [],
           likedVideos: [],
-          notes: [],
-        },
+          notes: []
+        }
       };
 
     default:

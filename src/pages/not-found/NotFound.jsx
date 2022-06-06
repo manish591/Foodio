@@ -1,7 +1,7 @@
-import React from "react";
-import "./NotFound.css";
+import React from 'react';
+import './NotFound.css';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const NotFound = () => {
   return (
@@ -10,7 +10,7 @@ const NotFound = () => {
         <h1 className="not-found__title">404</h1>
         <p className="not-found__desc">Something Went wrong!</p>
         <Link to="/explore">
-          <button className="btn btn--outlined-secondary not-found__action-btn">
+          <button type="button" className="btn btn--outlined-secondary not-found__action-btn">
             Go Back
           </button>
         </Link>

@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid';
 
 /**
  * Category Database can be added here.
@@ -8,34 +8,50 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Paneer Recipe",
+    categoryName: 'Paneer Recipe',
+    img: 'https://res.cloudinary.com/dcugqfvvg/image/upload/v1654434708/53251884_hodiog.jpg',
+    description: ''
   },
   {
     _id: uuid(),
-    categoryName: "Snacks",
+    categoryName: 'Snacks',
+    img: 'https://res.cloudinary.com/dcugqfvvg/image/upload/v1654434780/pk-SQ1vUOxSIZc-unsplash_u2fvmn.jpg',
+    description: ''
   },
   {
     _id: uuid(),
-    categoryName: "Egg Recipes",
+    categoryName: 'Egg Recipes',
+    img: 'https://res.cloudinary.com/dcugqfvvg/image/upload/v1654434868/jona-novak-mvhUofbTEJc-unsplash_eqjwhx.jpg',
+    description: ''
   },
   {
     _id: uuid(),
-    categoryName: "Sweets",
+    categoryName: 'Sweets',
+    img: 'https://res.cloudinary.com/dcugqfvvg/image/upload/v1654434924/wojtek-mich-ZGj0_IjgXdo-unsplash_eco3cj.jpg',
+    description: ''
   },
   {
     _id: uuid(),
-    categoryName: "South Indian",
+    categoryName: 'South Indian',
+    img: 'https://res.cloudinary.com/dcugqfvvg/image/upload/v1654434946/shreyak-singh-gFB1IPmH6RE-unsplash_mad5fm.jpg',
+    description: ''
   },
   {
     _id: uuid(),
-    categoryName: "Drinks",
+    categoryName: 'Drinks',
+    img: 'https://res.cloudinary.com/dcugqfvvg/image/upload/v1654435029/kobby-mendez-xBFTjrMIC0c-unsplash_jtrauq.jpg',
+    description: ''
   },
   {
     _id: uuid(),
-    categoryName: "Fast Food",
+    categoryName: 'Fast Food',
+    img: 'https://res.cloudinary.com/dcugqfvvg/image/upload/v1654435067/jonathan-borba-8l8Yl2ruUsg-unsplash_c6dvi6.jpg',
+    description: ''
   },
   {
     _id: uuid(),
-    categoryName: "Parantha",
-  },
+    categoryName: 'Parantha',
+    img: 'https://res.cloudinary.com/dcugqfvvg/image/upload/v1654435096/indian-breakfast-aloo-paratha-potato-pancakes-served-yogurt-dip-87658775_c63ds8.jpg',
+    description: ''
+  }
 ];

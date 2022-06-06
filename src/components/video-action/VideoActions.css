@@ -1,7 +1,7 @@
 .video-action {
   padding-block: 1rem;
   max-inline-size: 250px;
-  background-color: white;
+  background-color: var(--surface2);
   z-index: 15;
   position: absolute;
   inset-block-start: 0;
@@ -18,6 +18,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--text1);
+  cursor: pointer;
 }
 
 .video-action__item {

@@ -1,5 +1,6 @@
-import React from "react";
-import { useAppServices } from "../../hooks";
+import React from 'react';
+import { useAppServices } from 'hooks';
+import PropTypes from 'prop-types';
 
 const SingleNote = ({
   videoId,
@@ -8,7 +9,7 @@ const SingleNote = ({
   _id,
   setNotesData,
   setIsNoteEditing,
-  setItemToEditID,
+  setItemToEditID
 }) => {
   const { deleteNoteFromVideo } = useAppServices();
 
@@ -17,31 +18,37 @@ const SingleNote = ({
       <h4 className="single-note__title">{title}</h4>
       <p className="single-note__desc">{body}</p>
       <div className="single-note__actions flex">
-        <button className="single-note__edit">
-          <span
-            className="material-icons-outlined"
-            onClick={() => {
-              setItemToEditID(_id);
-              setIsNoteEditing(true);
-              setNotesData({ title, body, videoId });
-            }}
-          >
-            edit
-          </span>
+        <button
+          type="button"
+          className="single-note__edit"
+          onClick={() => {
+            setItemToEditID(_id);
+            setIsNoteEditing(true);
+            setNotesData({ title, body, videoId });
+          }}>
+          <span className="material-icons-outlined">edit</span>
         </button>
-        <button className="single-note__delete">
-          <span
-            className="material-icons-outlined"
-            onClick={() => {
-              deleteNoteFromVideo({ noteId: _id });
-            }}
-          >
-            delete
-          </span>
+        <button
+          type="button"
+          className="single-note__delete"
+          onClick={() => {
+            deleteNoteFromVideo({ noteId: _id });
+          }}>
+          <span className="material-icons-outlined">delete</span>
         </button>
       </div>
     </div>
   );
+};
+
+SingleNote.propTypes = {
+  _id: PropTypes.string.isRequired,
+  videoId: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  setNotesData: PropTypes.func.isRequired,
+  setIsNoteEditing: PropTypes.func.isRequired,
+  setItemToEditID: PropTypes.func.isRequired
 };
 
 export { SingleNote };

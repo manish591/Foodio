@@ -1,3 +1,7 @@
+:root {
+  --brand: #ecb365;
+}
+
 html {
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -13,8 +17,12 @@ html {
   grid-column: 1;
 }
 
+body {
+  background-color: var(--surface1);
+  color: var(--text1);
+}
 
-@media (min-width: 800px) {
+@media (min-width: 600px) {
   .main-ar {
     grid-template-columns: 100px minmax(0, 1fr);
   }
@@ -26,7 +34,7 @@ html {
 
 @media (min-width: 1400px) {
   .main-ar {
-    grid-template-columns: 280px minmax(0, 1fr);
+    grid-template-columns: 230px minmax(0, 1fr);
   }
 
   .main-ar__feed {

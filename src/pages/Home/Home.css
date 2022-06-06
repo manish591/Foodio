@@ -16,7 +16,7 @@
 }
 
 .home-nav__title {
-  font-family: "Pacifico", cursive;
+  font-family: 'Pacifico', cursive;
   font-size: 2rem;
 }
 
@@ -28,7 +28,14 @@
 
 .home-nav__get-started {
   margin-inline-start: 2rem;
-  border-radius: 10px;
+  border-radius: 4px;
+  background-color: var(--brand);
+}
+
+.home-nav__get-started > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--brand);
 }
 
@@ -54,6 +61,12 @@
 
 .home-hero__explore {
   border: 1px solid var(--surface3);
+}
+
+.home-hero__explore > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hm-pg__main {
@@ -104,7 +117,7 @@
 }
 
 .footer__brand {
-  font-family: "Pacifico", cursive;
+  font-family: 'Pacifico', cursive;
   font-size: var(--fs-700);
   font-weight: bold;
 }
@@ -145,7 +158,7 @@
   scroll-snap-align: center;
 }
 
-.hm-categories__item >.card {
+.hm-categories__item > .card {
   border-radius: 8px;
   border: 2px solid var(--surface3);
   cursor: pointer;
@@ -171,6 +184,15 @@
 .home-page__categories__wrapper > h1 {
   font-size: var(--fs-800);
   text-align: center;
+}
+
+.home-actions__get-started > a,
+.home-actions__category > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: var(--brand);
 }
 
 /* ----------- */
