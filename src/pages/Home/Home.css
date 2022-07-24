@@ -29,14 +29,13 @@
 .home-nav__get-started {
   margin-inline-start: 2rem;
   border-radius: 4px;
-  background-color: var(--brand);
 }
 
 .home-nav__get-started > a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--brand);
+  border-color: var(--brand);
 }
 
 .home-hero {
@@ -60,7 +59,7 @@
 }
 
 .home-hero__explore {
-  border: 1px solid var(--surface3);
+  border: 1px solid var(--surface4);
 }
 
 .home-hero__explore > a {
@@ -193,6 +192,7 @@
   justify-content: center;
   border-radius: 4px;
   background-color: var(--brand);
+  color: var(--surface1);
 }
 
 /* ----------- */

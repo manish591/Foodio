@@ -82,7 +82,7 @@ const UploadForm = ({ setIsUploadFormOpen }) => {
               required
             />
           </section>
-          <button type="submit" className="btn btn--contained-primary">
+          <button type="submit" className="btn btn--contained-primary upload-video-btn">
             Upload Video
           </button>
         </form>

@@ -22,6 +22,7 @@
 
 .user-profile--logout > button {
   background-color: var(--brand);
+  color: var(--surface1);
 }
 
 .user-profile__item > p {

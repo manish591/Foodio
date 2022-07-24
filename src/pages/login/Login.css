@@ -89,7 +89,7 @@ label {
   border: none;
   background: var(--brand);
   border-radius: 3px;
-  color: white;
+  color: var(--surface1);
 }
 
 .login__footer {

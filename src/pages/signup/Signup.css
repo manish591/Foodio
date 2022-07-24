@@ -94,7 +94,7 @@ input[type='checkbox'] {
   border: none;
   background: var(--brand);
   border-radius: 3px;
-  color: var(--text1);
+  color: var(--surface1);
 }
 
 .signup__footer {

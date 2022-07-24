@@ -11,7 +11,8 @@
   inset-block-start: 50%;
   inset-inline-start: 50%;
   padding-block: 1rem;
-  padding-inline: 0.8rem;
+  padding-inline: 1rem;
+  border-radius: 8px;
   inline-size: min(90%, 400px);
   transform: translate(-50%, -50%);
   box-shadow: 0px 0px 2.2px rgba(0, 0, 0, 0.02), 0px 0px 5.3px rgba(0, 0, 0, 0.028),
@@ -46,6 +47,11 @@
 
 textarea {
   resize: vertical;
+}
+
+.upload-video-btn {
+  color: var(--surface3);
+  background-color: var(--brand);
 }
 
 @keyframes fade {

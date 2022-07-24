@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const CategoryCard = ({ categoryName, img, description }) => {
+const CategoryCard = ({ categoryName, img }) => {
   const navigate = useNavigate();
 
   return (
@@ -33,14 +33,11 @@ const CategoryCard = ({ categoryName, img, description }) => {
           className="card__title"
           style={{
             color: 'black',
-            marginBlockEnd: '2rem',
-            fontSize: 'var(--fs-800)'
+            fontSize: 'var(--fs-800)',
+            paddingBlock: '0.5rem'
           }}>
           {categoryName}
         </h3>
-        <p className="card__author" style={{ color: 'black' }}>
-          {description}
-        </p>
       </div>
     </section>
   );
@@ -48,8 +45,7 @@ const CategoryCard = ({ categoryName, img, description }) => {
 
 CategoryCard.propTypes = {
   categoryName: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  img: PropTypes.string.isRequired
 };
 
 export { CategoryCard };

@@ -68,20 +68,17 @@ const NotesCard = ({ videoId, myNotes }) => {
               Update
             </button>
           ) : (
-            <button
-              type="submit"
-              className="btn btn--contained-primary"
-              style={{ backgroundColor: 'var(--brand)' }}>
-              Add
+            <button type="submit" className="add-notes">
+              <span className="material-icons-outlined">add</span>
             </button>
           )}
           <button
-            className="btn btn--outlined-secondary"
+            className="discard-notes"
             type="button"
             onClick={() => {
               setNotesData({ title: '', body: '', videoId });
             }}>
-            Discard
+            <span className="material-icons-outlined">delete</span>
           </button>
         </section>
       </form>

@@ -57,8 +57,8 @@ const Home = () => {
                     </button>
                   ) : (
                     <button type="button" className="home-nav__get-started">
-                      <Link to="/login" className="btn btn--contained-primary">
-                        Get Started
+                      <Link to="/login" className="btn btn--outlined-primary">
+                        Login
                       </Link>
                     </button>
                   )}
@@ -131,7 +131,6 @@ const Home = () => {
                           _id={item._id}
                           categoryName={item.categoryName}
                           img={item.img}
-                          description={item.description}
                         />
                       </div>
                     );
