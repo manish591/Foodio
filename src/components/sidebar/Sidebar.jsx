@@ -81,7 +81,7 @@ const Sidebar = () => {
                 <span className="material-icons-outlined">videocam</span>
               </div>
               <div className="s-bottom-item-name">
-                <p>Your Uploads</p>
+                <p>Uploads</p>
               </div>
             </NavLink>
           </li>
