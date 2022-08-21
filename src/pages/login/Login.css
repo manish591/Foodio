@@ -84,12 +84,13 @@ label {
 
 .login__submit {
   inline-size: 100%;
-  padding-block: 1rem;
+  padding-block: 0.8rem;
   font-weight: 700;
   border: none;
   background: var(--brand);
   border-radius: 3px;
   color: var(--surface1);
+  cursor: pointer;
 }
 
 .login__footer {

@@ -93,15 +93,6 @@ const Login = () => {
             </section>
             <p className="login-form__error error-state">{loginErrorData.passwordError}</p>
           </section>
-          <section className="additional-data">
-            <section className="rememberMe-container">
-              <input type="checkbox" id="rememberMe" className="login__remember-me" />
-              <label htmlFor="rememberMe">Remember Me</label>
-            </section>
-            <button type="button" className="login__forgotPassword">
-              Forgot password?
-            </button>
-          </section>
           <section className="submit-btn">
             <button type="submit" className="login__submit">
               Log In
