@@ -103,12 +103,6 @@ const VideoActions = ({ video, setSelectedId, page, setIsModalOpen }) => {
             </button>
           </li>
         )}
-        <li className="video-action__item flex">
-          <div className="video-action__icon">
-            <span className="material-icons-outlined">share</span>
-          </div>
-          <p className="video-action__item-name">Share</p>
-        </li>
       </ul>
     </div>
   );
