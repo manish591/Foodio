@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './UploadForm.css';
-import { useAppServices, useStateContext } from 'hooks';
+import { useAppServices, useStateContext, useAuthContext } from 'hooks';
 import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
 import { isExistsInDatabase } from 'utilis';
@@ -29,6 +29,7 @@ const UploadForm = ({ setIsUploadFormOpen }) => {
   });
 
   const { uploadVideo } = useAppServices();
+  const { token } = useAuthContext();
   const {
     state: {
       library: { uploads }
@@ -37,6 +38,10 @@ const UploadForm = ({ setIsUploadFormOpen }) => {
 
   const handleUploadVideo = (e) => {
     e.preventDefault();
+    if (!token) {
+      toast.error('Please login first');
+      return;
+    }
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|\?v=)([^#&?]*).*/;
     const match = videoData.videoUrl.match(regExp);
     if (match && match[2].length === 11) {
