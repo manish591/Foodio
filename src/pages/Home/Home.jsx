@@ -164,13 +164,22 @@ const Home = () => {
             <p className="footer__copyright">Copyright 2022. All Rights Reserved</p>
             <ul className="footer__socials flex">
               <li className="footer__items">
-                <a href="https://github.com/manish591">Github</a>
+                <a href="https://github.com/manish591" target="_blank" rel="noreferrer">
+                  Github
+                </a>
               </li>
               <li className="footer__items">
-                <a href="https://twitter.com/manishdevrani77">Twitter</a>
+                <a href="https://twitter.com/manishdevrani77" target="_blank" rel="noreferrer">
+                  Twitter
+                </a>
               </li>
               <li className="footer__items">
-                <a href="https://www.linkedin.com/in/manishdevrani77/">LinkedIn</a>
+                <a
+                  href="https://www.linkedin.com/in/manishdevrani77/"
+                  target="_blank"
+                  rel="noreferrer">
+                  LinkedIn
+                </a>
               </li>
             </ul>
           </div>
