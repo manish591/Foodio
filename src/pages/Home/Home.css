@@ -59,10 +59,11 @@
 }
 
 .home-hero__explore {
-  border: 1px solid var(--surface4);
+  border-radius: 5px;
 }
 
 .home-hero__explore > a {
+  border: 1px solid var(--surface4);
   display: flex;
   justify-content: center;
   align-items: center;
