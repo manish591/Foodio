@@ -34,16 +34,6 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li className="s-bottom__items">
-            <section className="s-bottom__item-wrapper flex">
-              <div className="s-bottom__item-icon">
-                <span className="material-icons-round size-30">star_border</span>
-              </div>
-              <div className="s-bottom-item-name">
-                <p>Trending</p>
-              </div>
-            </section>
-          </li>
-          <li className="s-bottom__items">
             <NavLink to="/explore/liked" className="s-bottom__items__link">
               <section className="s-bottom__item-wrapper flex">
                 <div className="s-bottom__item-icon">
