@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Thumbnail.css';
 import { useNavigate } from 'react-router-dom';
 import { PlaylistModal } from 'pages';
-// import { getInitials } from 'utilis';
 import { VideoActions } from 'components';
 import PropTypes from 'prop-types';
 
