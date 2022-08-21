@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './VideoActions.css';
 import { useParams } from 'react-router-dom';
 import { useAppServices } from 'hooks';
@@ -14,10 +14,24 @@ const VideoActions = ({ video, setSelectedId, page, setIsModalOpen }) => {
   } = useAppServices();
   const { _id } = video;
 
+  const modalRef = useRef();
+
+  useEffect(() => {
+    const handleIsClickedOutside = (e) => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        setSelectedId('');
+      }
+    };
+
+    document.addEventListener('mousedown', handleIsClickedOutside);
+
+    return () => document.removeEventListener('mousedown', handleIsClickedOutside);
+  }, [modalRef]);
+
   const { playlistId } = useParams();
 
   return (
-    <div className="video-action">
+    <div className="video-action" ref={modalRef}>
       <ul className="video-action__list">
         {page === 'WatchLater' ? (
           <li className="video-action__item">
