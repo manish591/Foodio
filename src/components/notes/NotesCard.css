@@ -35,7 +35,8 @@
 }
 
 .notes-form__actions > button {
-  block-size: 40px;
+  block-size: 35px;
+  padding-inline: 0.3rem;
 }
 
 .notes-card__your-cards {
@@ -64,17 +65,12 @@
 .single-note__delete {
   padding: 5px;
   border-radius: 8px;
-  border: 1px solid var(--surface4);
+  background-color: var(--text2);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: background-color 250ms ease-in-out;
-}
-
-.single-note__edit:hover,
-.single-note__delete:hover {
-  background-color: var(--surface4);
 }
 
 .single-note + .single-note {
