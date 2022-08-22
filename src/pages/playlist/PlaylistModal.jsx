@@ -88,6 +88,7 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen, video }) => {
                   <input
                     type="text"
                     id="playlist-title"
+                    className="input-create-playlist"
                     value={createPlaylistInput}
                     onChange={(e) => setCreatePlaylistInput(e.target.value)}
                   />
