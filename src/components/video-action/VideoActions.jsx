@@ -23,9 +23,9 @@ const VideoActions = ({ video, setSelectedId, page, setIsModalOpen }) => {
       }
     };
 
-    document.addEventListener('mousedown', handleIsClickedOutside);
+    document.addEventListener('click', handleIsClickedOutside);
 
-    return () => document.removeEventListener('mousedown', handleIsClickedOutside);
+    return () => document.removeEventListener('click', handleIsClickedOutside);
   }, [modalRef]);
 
   const { playlistId } = useParams();
