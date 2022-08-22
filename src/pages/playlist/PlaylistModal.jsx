@@ -103,6 +103,7 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen, video }) => {
                         description: 'random'
                       });
                       setIsCreatePlaylistMode(false);
+                      setCreatePlaylistInput('');
                     } else {
                       toast.error('Please add a playlist title');
                     }
