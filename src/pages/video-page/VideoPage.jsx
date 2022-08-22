@@ -119,9 +119,6 @@ const VideoPage = () => {
                   <span className="material-icons-outlined">favorite_border</span>
                 </button>
               )}
-              <button type="button" className="vp-actions__icon" title="Share">
-                <span className="material-icons-outlined">share</span>
-              </button>
               {isAlreadyInDatabaseVideo(state.library.watchLater, videoId) ? (
                 <button
                   type="button"
