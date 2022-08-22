@@ -29,7 +29,7 @@ const UploadForm = ({ setIsUploadFormOpen }) => {
   });
 
   const { uploadVideo } = useAppServices();
-  const { token } = useAuthContext();
+  const { myToken } = useAuthContext();
   const {
     state: {
       library: { uploads }
@@ -38,7 +38,7 @@ const UploadForm = ({ setIsUploadFormOpen }) => {
 
   const handleUploadVideo = (e) => {
     e.preventDefault();
-    if (!token) {
+    if (!myToken) {
       toast.error('Please login first');
       return;
     }
