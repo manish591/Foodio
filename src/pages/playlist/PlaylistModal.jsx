@@ -51,10 +51,11 @@ const PlaylistModal = ({ isModalOpen, setIsModalOpen, video }) => {
             <p className="dialog__header dialog__header--confirm">Save To...</p>
           </div>
           <form className="dialog__form">
-            <div className="dialog__input-area dialog__input-area--flex">
-              <input type="checkbox" name="item" id="item1" className="dialog__input" />
-              <label htmlFor="item1">Watch Later</label>
-            </div>
+            {myPlaylistData.length < 1 && (
+              <div className="dialog__input-area dialog__input-area--flex">
+                <h3>No Playlist!</h3>
+              </div>
+            )}
             {myPlaylistData.map((item) => {
               return (
                 <div className="dialog__input-area dialog__input-area--flex" key={item._id}>
