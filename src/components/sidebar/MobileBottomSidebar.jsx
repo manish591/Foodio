@@ -21,11 +21,11 @@ const MobileBottomSidebar = ({ setIsUploadFormOpen }) => {
           <li className="mb-sidebar__item">
             <section className="mb-sidebar__item-wrapper flex">
               <div className="mb__item-icon">
-                <span className="material-icons-round">star_border</span>
+                <span className="material-icons-outlined">favorite_border</span>
               </div>
-              <div className="mb-item-name">
-                <p>Trending</p>
-              </div>
+              <Link to="/explore/liked" className="mb-item-name">
+                <p>Liked</p>
+              </Link>
             </section>
           </li>
           <li className="mb-sidebar__item">

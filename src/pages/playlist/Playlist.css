@@ -50,7 +50,7 @@
   padding-block: 0.3rem;
   padding-inline: 0.3rem;
   font-size: 0.8rem;
-  border: none;
+  border: 1px solid transparent;
   background: none;
   border-bottom: 1px solid var(--surface4);
   outline: none;
@@ -99,4 +99,10 @@
 
 #playlist-title {
   color: var(--text1);
+}
+
+.input-create-playlist:-webkit-autofill,
+.input-create-playlist:-webkit-autofill:hover,
+.input-create-playlist:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text1);
 }

@@ -63,7 +63,8 @@ const stateReducer = (state, action) => {
           watchLater: [],
           history: [],
           likedVideos: [],
-          notes: []
+          notes: [],
+          uploads: []
         }
       };
 

@@ -5,7 +5,8 @@
   z-index: 15;
   position: absolute;
   inset-block-start: 0;
-  inset-inline-end: 40px;
+  inset-inline-end: 30px;
+  inset-block-start: 30%;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 20%);
 }
 

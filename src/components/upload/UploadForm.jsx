@@ -1,7 +1,23 @@
 import React, { useState } from 'react';
 import './UploadForm.css';
-import { useAppServices } from 'hooks';
+import { useAppServices, useStateContext, useAuthContext } from 'hooks';
 import PropTypes from 'prop-types';
+import toast from 'react-hot-toast';
+import { isExistsInDatabase } from 'utilis';
+
+async function isValidVideo(id) {
+  return new Promise((resolve) => {
+    const image = new Image();
+    image.src = `https://i.ytimg.com/vi/${id}/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD1dg5JXDycuG06NEn9A-0Pnd40zQ`;
+
+    image.onload = function loading() {
+      if (this.width === 120) {
+        resolve('No such video found');
+      }
+      resolve('Video successfully added');
+    };
+  });
+}
 
 const UploadForm = ({ setIsUploadFormOpen }) => {
   const [videoData, setVideoData] = useState({
@@ -13,11 +29,37 @@ const UploadForm = ({ setIsUploadFormOpen }) => {
   });
 
   const { uploadVideo } = useAppServices();
+  const { myToken } = useAuthContext();
+  const {
+    state: {
+      library: { uploads }
+    }
+  } = useStateContext();
 
   const handleUploadVideo = (e) => {
     e.preventDefault();
-    uploadVideo(videoData);
-    setIsUploadFormOpen(false);
+    if (!myToken) {
+      toast.error('Please login first');
+      return;
+    }
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|\?v=)([^#&?]*).*/;
+    const match = videoData.videoUrl.match(regExp);
+    if (match && match[2].length === 11) {
+      if (isExistsInDatabase(uploads, match[2])) {
+        toast.error('Video already in the database');
+        return;
+      }
+      isValidVideo(match[2]).then((res) => {
+        if (res === 'No such video found') {
+          toast.error('No video found');
+        } else {
+          uploadVideo(videoData);
+          setIsUploadFormOpen(false);
+        }
+      });
+    } else {
+      toast.error('Please enter the correct video url!');
+    }
   };
 
   return (

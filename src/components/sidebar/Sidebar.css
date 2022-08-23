@@ -99,11 +99,11 @@
 
 .s-top__logo {
   font-family: 'Pacifico', cursive;
-  font-size: 2rem;
+  font-size: 2.25rem;
 }
 
 .size-30 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 @media (min-width: 600px) {

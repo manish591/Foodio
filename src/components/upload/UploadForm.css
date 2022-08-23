@@ -36,6 +36,12 @@
   border: 1px solid rgba(83, 83, 83, 0.495);
 }
 
+.upload-form__input:-webkit-autofill,
+.upload-form__input:-webkit-autofill:hover,
+.upload-form__input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text1);
+}
+
 .upload-form__label {
   font-size: 1rem;
 }

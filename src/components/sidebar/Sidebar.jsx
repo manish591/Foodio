@@ -8,9 +8,6 @@ const Sidebar = () => {
       <section className="sidebar__top s-top">
         <div className="s-top__wrapper">
           <ul className="s-top__list flex">
-            <li className="s-top__items s-top__items--menu">
-              <span className="material-icons-round size-30">notes</span>
-            </li>
             <li className="s-top__items s-top__items--logo">
               <h2 className="s-top__logo">
                 <Link to="/explore">foodio</Link>
@@ -32,16 +29,6 @@ const Sidebar = () => {
                 </div>
               </section>
             </NavLink>
-          </li>
-          <li className="s-bottom__items">
-            <section className="s-bottom__item-wrapper flex">
-              <div className="s-bottom__item-icon">
-                <span className="material-icons-round size-30">star_border</span>
-              </div>
-              <div className="s-bottom-item-name">
-                <p>Trending</p>
-              </div>
-            </section>
           </li>
           <li className="s-bottom__items">
             <NavLink to="/explore/liked" className="s-bottom__items__link">
@@ -91,7 +78,7 @@ const Sidebar = () => {
                 <span className="material-icons-outlined">videocam</span>
               </div>
               <div className="s-bottom-item-name">
-                <p>Your Uploads</p>
+                <p>Uploads</p>
               </div>
             </NavLink>
           </li>
