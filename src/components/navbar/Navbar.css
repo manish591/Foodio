@@ -125,6 +125,12 @@
   background-color: var(--surface3);
 }
 
+.navbar-icon__search-clear > span {
+  opacity: 0.8;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
 @media (min-width: 600px) {
   .navbar__item--profile {
     display: block;

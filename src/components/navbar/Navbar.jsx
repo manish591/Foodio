@@ -38,20 +38,25 @@ const Navbar = ({ setIsUploadFormOpen }) => {
                   type="text"
                   className="navbar__input"
                   placeholder="Search food here..."
-                  name="search"
-                  id="search"
+                  name="food-video-search"
+                  id="food-video-search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <label htmlFor="search" className="sr-only">
+                <label htmlFor="food-video-search" className="sr-only">
                   search
                 </label>
               </form>
-              <div className="navbar__icon navbar-icon--search">
-                <span className="material-icons-outlined" style={{ opacity: '0.5' }}>
-                  keyboard_voice
-                </span>
-              </div>
+              {searchQuery && (
+                <button
+                  type="button"
+                  className="navbar__icon navbar-icon--search navbar-icon__search-clear"
+                  onClick={() => {
+                    setSearchQuery('');
+                  }}>
+                  <span className="material-icons-outlined">clear</span>
+                </button>
+              )}
             </section>
           </li>
         </ul>
