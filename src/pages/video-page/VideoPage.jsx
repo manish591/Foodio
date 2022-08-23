@@ -10,6 +10,7 @@ import { PlaylistModal } from '../playlist/PlaylistModal';
 
 const VideoPage = () => {
   const [myNotes, setMyNotes] = useState([]);
+  const [showNotes, setShowNotes] = useState(false);
   const { state } = useStateContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { library } = state;
@@ -58,19 +59,28 @@ const VideoPage = () => {
   return (
     <div className="video-page">
       <div className="video-page__main grid">
-        <div className="video-page__show-vodeo">
+        <div className="video-page__show-video">
           <ReactPlayer
+            className="react-player"
             url={`https://www.youtube.com/embed/${videoId}`}
             controls
             width="100%"
-            height="480px"
+            height="100%"
             onStart={() => {
               addToHistory({ video });
               updateVideoViews({ video });
             }}
           />
+          <button
+            type="button"
+            className="show-notes-mobile"
+            onClick={() => {
+              setShowNotes((note) => !note);
+            }}>
+            Add Notes
+          </button>
         </div>
-        <div className="video-page__notes">
+        <div className={`video-page__notes ${showNotes && 'video-page__notes--show'}`}>
           <NotesCard videoId={videoId} myNotes={myNotes} />
         </div>
       </div>
